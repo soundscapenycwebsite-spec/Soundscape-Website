@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Soundscape NYC | Premium Backline & Sound System Rentals</title>
-  <meta name="description" content="Premium CDJ, mixer, speaker, and lighting rentals in NYC. Free delivery on orders over $350 across Manhattan, Brooklyn, & Queens.">
+  <title id="pageTitle">Soundscape NYC | Premium Backline & Sound System Rentals</title>
+  <meta name="description" id="metaDesc" content="Premium CDJ, mixer, speaker, and lighting rentals in NYC. Free delivery on orders over $350 across Manhattan, Brooklyn, Queens, Long Island, New Jersey & Connecticut.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎛</text></svg>">
   
   <!-- Blocking theme script: prevents flash of wrong theme on load -->
@@ -322,6 +322,9 @@
       justify-content: center;
       cursor: pointer;
       transition: all 0.3s;
+      color: var(--text);
+      font-size: inherit;
+      padding: 0;
     }
 
     .cart-trigger:hover {
@@ -976,6 +979,14 @@
       transform: scale(1.08);
     }
 
+    .fallback-svg {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     .gear-meta {
       display: flex;
       justify-content: space-between;
@@ -1334,6 +1345,36 @@
       background: rgba(52, 199, 89, 0.05);
       border: 1px solid rgba(52, 199, 89, 0.2);
       color: var(--success);
+    }
+
+    .deposit-notice-box {
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 12px;
+      line-height: 1.4;
+      background: rgba(255, 149, 0, 0.08);
+      border: 1px solid rgba(255, 149, 0, 0.25);
+      color: #C27A00;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .deposit-notice-box svg {
+      width: 16px;
+      height: 16px;
+      fill: #C27A00;
+      flex-shrink: 0;
+    }
+
+    [data-theme="dark"] .deposit-notice-box {
+      background: rgba(255, 149, 0, 0.12);
+      border: 1px solid rgba(255, 149, 0, 0.3);
+      color: #FFB340;
+    }
+
+    [data-theme="dark"] .deposit-notice-box svg {
+      fill: #FFB340;
     }
 
     .checkout-actions {
@@ -1922,10 +1963,10 @@
   <header id="mainHeader">
     <div class="container nav-wrapper">
       <div class="logo-container" onclick="scrollToSection('hero')">
-        <div class="logo-icon">S</div>
+        <div class="logo-icon" id="logoIcon">S</div>
         <div class="logo-text">
-          <span class="logo-main">Soundscape</span>
-          <span class="logo-sub">NYC</span>
+          <span class="logo-main" id="logoMain">Soundscape</span>
+          <span class="logo-sub" id="logoSub">NYC</span>
         </div>
       </div>
       
@@ -1934,20 +1975,19 @@
         <a href="#packages" onclick="scrollToSection('packages')">Packages</a>
         <a href="#catalog" onclick="scrollToSection('catalog')">Gear Catalog</a>
         
-        <a href="tel:7189624523" class="phone-pill">
+        <a href="tel:7189624523" id="navPhonePill" class="phone-pill">
           <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-          718-962-4523
+          <span id="navPhonePillText">718-962-4523</span>
         </a>
 
         <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark/light theme" aria-label="Toggle theme">
           <span class="theme-icon">🌙</span>
         </button>
 
-        <div class="cart-trigger" onclick="toggleDrawer(true)">
+        <button class="cart-trigger" onclick="toggleDrawer(true)" aria-label="Open cart">
           <svg class="icon-svg" style="width:20px;height:20px;stroke-width:2;" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" /></svg>
           <div class="cart-count" id="cartCount">0</div>
-        </div>
-      </nav>
+        </button>
 
       <!-- Hamburger Menu Icon -->
       <div class="menu-toggle" id="menuToggle" onclick="toggleMobileMenu()">
@@ -1964,14 +2004,7 @@
       <a href="#about" onclick="toggleMobileMenu(); scrollToSection('about')">About</a>
       <a href="#packages" onclick="toggleMobileMenu(); scrollToSection('packages')">Packages</a>
       <a href="#catalog" onclick="toggleMobileMenu(); scrollToSection('catalog')">Gear Catalog</a>
-      <a href="tel:7189624523" class="phone-pill" style="margin-top:20px; font-size:16px; display:flex !important;">
-        <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:var(--glow-orange)"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-        718-962-4523 (Primary)
-      </a>
-      <a href="tel:5165123471" class="phone-pill" style="font-size:16px; display:flex !important;">
-        <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:var(--glow-orange)"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-        516-512-3471 (Secondary)
-      </a>
+      <div id="mobilePhoneLinks"></div>
       <button class="theme-toggle" onclick="toggleTheme(); toggleMobileMenu();" style="margin-top:16px; font-size:18px;" title="Toggle theme" aria-label="Toggle theme">
         <span class="theme-icon">🌙</span>
         <span style="margin-left:8px; font-family:var(--font-header); font-size:14px;">Toggle Theme</span>
@@ -1983,13 +2016,13 @@
   <section class="hero" id="hero">
     <div class="hero-glow"></div>
     <div class="container hero-content">
-      <div class="hero-label">
+      <div class="hero-label" id="heroBadge">
         <span class="badge badge-accent">Summer 2026 Collection</span>
       </div>
-      <h1 class="hero-title">Experience <span>Absolute Audio Power</span></h1>
-      <p class="hero-desc">NYC's premium backline, DJ decks, concert active systems, and professional lighting equipment curated for high-end club promoters and private events.</p>
+      <h1 class="hero-title" id="heroTitle">Experience <span>Absolute Audio Power</span></h1>
+      <p class="hero-desc" id="heroDesc">NYC's premium backline, DJ decks, concert active systems, and professional lighting equipment curated for high-end club promoters and private events.</p>
       
-      <div class="hero-actions">
+      <div class="hero-actions" id="heroCtas">
         <button class="btn btn-primary" onclick="scrollToSection('catalog')">
           Browse Gear Catalog
           <svg style="width:16px;height:16px;fill:currentColor" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -1997,7 +2030,7 @@
         <button class="btn btn-secondary" onclick="scrollToSection('packages')">View Rig Packages</button>
       </div>
 
-      <div class="hero-specs">
+      <div class="hero-specs" id="heroSpecs">
         <div class="hero-specs-item">
           <!-- Information/Check Icon -->
           <svg style="width:16px;height:16px;fill:var(--accent)" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
@@ -2006,7 +2039,11 @@
         <div class="hero-specs-item">
           <!-- Map/Signal Icon -->
           <svg style="width:16px;height:16px;fill:var(--accent)" viewBox="0 0 24 24"><path d="M12 2c-4 0-8.05 1.6-11 4.7L12 22 23 6.7C20.05 3.6 16 2 12 2zm0 17.5L3 7.8c2.4-2.2 5.5-3.3 9-3.3s6.6 1.1 9 3.3L12 19.5z"/></svg>
-          Service Area: <span>Manhattan, Brooklyn & Queens</span>
+          Service Area: <span>Manhattan, Brooklyn, Queens, Long Island, NJ & CT</span>
+        </div>
+        <div class="hero-specs-item">
+          <svg style="width:16px;height:16px;fill:var(--glow-orange)" viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3 3.1-3s3.1 1.29 3.1 3v2z"/></svg>
+          Deposit Required
         </div>
       </div>
     </div>
@@ -2016,28 +2053,13 @@
   <section class="about" id="about">
     <div class="container about-grid">
       <div class="about-left">
-        <span class="section-tag">Soundscape NYC</span>
-        <h2 class="section-title">The Standard in Live Production</h2>
-        <h3 class="about-story-title">Uncompromising Quality. Crystal Clear Rigging.</h3>
-        <p class="about-p">Soundscape NYC provides event promoters, DJs, and concert planners with premium backline sound systems, high-end Pioneer decks, professional lighting rigs, staging, and CO2 effects across the metropolitan area. We serve downtown Brooklyn, all of Manhattan, and Queens with pristine rentals.</p>
-        <p class="about-p">All of our sound packages are carefully tested and checked. We offer flexible daily rates, and for orders above $350, we include complimentary drop-off and pickup. Note that installation/connection is not included in our standard rates.</p>
+        <span class="section-tag" id="aboutTag">Soundscape NYC</span>
+        <h2 class="section-title" id="aboutTitle">The Standard in Live Production</h2>
+        <h3 class="about-story-title" id="aboutSubtitle">Uncompromising Quality. Crystal Clear Rigging.</h3>
+        <p class="about-p" id="aboutBodyFirst">Soundscape NYC provides event promoters, DJs, and concert planners with premium backline sound systems, high-end Pioneer decks, professional lighting rigs, staging, and CO2 effects across the metropolitan area. We serve downtown Brooklyn, all of Manhattan, Queens, Long Island, New Jersey, and Connecticut with pristine rentals.</p>
+        <p class="about-p" id="aboutBodySecond">All of our sound packages are carefully tested and checked. We offer flexible daily rates, and for orders above $350, we include complimentary drop-off and pickup. A security deposit is required on all rentals. Note that installation/connection is not included in our standard rates.</p>
         
-        <div class="about-features">
-          <div class="about-feature-card">
-            <div class="feature-icon-wrapper">
-              <svg style="width:20px;height:20px;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" /></svg>
-            </div>
-            <h4>Concert Backline</h4>
-            <p>Pioneer CDJ-3000s, A9 mixers, V10s, and active stand-alone controllers.</p>
-          </div>
-          
-          <div class="about-feature-card">
-            <div class="feature-icon-wrapper">
-              <svg style="width:20px;height:20px;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" /></svg>
-            </div>
-            <h4>Acoustic Engineering</h4>
-            <p>From powered active RCF and FBT speakers to massive HDL 30 Line Arrays.</p>
-          </div>
+        <div class="about-features" id="aboutFeatures">
         </div>
       </div>
       
@@ -2075,8 +2097,8 @@
   <section class="packages" id="packages">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Total Rigs</span>
-        <h2 class="section-title">Pre-Configured Sound Packages</h2>
+        <span class="section-tag" id="packagesTag">Total Rigs</span>
+        <h2 class="section-title" id="packagesTitle">Pre-Configured Sound Packages</h2>
       </div>
       
       <div class="packages-grid" id="packagesGrid">
@@ -2089,8 +2111,8 @@
   <section class="catalog" id="catalog">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Custom Selection</span>
-        <h2 class="section-title">Backline & Sound Gear</h2>
+        <span class="section-tag" id="catalogTag">Custom Selection</span>
+        <h2 class="section-title" id="catalogTitle">Backline & Sound Gear</h2>
       </div>
       
       <div class="catalog-filters">
@@ -2121,7 +2143,7 @@
   <!-- SHOPPING CART / QUOTE DRAWER -->
   <div class="quote-drawer" id="quoteDrawer">
     <div class="drawer-header">
-      <h3>Rental Cart & Quote Builder</h3>
+      <h3 id="drawerTitle">Rental Cart & Quote Builder</h3>
       <button class="btn-close" onclick="toggleDrawer(false)">✕</button>
     </div>
     
@@ -2131,36 +2153,41 @@
     
     <div class="drawer-footer">
       <div class="calc-row">
-        <span>Rentals Subtotal</span>
+        <span id="subtotalLabel">Rentals Subtotal</span>
         <span class="calc-val" id="subtotalVal">$0.00</span>
       </div>
       <div class="calc-row">
-        <span>Complimentary Delivery</span>
+        <span id="deliveryLabel">Complimentary Delivery</span>
         <span class="calc-val" id="deliveryVal">TBD</span>
       </div>
       
       <div class="delivery-status-box unqualified" id="deliveryStatusBox">
-        Spend <strong>$350</strong> or more to get complimentary delivery & pickup in Manhattan, Brooklyn & Queens.
+        Spend <strong>$350</strong> or more to get complimentary delivery & pickup across our service area.
+      </div>
+      
+      <div class="deposit-notice-box" id="depositNotice">
+        <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3 3.1-3s3.1 1.29 3.1 3v2z"/></svg>
+        <span id="depositNoticeText">A security deposit is required on all rentals.</span>
       </div>
       
       <div class="calc-row total">
-        <span>Estimated Total</span>
+        <span id="totalLabel">Estimated Total</span>
         <span class="calc-val" id="totalVal">$0.00</span>
       </div>
       
-      <div style="font-size:11px;color:var(--text-muted);text-align:center;">
-        * Rates exclude connection/installation. Sound tech included on Line Arrays only.
+      <div id="drawerDisclaimer" style="font-size:11px;color:var(--text-muted);text-align:center;">
+        * Rates exclude connection/installation. Sound tech included on Line Arrays only. Security deposit required on all rentals.
       </div>
       
       <div class="checkout-actions">
         <button class="btn btn-accent" style="width:100%" onclick="generateQuoteMessage()">
           <svg style="width:18px;height:18px;fill:currentColor" viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-          Copy Quote for Text Booking
-        </button>
-        <a href="tel:7189624523" class="btn btn-primary" style="width:100%">
+           <span id="clipboardBtnLabel">Copy Quote for Text Booking</span>
+         </button>
+        <a id="callBtnLink" href="tel:7189624523" class="btn btn-primary" style="width:100%">
           <svg style="width:18px;height:18px;fill:currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-          Call to Book Rig
-        </a>
+           <span id="callBtnLabel">Call to Book Rig</span>
+         </a>
       </div>
     </div>
   </div>
@@ -2170,14 +2197,14 @@
     <div class="container footer-grid">
       <div class="footer-col">
         <div class="logo-container" style="margin-bottom:8px;">
-          <div class="logo-icon">S</div>
+          <div class="logo-icon" id="flogoIcon">S</div>
           <div class="logo-text">
-            <span class="logo-main">Soundscape</span>
-            <span class="logo-sub">NYC</span>
+            <span class="logo-main" id="flogoMain">Soundscape</span>
+            <span class="logo-sub" id="flogoSub">NYC</span>
           </div>
         </div>
-        <p style="color:var(--text-muted);font-size:14px;max-width:400px;line-height:1.6;">Premium backline rentals, concert sound systems, and spectacular lighting solutions for NYC’s elite nightlife venues, club promoters, and festival rigs.</p>
-        <div class="footer-phone-block">
+        <p id="footerDesc" style="color:var(--text-muted);font-size:14px;max-width:400px;line-height:1.6;">Premium backline rentals, concert sound systems, and spectacular lighting solutions for NYC’s elite nightlife venues, club promoters, and festival rigs.</p>
+        <div class="footer-phone-block" id="footerPhones">
           <a href="tel:7189624523" class="footer-phone-link">
             <svg style="width:16px;height:16px;fill:var(--glow-orange)" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
             718-962-4523 (Primary)
@@ -2190,29 +2217,33 @@
       </div>
       
       <div class="footer-col">
-        <h4>Service Area</h4>
-        <ul class="footer-links" style="color:var(--text-muted);font-size:14px;line-height:1.8;">
+        <h4 id="footerServiceAreaHeader">Service Area</h4>
+        <ul class="footer-links" id="footerServiceArea" style="color:var(--text-muted);font-size:14px;line-height:1.8;">
           <li>Downtown Brooklyn</li>
           <li>All of Manhattan</li>
           <li>All of Queens</li>
+          <li>Long Island</li>
+          <li>New Jersey</li>
+          <li>Connecticut</li>
           <li>Complimentary delivery for orders $350+</li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h4>Operating Policies</h4>
-        <ul class="footer-links" style="color:var(--text-muted);font-size:14px;line-height:1.8;">
+        <h4 id="footerPoliciesHeader">Operating Policies</h4>
+        <ul class="footer-links" id="footerPolicies" style="color:var(--text-muted);font-size:14px;line-height:1.8;">
           <li>* Connection/Installation is not standard</li>
           <li>* Line Array pricing requires phone check</li>
           <li>* Sound technician included with Line Arrays</li>
           <li>* Standard equipment is drop-off/pick up only</li>
+          <li>* Security deposit required on all rentals</li>
         </ul>
       </div>
     </div>
     
     <div class="container footer-bottom">
-      <span>&copy; 2026 Soundscape NYC. All rights reserved.</span>
-      <span>Designed with Apple-grade precision.</span>
+      <span>&copy; 2026 <span id="footerCopyright">Soundscape NYC</span>. All rights reserved.</span>
+      <span id="footerTagline">Designed with Apple-grade precision.</span>
     </div>
   </footer>
 
@@ -2233,10 +2264,182 @@
       monitors: "Monitors & TV Screens"
     };
 
+    // ---- Site Settings (loaded from data/settings.json, defaults used if unavailable) ----
+    let SETTINGS = {
+      brand: "Soundscape NYC",
+      brandInitial: "S",
+      brandSub: "NYC",
+      tagline: "Premium Backline & Sound System Rentals",
+      metaDescription: "Premium CDJ, mixer, speaker, and lighting rentals in NYC.",
+      hero: { badge: "", title: "Soundscape NYC", desc: "", ctas: [], specs: [] },
+      about: { tag: "", title: "", subtitle: "", bodyFirst: "", bodySecond: "", features: [] },
+      sections: { packagesTag: "Total Rigs", packagesTitle: "Pre-Configured Sound Packages", catalogTag: "Custom Selection", catalogTitle: "Backline & Sound Gear" },
+      contact: { phones: [], contactPhone: "" },
+      delivery: { threshold: 350, areas: "across our service area", notice: "" },
+      catalog: { searchPlaceholder: "", priceLabel: "Daily rate", pricePeriod: "/ day", quotePriceLabel: "Text for Price", inStock: "In Stock (x{stock})", limitedStock: "Limited / Call", noResults: "No equipment matches your search criteria." },
+      packages: { addBtn: "Add Package to Quote" },
+      drawer: { title: "Rental Cart & Quote Builder", subtotalLabel: "Rentals Subtotal", deliveryLabel: "Complimentary Delivery", totalLabel: "Estimated Total", clipboardBtnLabel: "Copy Quote for Text Booking", callBtnLabel: "Call to Book Rig", disclaimer: "", cartQuotePriceLabel: "Price on Request", cartPricePeriod: "/ day" },
+      quote: { salutation: "Hi {brand}!", intro: "I would like to book:", closing: "Please let me know availability. Thanks!" },
+      footer: { description: "", serviceAreaHeader: "Service Area", serviceArea: [], policiesHeader: "Operating Policies", policies: [], copyright: "Soundscape NYC", tagline: "" }
+    };
+
+    // Deep merge settings.json values over defaults
+    function mergeSettings(loaded) {
+      if (!loaded) return;
+      var topKeys = ["brand", "brandInitial", "brandSub", "tagline", "metaDescription"];
+      topKeys.forEach(function(k) { if (loaded[k] !== undefined) SETTINGS[k] = loaded[k]; });
+      var objKeys = ["hero", "about", "sections", "contact", "delivery", "catalog", "packages", "drawer", "quote", "footer"];
+      objKeys.forEach(function(key) {
+        if (loaded[key]) {
+          Object.keys(loaded[key]).forEach(function(field) {
+            SETTINGS[key][field] = loaded[key][field];
+          });
+        }
+      });
+    }
+
         // ---- Data loaded from JSON files (managed by CMS) ----
     let GEAR_CATALOG = [];
     let PACKAGES = [];
     let dataLoadError = false;
+
+    function applySettings() {
+      var s = SETTINGS;
+      // Title & meta
+      document.getElementById('pageTitle').textContent = s.brand + ' | ' + s.tagline;
+      document.getElementById('metaDesc').setAttribute('content', s.metaDescription);
+
+      // Logo
+      document.getElementById('logoIcon').textContent = s.brandInitial;
+      document.getElementById('logoMain').textContent = s.brand.split(' ')[0];
+      document.getElementById('logoSub').textContent = s.brandSub;
+      document.getElementById('flogoIcon').textContent = s.brandInitial;
+      document.getElementById('flogoMain').textContent = s.brand.split(' ')[0];
+      document.getElementById('flogoSub').textContent = s.brandSub;
+
+      // Hero
+      var heroBadgeEl = document.getElementById('heroBadge');
+      if (heroBadgeEl) heroBadgeEl.innerHTML = s.hero.badge ? '<span class="badge badge-accent">' + s.hero.badge + '</span>' : '';
+      document.getElementById('heroTitle').innerHTML = s.hero.title;
+      document.getElementById('heroDesc').innerHTML = s.hero.desc;
+
+      // Hero CTAs
+      var ctaHTML = '';
+      (s.hero.ctas || []).forEach(function(cta) {
+        ctaHTML += '<button class="btn btn-' + (cta.style || 'primary') + '" onclick="scrollToSection(\'' + (cta.action || 'catalog') + '\')">' + cta.label + '</button>';
+      });
+      document.getElementById('heroCtas').innerHTML = ctaHTML;
+
+      // Hero specs
+      var specsHTML = '';
+      (s.hero.specs || []).forEach(function(spec) {
+        var iconSVG = getHeroSpecIcon(spec.icon);
+        specsHTML += '<div class="hero-specs-item">' + iconSVG + (spec.label || '') + (spec.value ? ': <span>' + spec.value + '</span>' : '') + '</div>';
+      });
+      document.getElementById('heroSpecs').innerHTML = specsHTML;
+
+      // About
+      document.getElementById('aboutTag').textContent = s.about.tag;
+      document.getElementById('aboutTitle').textContent = s.about.title;
+      document.getElementById('aboutSubtitle').textContent = s.about.subtitle;
+      document.getElementById('aboutBodyFirst').textContent = s.about.bodyFirst;
+      document.getElementById('aboutBodySecond').textContent = s.about.bodySecond;
+
+      // About features
+      var featHTML = '';
+      (s.about.features || []).forEach(function(f) {
+        var fIcon = getFeatureIcon(f.icon);
+        featHTML += '<div class="about-feature-card"><div class="feature-icon-wrapper">' + fIcon + '</div><h4>' + f.title + '</h4><p>' + f.desc + '</p></div>';
+      });
+      document.getElementById('aboutFeatures').innerHTML = featHTML;
+
+      // Section headers
+      document.getElementById('packagesTag').textContent = s.sections.packagesTag;
+      document.getElementById('packagesTitle').textContent = s.sections.packagesTitle;
+      document.getElementById('catalogTag').textContent = s.sections.catalogTag;
+      document.getElementById('catalogTitle').textContent = s.sections.catalogTitle;
+
+      // Contact phones in nav
+      document.getElementById('navPhonePill').setAttribute('href', 'tel:' + s.contact.contactPhone);
+      document.getElementById('navPhonePillText').textContent = (s.contact.phones && s.contact.phones.length > 0 ? s.contact.phones[0].display : '');
+
+      // Mobile nav phones
+      var mPhoneHTML = '';
+      (s.contact.phones || []).forEach(function(p) {
+        mPhoneHTML += '<a href="tel:' + p.tel + '" class="phone-pill" style="margin-top:8px; font-size:16px; display:flex !important;"><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:var(--glow-orange)"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>' + p.display + ' (' + p.label + ')</a>';
+      });
+      document.getElementById('mobilePhoneLinks').innerHTML = mPhoneHTML;
+
+      // Drawer labels
+      document.getElementById('drawerTitle').textContent = s.drawer.title;
+      document.getElementById('subtotalLabel').textContent = s.drawer.subtotalLabel;
+      document.getElementById('deliveryLabel').textContent = s.drawer.deliveryLabel;
+      document.getElementById('totalLabel').textContent = s.drawer.totalLabel;
+      document.getElementById('clipboardBtnLabel').textContent = s.drawer.clipboardBtnLabel;
+      document.getElementById('callBtnLabel').textContent = s.drawer.callBtnLabel;
+      var callBtnLink = document.getElementById('callBtnLink');
+      if (callBtnLink) callBtnLink.setAttribute('href', 'tel:' + s.contact.contactPhone);
+
+      // Deposit notice
+      var depositSpan = document.getElementById('depositNoticeText');
+      if (depositSpan) depositSpan.textContent = s.delivery.notice;
+
+      // Disclaimer
+      document.getElementById('drawerDisclaimer').textContent = s.drawer.disclaimer;
+
+      // Search placeholder
+      document.getElementById('gearSearch').setAttribute('placeholder', s.catalog.searchPlaceholder);
+
+      // Footer
+      document.getElementById('footerDesc').textContent = s.footer.description;
+      document.getElementById('footerServiceAreaHeader').textContent = s.footer.serviceAreaHeader;
+      document.getElementById('footerPoliciesHeader').textContent = s.footer.policiesHeader;
+      document.getElementById('footerCopyright').textContent = s.footer.copyright;
+      document.getElementById('footerTagline').textContent = s.footer.tagline;
+
+      // Footer columns
+      var saHTML = '';
+      (s.footer.serviceArea || []).forEach(function(item) {
+        saHTML += '<li>' + (typeof item === 'string' ? item : item.item) + '</li>';
+      });
+      document.getElementById('footerServiceArea').innerHTML = saHTML;
+
+      var polHTML = '';
+      (s.footer.policies || []).forEach(function(item) {
+        polHTML += '<li>' + (typeof item === 'string' ? item : item.item) + '</li>';
+      });
+      document.getElementById('footerPolicies').innerHTML = polHTML;
+
+      // Footer phones
+      var fPhoneHTML = '';
+      (s.contact.phones || []).forEach(function(p) {
+        fPhoneHTML += '<a href="tel:' + p.tel + '" class="footer-phone-link"><svg style="width:16px;height:16px;fill:var(--glow-orange)" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>' + p.display + ' (' + p.label + ')</a>';
+      });
+      document.getElementById('footerPhones').innerHTML = fPhoneHTML;
+    }
+
+    function getHeroSpecIcon(icon) {
+      switch (icon) {
+        case 'info': return '<svg style="width:16px;height:16px;fill:var(--accent)" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>';
+        case 'map': return '<svg style="width:16px;height:16px;fill:var(--accent)" viewBox="0 0 24 24"><path d="M12 2c-4 0-8.05 1.6-11 4.7L12 22 23 6.7C20.05 3.6 16 2 12 2zm0 17.5L3 7.8c2.4-2.2 5.5-3.3 9-3.3s6.6 1.1 9 3.3L12 19.5z"/></svg>';
+        case 'lock': return '<svg style="width:16px;height:16px;fill:var(--glow-orange)" viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3 3.1-3s3.1 1.29 3.1 3v2z"/></svg>';
+        case 'delivery': return '<svg style="width:16px;height:16px;fill:var(--accent)" viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>';
+        case 'star': return '<svg style="width:16px;height:16px;fill:var(--accent)" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>';
+        case 'inventory': return '<svg style="width:16px;height:16px;fill:var(--accent)" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v3.01c0 .72.43 1.34 1 1.69V20c0 1.1 1.1 2 2 2h14c.9 0 2-.9 2-2V8.7c.57-.35 1-.97 1-1.69V5c0-1.1-.9-2-2-2zm-5 12H9v-2h6v2zm5-7H4V5h16v2z"/></svg>';
+        default: return '<svg style="width:16px;height:16px;fill:var(--accent)" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>';
+      }
+    }
+
+    function getFeatureIcon(icon) {
+      switch (icon) {
+        case 'music': return '<svg style="width:20px;height:20px;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" /></svg>';
+        case 'speaker': return '<svg style="width:20px;height:20px;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" /></svg>';
+        case 'equipment': return '<svg style="width:20px;height:20px;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17l-5.1-5.1a2 2 0 112.83-2.83l2.27 2.27 6.73-6.73a2 2 0 112.83 2.83l-9.56 9.56zM4 19h16" /></svg>';
+        case 'delivery': return '<svg style="width:20px;height:20px;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m16.5 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0H21M3.375 14.25h16.5M3.375 14.25L5.25 7.5h4.875m5.625 0H15L16.875 14.25m-3.375 0h4.5" /></svg>';
+        case 'tool': return '<svg style="width:20px;height:20px;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17l-5.1-5.1a2 2 0 112.83-2.83l2.27 2.27 6.73-6.73a2 2 0 112.83 2.83l-9.56 9.56zM4 19h16" /></svg>';
+        default: return '<svg style="width:20px;height:20px;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>';
+      }
+    }
 
     async function loadData() {
       try {
@@ -2247,15 +2450,21 @@
         try {
           const gearData = await gearRes.json();
           GEAR_CATALOG = gearData.items || gearData;
-        } catch(e) { console.error('gear.json parse error:', e); }
+        } catch(e) { console.error('gear.json parse error:', e); dataLoadError = true; }
         try {
           const pkgData = await pkgRes.json();
           PACKAGES = pkgData.items || pkgData;
-        } catch(e) { console.error('packages.json parse error:', e); }
+        } catch(e) { console.error('packages.json parse error:', e); dataLoadError = true; }
       } catch (e) {
         console.error('Network error loading data:', e);
         dataLoadError = true;
       }
+      try {
+        const settingsRes = await fetch('data/settings.json');
+        const settingsData = await settingsRes.json();
+        mergeSettings(settingsData);
+        applySettings();
+      } catch(e) { console.warn('settings.json not available, using hardcoded defaults'); }
       renderUI();
     }
 
@@ -2333,7 +2542,7 @@
             <div class="package-price-wrapper">
               <span class="package-currency">$</span>
               <span class="package-price">${pkg.price}</span>
-              <span class="package-period">/ day</span>
+              <span class="package-period">${SETTINGS.catalog.pricePeriod}</span>
             </div>
             <ul class="package-features">
               ${pkg.features.map(f => `
@@ -2344,7 +2553,7 @@
               `).join('')}
             </ul>
           </div>
-          <button class="btn btn-primary package-action" onclick="addPackageToCart('${pkg.id}')">Add Package to Quote</button>
+          <button class="btn btn-primary package-action" onclick="addPackageToCart('${pkg.id}')">${SETTINGS.packages.addBtn}</button>
         </div>
       `).join('');
     }
@@ -2365,7 +2574,7 @@
       const filtered = GEAR_CATALOG.filter(item => {
         const matchesCategory = currentCategory === 'all' || item.category === currentCategory;
         const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                            item.desc.toLowerCase().includes(searchQuery.toLowerCase());
+                            (item.desc || '').toLowerCase().includes(searchQuery.toLowerCase());
         return matchesCategory && matchesSearch;
       });
 
@@ -2374,7 +2583,7 @@
       if (filtered.length === 0) {
         grid.innerHTML = `
           <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-muted);">
-            <p style="font-size: 16px;">No equipment matches your search criteria.</p>
+            <p style="font-size: 16px;">${SETTINGS.catalog.noResults}</p>
           </div>
         `;
         return;
@@ -2393,16 +2602,16 @@
               ${item.tag ? `<span class="badge badge-accent" style="position:absolute;top:10px;left:10px;font-size:8px;padding:2px 6px;z-index:2;">${item.tag}</span>` : ''}
             </div>
             <div class="gear-meta">
-              <span class="gear-stock">${item.stock > 0 ? `In Stock (x${item.stock})` : 'Limited / Call'}</span>
+              <span class="gear-stock">${item.stock > 0 ? SETTINGS.catalog.inStock.replace('{stock}', item.stock) : SETTINGS.catalog.limitedStock}</span>
             </div>
             <h3 class="gear-title">${item.name}</h3>
             <p class="gear-desc">${item.desc}</p>
           </div>
           <div class="gear-footer">
             <div class="gear-price-block">
-              <span class="gear-price-label">Daily rate</span>
+              <span class="gear-price-label">${SETTINGS.catalog.priceLabel}</span>
               ${item.isQuoteRequired ? `
-                <span class="gear-price quote-required">Text for Price</span>
+                <span class="gear-price quote-required">${SETTINGS.catalog.quotePriceLabel}</span>
               ` : `
                 <span class="gear-price">$${item.price}${item.unit ? ` <span style="font-size:10px;font-weight:400;color:var(--text-muted)">/${item.unit}</span>` : ''}</span>
               `}
@@ -2597,7 +2806,7 @@
         
         const dBox = document.getElementById('deliveryStatusBox');
         dBox.className = "delivery-status-box unqualified";
-        dBox.innerHTML = `Spend <strong>$350</strong> or more to get complimentary delivery & pickup in Manhattan, Brooklyn & Queens.`;
+        dBox.innerHTML = `Spend <strong>$${SETTINGS.delivery.threshold}</strong> or more to get complimentary delivery & pickup ${SETTINGS.delivery.areas}.`;
         return;
       }
 
@@ -2610,7 +2819,7 @@
                 <h4 class="cart-item-title">${item.name}</h4>
                 <div class="cart-item-price-row">
                   <span class="cart-item-price">
-                    ${item.isQuoteRequired ? 'Price on Request' : `$${item.price} / day`}
+                    ${item.isQuoteRequired ? SETTINGS.drawer.cartQuotePriceLabel : `$${item.price} ${SETTINGS.drawer.cartPricePeriod}`}
                   </span>
                 </div>
               </div>
@@ -2646,15 +2855,15 @@
       const dBox = document.getElementById('deliveryStatusBox');
       let total = subtotal;
 
-      if (subtotal >= 350) {
+      if (subtotal >= SETTINGS.delivery.threshold) {
         dBox.className = "delivery-status-box qualified";
-        dBox.innerHTML = `<strong>Pristine!</strong> You qualify for <strong>FREE Delivery & Pickup</strong> in Manhattan, Brooklyn & Queens!`;
+        dBox.innerHTML = `<strong>Pristine!</strong> You qualify for <strong>FREE Delivery & Pickup</strong> ${SETTINGS.delivery.areas}!`;
         document.getElementById('deliveryVal').innerText = "Complimentary";
       } else {
         dBox.className = "delivery-status-box unqualified";
-        const missing = 350 - subtotal;
-        dBox.innerHTML = `Add <strong>$${missing.toFixed(2)}</strong> more to unlock complimentary delivery & pickup.`;
-        document.getElementById('deliveryVal').innerText = "TBD ($350 min)";
+        const missing = SETTINGS.delivery.threshold - subtotal;
+        dBox.innerHTML = `Add <strong>$${missing.toFixed(2)}</strong> more to unlock complimentary delivery & pickup ${SETTINGS.delivery.areas}.`;
+        document.getElementById('deliveryVal').innerText = `TBD ($${SETTINGS.delivery.threshold} min)`;
       }
 
       if (hasQuoteRequiredItem) {
@@ -2673,7 +2882,7 @@
 
       let subtotal = 0;
       let hasQuoteRequiredItem = false;
-      let msg = "Hi Soundscape NYC!\nI would like to book a custom gear rental rig:\n\n";
+      let msg = SETTINGS.quote.salutation.replace('{brand}', SETTINGS.brand) + "\n" + SETTINGS.quote.intro + "\n\n";
 
       cart.forEach(item => {
         const itemLine = `• (${item.qty}x) ${item.name} - ${item.isQuoteRequired ? 'Text for Quote' : `$${item.price * item.qty}`}\n`;
@@ -2686,17 +2895,18 @@
       });
 
       msg += `\nSubtotal: $${subtotal.toFixed(2)}`;
-      if (subtotal >= 350) {
-        msg += `\nDelivery: COMPLIMENTARY (Downtown Brooklyn/Manhattan/Queens)`;
+      if (subtotal >= SETTINGS.delivery.threshold) {
+        msg += `\nDelivery: COMPLIMENTARY (${SETTINGS.delivery.areas})`;
       } else {
-        msg += `\nDelivery: Delivery requested (Under $350 minimum)`;
+        msg += `\nDelivery: Delivery requested (Under $${SETTINGS.delivery.threshold} minimum)`;
       }
       
       if (hasQuoteRequiredItem) {
         msg += `\n* Contains equipment requiring custom Line Array/FX quotation.`;
       }
 
-      msg += `\n\nPlease let me know availability. Thanks!`;
+      msg += `\n\n${SETTINGS.delivery.notice}`;
+      msg += `\n\n${SETTINGS.quote.closing}`;
 
       // Copy to clipboard with fallback for non-HTTPS
       const fallbackCopy = (text) => {

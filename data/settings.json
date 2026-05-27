@@ -1,0 +1,111 @@
+{
+  "brand": "Soundscape NYC",
+  "brandInitial": "S",
+  "brandSub": "NYC",
+  "tagline": "Premium Backline & Sound System Rentals",
+  "metaDescription": "Premium CDJ, mixer, speaker, and lighting rentals in NYC. Free delivery on orders over $350 across Manhattan, Brooklyn, Queens, Long Island, New Jersey & Connecticut. A security deposit is required on all rentals.",
+
+  "hero": {
+    "badge": "Summer 2026 Collection",
+    "title": "Experience <span>Absolute Audio Power</span>",
+    "desc": "NYC's premium backline, DJ decks, concert active systems, and professional lighting equipment curated for high-end club promoters and private events.",
+    "ctas": [
+      { "label": "Browse Gear Catalog", "action": "catalog", "style": "primary" },
+      { "label": "View Rig Packages", "action": "packages", "style": "secondary" }
+    ],
+    "specs": [
+      { "icon": "info", "label": "Free Delivery", "value": "Orders $350+" },
+      { "icon": "map", "label": "Service Area", "value": "Manhattan, Brooklyn, Queens, Long Island, NJ & CT" },
+      { "icon": "lock", "label": "Deposit Required" }
+    ]
+  },
+
+  "about": {
+    "tag": "Soundscape NYC",
+    "title": "The Standard in Live Production",
+    "subtitle": "Uncompromising Quality. Crystal Clear Rigging.",
+    "bodyFirst": "Soundscape NYC provides event promoters, DJs, and concert planners with premium backline sound systems, high-end Pioneer decks, professional lighting rigs, staging, and CO2 effects across the metropolitan area. We serve downtown Brooklyn, all of Manhattan, Queens, Long Island, New Jersey, and Connecticut with pristine rentals.",
+    "bodySecond": "All of our sound packages are carefully tested and checked. We offer flexible daily rates, and for orders above $350, we include complimentary drop-off and pickup. A security deposit is required on all rentals. Note that installation/connection is not included in our standard rates.",
+    "features": [
+      { "icon": "music", "title": "Concert Backline", "desc": "Pioneer CDJ-3000s, A9 mixers, V10s, and active stand-alone controllers." },
+      { "icon": "speaker", "title": "Acoustic Engineering", "desc": "From powered active RCF and FBT speakers to massive HDL 30 Line Arrays." }
+    ]
+  },
+
+  "sections": {
+    "packagesTag": "Total Rigs",
+    "packagesTitle": "Pre-Configured Sound Packages",
+    "catalogTag": "Custom Selection",
+    "catalogTitle": "Backline & Sound Gear"
+  },
+
+  "contact": {
+    "phones": [
+      { "display": "718-962-4523", "label": "Primary", "tel": "7189624523" },
+      { "display": "516-512-3471", "label": "Secondary", "tel": "5165123471" }
+    ],
+    "contactPhone": "7189624523"
+  },
+
+  "delivery": {
+    "threshold": 350,
+    "areas": "across our service area",
+    "notice": "A security deposit is required on all rentals."
+  },
+
+  "catalog": {
+    "searchPlaceholder": "Search decks, speakers, subwoofers, lasers...",
+    "priceLabel": "Daily rate",
+    "pricePeriod": "/ day",
+    "quotePriceLabel": "Text for Price",
+    "inStock": "In Stock (x{stock})",
+    "limitedStock": "Limited / Call",
+    "noResults": "No equipment matches your search criteria."
+  },
+
+  "packages": {
+    "addBtn": "Add Package to Quote"
+  },
+
+  "drawer": {
+    "title": "Rental Cart & Quote Builder",
+    "subtotalLabel": "Rentals Subtotal",
+    "deliveryLabel": "Complimentary Delivery",
+    "totalLabel": "Estimated Total",
+    "clipboardBtnLabel": "Copy Quote for Text Booking",
+    "callBtnLabel": "Call to Book Rig",
+    "disclaimer": "* Rates exclude connection/installation. Sound tech included on Line Arrays only. Security deposit required on all rentals.",
+    "cartQuotePriceLabel": "Price on Request",
+    "cartPricePeriod": "/ day"
+  },
+
+  "quote": {
+    "salutation": "Hi {brand}!",
+    "intro": "I would like to book a custom gear rental rig:",
+    "closing": "Please let me know availability. Thanks!"
+  },
+
+  "footer": {
+    "description": "Premium backline rentals, concert sound systems, and spectacular lighting solutions for NYC's elite nightlife venues, club promoters, and festival rigs.",
+    "serviceAreaHeader": "Service Area",
+    "serviceArea": [
+      { "item": "Downtown Brooklyn" },
+      { "item": "All of Manhattan" },
+      { "item": "All of Queens" },
+      { "item": "Long Island" },
+      { "item": "New Jersey" },
+      { "item": "Connecticut" },
+      { "item": "Complimentary delivery for orders $350+" }
+    ],
+    "policiesHeader": "Operating Policies",
+    "policies": [
+      { "item": "* Connection/Installation is not standard" },
+      { "item": "* Line Array pricing requires phone check" },
+      { "item": "* Sound technician included with Line Arrays" },
+      { "item": "* Standard equipment is drop-off/pick up only" },
+      { "item": "* Security deposit required on all rentals" }
+    ],
+    "copyright": "Soundscape NYC",
+    "tagline": "Designed with Apple-grade precision."
+  }
+}

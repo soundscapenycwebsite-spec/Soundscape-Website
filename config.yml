@@ -1,4 +1,4 @@
-local_backend: true
+local_backend: false
 
 backend:
   name: git-gateway
@@ -58,3 +58,149 @@ collections:
         fields:
           - {label: "Name", name: "name", widget: "string"}
           - {label: "Qty", name: "qty", widget: "number", value_type: "int"}
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - name: "general"
+        label: "General Settings"
+        file: "data/settings.json"
+        fields:
+          - {label: "Brand Name", name: "brand", widget: "string"}
+          - {label: "Logo Initial", name: "brandInitial", widget: "string"}
+          - {label: "Logo Sub Title", name: "brandSub", widget: "string"}
+          - {label: "Tagline (title suffix)", name: "tagline", widget: "string"}
+          - {label: "Meta Description", name: "metaDescription", widget: "text"}
+          - label: "Contact"
+            name: "contact"
+            widget: "object"
+            collapsed: true
+            fields:
+              - label: "Phone Numbers"
+                name: "phones"
+                widget: "list"
+                summary: "{{display}} ({{label}})"
+                fields:
+                  - {label: "Display Text", name: "display", widget: "string"}
+                  - {label: "Label", name: "label", widget: "string"}
+                  - {label: "Tel Link", name: "tel", widget: "string"}
+              - {label: "Call Button Phone", name: "contactPhone", widget: "string"}
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Badge Text", name: "badge", widget: "string", required: false}
+              - {label: "Title (HTML allowed)", name: "title", widget: "string"}
+              - {label: "Description", name: "desc", widget: "text"}
+              - label: "CTA Buttons"
+                name: "ctas"
+                widget: "list"
+                summary: "{{label}}"
+                fields:
+                  - {label: "Button Label", name: "label", widget: "string"}
+                  - {label: "Scroll Target", name: "action", widget: "select", options: ["catalog", "packages", "about"]}
+                  - {label: "Style", name: "style", widget: "select", options: ["primary", "secondary", "accent"]}
+              - label: "Spec Chips"
+                name: "specs"
+                widget: "list"
+                summary: "{{label}}"
+                fields:
+                  - {label: "Icon", name: "icon", widget: "select", options: ["info", "map", "lock", "delivery", "star", "inventory"]}
+                  - {label: "Label", name: "label", widget: "string"}
+                  - {label: "Value", name: "value", widget: "string", required: false}
+          - label: "About Section"
+            name: "about"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Tag", name: "tag", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Subtitle", name: "subtitle", widget: "string"}
+              - {label: "Body (First)", name: "bodyFirst", widget: "text"}
+              - {label: "Body (Second)", name: "bodySecond", widget: "text"}
+              - label: "Feature Cards"
+                name: "features"
+                widget: "list"
+                summary: "{{title}}"
+                fields:
+                  - {label: "Icon", name: "icon", widget: "select", options: ["music", "speaker", "equipment", "delivery", "tool"]}
+                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Description", name: "desc", widget: "text"}
+          - label: "Section Headers"
+            name: "sections"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Packages Tag", name: "packagesTag", widget: "string"}
+              - {label: "Packages Title", name: "packagesTitle", widget: "string"}
+              - {label: "Catalog Tag", name: "catalogTag", widget: "string"}
+              - {label: "Catalog Title", name: "catalogTitle", widget: "string"}
+          - label: "Delivery & Deposit"
+            name: "delivery"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Free Delivery Threshold ($)", name: "threshold", widget: "number", value_type: "int", min: 0}
+              - {label: "Delivery Areas Text", name: "areas", widget: "string"}
+              - {label: "Deposit Notice Text", name: "notice", widget: "string"}
+          - label: "Catalog Labels"
+            name: "catalog"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Search Placeholder", name: "searchPlaceholder", widget: "string"}
+              - {label: "Price Label", name: "priceLabel", widget: "string"}
+              - {label: "Price Period", name: "pricePeriod", widget: "string"}
+              - {label: "Quote Required Label", name: "quotePriceLabel", widget: "string"}
+              - {label: "In Stock Label (use {stock})", name: "inStock", widget: "string"}
+              - {label: "Limited Stock Label", name: "limitedStock", widget: "string"}
+              - {label: "No Results Text", name: "noResults", widget: "string"}
+          - label: "Package Labels"
+            name: "packages"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Add Package Button", name: "addBtn", widget: "string"}
+          - label: "Drawer Labels"
+            name: "drawer"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Drawer Title", name: "title", widget: "string"}
+              - {label: "Subtotal Label", name: "subtotalLabel", widget: "string"}
+              - {label: "Delivery Label", name: "deliveryLabel", widget: "string"}
+              - {label: "Total Label", name: "totalLabel", widget: "string"}
+              - {label: "Clipboard Button", name: "clipboardBtnLabel", widget: "string"}
+              - {label: "Call Button", name: "callBtnLabel", widget: "string"}
+              - {label: "Disclaimer Text", name: "disclaimer", widget: "text"}
+              - {label: "Cart Quote Price", name: "cartQuotePriceLabel", widget: "string"}
+              - {label: "Cart Price Period", name: "cartPricePeriod", widget: "string"}
+          - label: "Quote Message Template"
+            name: "quote"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Salutation (use {brand})", name: "salutation", widget: "string"}
+              - {label: "Intro Line", name: "intro", widget: "string"}
+              - {label: "Closing Line", name: "closing", widget: "string"}
+          - label: "Footer"
+            name: "footer"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Service Area Header", name: "serviceAreaHeader", widget: "string"}
+              - label: "Service Area Items"
+                name: "serviceArea"
+                widget: "list"
+                fields:
+                  - {label: "Item", name: "item", widget: "string"}
+              - {label: "Policies Header", name: "policiesHeader", widget: "string"}
+              - label: "Policies Items"
+                name: "policies"
+                widget: "list"
+                fields:
+                  - {label: "Item", name: "item", widget: "string"}
+              - {label: "Copyright Name", name: "copyright", widget: "string"}
+              - {label: "Tagline", name: "tagline", widget: "string"}
