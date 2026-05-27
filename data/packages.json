@@ -1,0 +1,231 @@
+{
+  "items": [
+    {
+      "id": "pkg_just_gear",
+      "name": "JUST NEED GEAR",
+      "price": 380,
+      "capacity": "Up to 150 People",
+      "image": "assets/package_1_gear.webp",
+      "features": [
+        {
+          "text": "<strong>Pioneer RX3</strong> All-in-One Controller"
+        },
+        {
+          "text": "<strong>2x QSC K12.2</strong> Active Speakers (2000W)"
+        },
+        {
+          "text": "<strong>1x 41\" DJ Booth</strong> Compact Station"
+        },
+        {
+          "text": "All cables, stands, and wiring included"
+        },
+        {
+          "text": "Drop-off & pick-up (Setup not included)"
+        }
+      ],
+      "rawItems": [
+        {
+          "name": "Pioneer RX3 Controller",
+          "qty": 1
+        },
+        {
+          "name": "QSC K12.2 Active Speaker",
+          "qty": 2
+        },
+        {
+          "name": "41\" DJ Booth",
+          "qty": 1
+        }
+      ]
+    },
+    {
+      "id": "pkg_small_loud",
+      "name": "Small & LOUD",
+      "price": 520,
+      "capacity": "Up to 250 People",
+      "image": "assets/package_2_rooftop.webp",
+      "features": [
+        {
+          "text": "<strong>Pioneer XDJ XZ</strong> 4-Deck Controller"
+        },
+        {
+          "text": "<strong>2x RCF ART 910</strong> Active Speakers (2100W)"
+        },
+        {
+          "text": "<strong>1x RCF Sub 705</strong> Subwoofer (1400W)"
+        },
+        {
+          "text": "<strong>1x 41\" DJ Booth</strong> Premium Station"
+        },
+        {
+          "text": "All cables, stands, and wiring included"
+        },
+        {
+          "text": "Drop-off & pick-up (Setup not included)"
+        }
+      ],
+      "rawItems": [
+        {
+          "name": "Pioneer XDJ XZ Controller",
+          "qty": 1
+        },
+        {
+          "name": "RCF ART 910 Active Speaker",
+          "qty": 2
+        },
+        {
+          "name": "RCF Sub 705 Subwoofer",
+          "qty": 1
+        },
+        {
+          "name": "41\" DJ Booth",
+          "qty": 1
+        }
+      ]
+    },
+    {
+      "id": "pkg_talking",
+      "name": "Now we're Talking",
+      "price": 700,
+      "capacity": "Up to 400 People",
+      "featured": true,
+      "image": "assets/package_3_club.webp",
+      "features": [
+        {
+          "text": "<strong>Pioneer XDJ XZ</strong> or <strong>Alpha Theta XDJ AZ</strong>"
+        },
+        {
+          "text": "<strong>2x RCF ART 915</strong> (or FBT Ventis 112A)"
+        },
+        {
+          "text": "<strong>2x EV ETX 18SP</strong> Subs (or 2x RCF Sub 705)"
+        },
+        {
+          "text": "<strong>1x 50\" DJ Booth</strong> Premium Station"
+        },
+        {
+          "text": "All cables, stands, and wiring included"
+        },
+        {
+          "text": "Drop-off & pick-up (Setup not included)"
+        }
+      ],
+      "rawItems": [
+        {
+          "name": "Pioneer XDJ XZ / Alpha Theta AZ",
+          "qty": 1
+        },
+        {
+          "name": "RCF ART 915 / FBT Ventis 112A",
+          "qty": 2
+        },
+        {
+          "name": "EV ETX 18SP / RCF Sub 705",
+          "qty": 2
+        },
+        {
+          "name": "50\" DJ Booth",
+          "qty": 1
+        }
+      ]
+    },
+    {
+      "id": "pkg_this_is_it",
+      "name": "This is it!",
+      "price": 1150,
+      "capacity": "Up to 600 People",
+      "image": "assets/package_4_luxe.webp",
+      "features": [
+        {
+          "text": "<strong>2x Pioneer CDJ 3000</strong> & <strong>A9 Mixer</strong>"
+        },
+        {
+          "text": "<strong>2x RCF NXL 44A</strong> (or 2x FBT Ventis 115A)"
+        },
+        {
+          "text": "<strong>4x EV ETX 18SP</strong> 18-inch Subwoofers"
+        },
+        {
+          "text": "<strong>1x 50\" DJ Booth</strong> Premium Station"
+        },
+        {
+          "text": "All cables, stands, and wiring included"
+        },
+        {
+          "text": "Drop-off & pick-up (Setup not included)"
+        }
+      ],
+      "rawItems": [
+        {
+          "name": "2x CDJ 3000 & Pioneer A9 Mixer",
+          "qty": 1
+        },
+        {
+          "name": "RCF NXL 44A / FBT Ventis 115A",
+          "qty": 2
+        },
+        {
+          "name": "EV ETX 18SP Subwoofer",
+          "qty": 4
+        },
+        {
+          "name": "50\" DJ Booth",
+          "qty": 1
+        }
+      ]
+    },
+    {
+      "id": "pkg_promoter_party",
+      "name": "PROMOTER PARTY",
+      "price": 1850,
+      "capacity": "Up to 800 People",
+      "image": "assets/package_5_festival.webp",
+      "features": [
+        {
+          "text": "<strong>3x Pioneer CDJ 3000</strong> & <strong>A9 Mixer</strong>"
+        },
+        {
+          "text": "<strong>2x RCF NXL 44A</strong> or <strong>4x RCF HDL 30 Line Array</strong>"
+        },
+        {
+          "text": "<strong>2x Double 21\" B&C Subs</strong> or <strong>2x Double 18\" RCF Subs</strong>"
+        },
+        {
+          "text": "<strong>2x QSC K12.2</strong> (Booth monitors / Satellites)"
+        },
+        {
+          "text": "<strong>59\" DJ Booth</strong> Premium Wide Station"
+        },
+        {
+          "text": "<strong>Full Setup & Breakdown Included</strong>"
+        }
+      ],
+      "rawItems": [
+        {
+          "name": "3x CDJ 3000 & Pioneer A9 Mixer",
+          "qty": 1
+        },
+        {
+          "name": "RCF NXL 44A / RCF HDL 30 Array",
+          "qty": 2
+        },
+        {
+          "name": "Double 21\" B&C / Double 18\" RCF Sub",
+          "qty": 2
+        },
+        {
+          "name": "QSC K12.2 Active Speaker",
+          "qty": 2
+        },
+        {
+          "name": "59\" DJ Booth",
+          "qty": 1
+        },
+        {
+          "name": "Setup & Breakdown Service",
+          "qty": 1
+        }
+      ]
+    }
+  ]
+}
