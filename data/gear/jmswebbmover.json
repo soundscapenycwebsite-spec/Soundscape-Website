@@ -1,0 +1,9 @@
+{
+  "id": "jmswebbmover",
+  "name": "JMS WEBB Mover Light",
+  "category": "lighting",
+  "price": 140,
+  "stock": 2,
+  "image": "assets/gear_jmswebbmover.webp",
+  "desc": "Professional high-speed wash moving head fixture with custom pixel mapping."
+}

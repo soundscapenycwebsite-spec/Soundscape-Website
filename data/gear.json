@@ -1,64 +1,6 @@
 {
   "items": [
     {
-      "id": "cdj3000x",
-      "name": "Pioneer CDJ 3000X",
-      "category": "backline",
-      "price": 175,
-      "stock": 0,
-      "image": "assets/gear_cdj3000x.webp",
-      "desc": "Next generation flagship. Pre-orders active. Expanded cache, native digital master audio bypass.",
-      "tag": "Coming July 2026"
-    },
-    {
-      "id": "cdj3000",
-      "name": "Pioneer CDJ 3000",
-      "category": "backline",
-      "price": 150,
-      "stock": 8,
-      "image": "assets/gear_cdj3000.webp",
-      "desc": "Flagship professional multi-player deck with advanced MPU, MQA sound support, gigabit LAN.",
-      "tag": "Flagship"
-    },
-    {
-      "id": "cdj2000",
-      "name": "Pioneer CDJ 2000 NX2",
-      "category": "backline",
-      "price": 125,
-      "stock": 2,
-      "image": "assets/gear_cdj2000.webp",
-      "desc": "Industry standard high-performance multi-player deck, 96 kHz/24-bit soundcard, FLAC support."
-    },
-    {
-      "id": "xdjxz",
-      "name": "Pioneer XDJ-XZ",
-      "category": "standalone",
-      "price": 250,
-      "stock": 1,
-      "image": "assets/gear_xdjxz.webp",
-      "desc": "Professional all-in-one DJ system, standard CDJ/DJM controller design, deep screen visualization."
-    },
-    {
-      "id": "xdjaz",
-      "name": "AlphaTheta XDJ-AZ",
-      "category": "standalone",
-      "price": 300,
-      "stock": 1,
-      "image": "assets/gear_xdjaz.webp",
-      "desc": "The ultimate 4-deck stand-alone DJ system with built-in Wi-Fi, sonic touch screen, standard club layout.",
-      "tag": "Next-Gen"
-    },
-    {
-      "id": "v10",
-      "name": "Pioneer DJM V10 Mixer",
-      "category": "backline",
-      "price": 240,
-      "stock": 1,
-      "image": "assets/gear_v10.webp",
-      "desc": "Elite 6-channel mixer featuring warm studio sound, built-in 4-band EQs, compressor, and expansive routing.",
-      "tag": "Ultra High-End"
-    },
-    {
       "id": "a9",
       "name": "Pioneer DJM A9 Mixer",
       "category": "backline",
@@ -67,34 +9,6 @@
       "image": "assets/gear_a9mixer.webp",
       "desc": "Flagship 4-channel DJ mixer with stellar sound, advanced Beat FX, dual USB-C, Bluetooth connectivity.",
       "tag": "New Model"
-    },
-    {
-      "id": "djm900",
-      "name": "Pioneer DJM 900 NX2 Mixer",
-      "category": "backline",
-      "price": 120,
-      "stock": 1,
-      "image": "assets/gear_djm900.webp",
-      "desc": "Classic industry standard 4-channel club mixer, 6 sound color FX, 14 beat FX, independent send/return."
-    },
-    {
-      "id": "rmx1000",
-      "name": "Pioneer RMX 1000 Remix Station",
-      "category": "backline",
-      "price": 85,
-      "stock": 1,
-      "image": "assets/gear_rmx1000.webp",
-      "desc": "Elite hardware FX processor with scenic isolator, scene FX, X-Pad roll, pitch, and customizable parameters."
-    },
-    {
-      "id": "maui11",
-      "name": "LD Systems Maui 11 G3 Column Array",
-      "category": "speakers",
-      "price": 250,
-      "stock": 1,
-      "image": "assets/gear_maui11.webp",
-      "desc": "State-of-the-art column array set. Features double 8-inch subwoofers & 1400W peak power.",
-      "unit": "set"
     },
     {
       "id": "accuracy",
@@ -107,13 +21,13 @@
       "unit": "set"
     },
     {
-      "id": "k12_2",
-      "name": "QSC K12.2 Active Speaker",
+      "id": "art910",
+      "name": "RCF ART 910 Active Speaker",
       "category": "speakers",
       "price": 85,
-      "stock": 4,
-      "image": "assets/gear_k12_2.webp",
-      "desc": "Industry-standard 2000W active speaker, pristine digital DSP, flexible coverage.",
+      "stock": 2,
+      "image": "assets/gear_art910.webp",
+      "desc": "Compact 10-inch active speaker, 2100W peak power, crystal clear highs, extremely portable.",
       "unit": "unit"
     },
     {
@@ -127,198 +41,13 @@
       "unit": "unit"
     },
     {
-      "id": "art910",
-      "name": "RCF ART 910 Active Speaker",
-      "category": "speakers",
+      "id": "barwash43",
+      "name": "43\" Bar Washer LED",
+      "category": "lighting",
       "price": 85,
-      "stock": 2,
-      "image": "assets/gear_art910.webp",
-      "desc": "Compact 10-inch active speaker, 2100W peak power, crystal clear highs, extremely portable.",
-      "unit": "unit"
-    },
-    {
-      "id": "nxl44a",
-      "name": "RCF NXL 44A Column Speaker",
-      "category": "speakers",
-      "price": 180,
-      "stock": 2,
-      "image": "assets/gear_nxl44a.webp",
-      "desc": "Active column line array speaker, 2100W power, wide horizontal coverage, massive SPL.",
-      "unit": "unit",
-      "tag": "Column Array"
-    },
-    {
-      "id": "ventis112a",
-      "name": "FBT Ventis 112A Active Speaker",
-      "category": "speakers",
-      "price": 110,
-      "stock": 4,
-      "image": "assets/gear_ventis112a.webp",
-      "desc": "Premium Italian 700W RMS high-definition active speaker. Ideal monitor or main speaker.",
-      "unit": "unit"
-    },
-    {
-      "id": "ventis115a",
-      "name": "FBT Ventis 115A Active Speaker",
-      "category": "speakers",
-      "price": 140,
-      "stock": 2,
-      "image": "assets/gear_ventis115a.webp",
-      "desc": "Pristine 700W RMS 15-inch active speaker for high-fidelity chest-thumping response.",
-      "unit": "unit"
-    },
-    {
-      "id": "icoa15",
-      "name": "LD Systems ICOA 15",
-      "category": "speakers",
-      "price": 85,
-      "stock": 2,
-      "image": "assets/gear_icoa15.webp",
-      "desc": "Elite 15-inch coaxial speaker, great low-end, custom DSP, excellent multi-purpose setup.",
-      "unit": "unit"
-    },
-    {
-      "id": "icoa12",
-      "name": "LD Systems ICOA 12",
-      "category": "speakers",
-      "price": 75,
-      "stock": 2,
-      "image": "assets/gear_icoa12.webp",
-      "desc": "Compact 12-inch coaxial active speaker, superb high range, durable cabinet layout.",
-      "unit": "unit"
-    },
-    {
-      "id": "ekx15p",
-      "name": "Electro-Voice EKX 15P",
-      "category": "speakers",
-      "price": 85,
-      "stock": 2,
-      "image": "assets/gear_ekx15p.webp",
-      "desc": "15-inch powered speaker, QuickSmartDSP, high-efficiency Class-D amplifier up to 134dB.",
-      "unit": "unit"
-    },
-    {
-      "id": "eviva12p",
-      "name": "Electro-Voice EVIVA 12P",
-      "category": "speakers",
-      "price": 70,
-      "stock": 2,
-      "image": "assets/gear_eviva12p.webp",
-      "desc": "Affordable and powerful 12-inch active speaker, deep coverage, clean build.",
-      "unit": "unit"
-    },
-    {
-      "id": "dxs15",
-      "name": "Yamaha DXS15 SUB",
-      "category": "speakers",
-      "price": 90,
-      "stock": 1,
-      "image": "assets/gear_dxs15.webp",
-      "desc": "15-inch active subwoofer, band-pass design, deep thumping bass, high-efficiency power.",
-      "unit": "unit"
-    },
-    {
-      "id": "etx18sp",
-      "name": "Electro-Voice ETX 18SP Subwoofer",
-      "category": "speakers",
-      "price": 120,
-      "stock": 4,
-      "image": "assets/gear_etx18sp.webp",
-      "desc": "Elite 18-inch powered concert subwoofer, 1800W, 135dB peak, deep infra-bass.",
-      "unit": "unit",
-      "tag": "Concert Sub"
-    },
-    {
-      "id": "sub705",
-      "name": "RCF SUB 705-AS MK3 Subwoofer",
-      "category": "speakers",
-      "price": 100,
-      "stock": 2,
-      "image": "assets/gear_sub705.webp",
-      "desc": "Premium 15-inch high-power active subwoofer, 1400W peak, pristine low-end chest slam.",
-      "unit": "unit"
-    },
-    {
-      "id": "double21_bc",
-      "name": "B&C double 21\" Subwoofer (Active)",
-      "category": "medium",
-      "price": 400,
-      "stock": 2,
-      "image": "assets/gear_double21_bc.webp",
-      "desc": "World-class active subwoofer, 4000W RMS / 8000W Continuous. Absolute power.",
-      "unit": "unit",
-      "tag": "Extreme Bass"
-    },
-    {
-      "id": "rcfhdl30",
-      "name": "RCF HDL 30-A Full Line Array System",
-      "category": "arrays",
-      "price": 0,
-      "stock": 1,
-      "image": "assets/gear_rcfhdl30.webp",
-      "desc": "Complete stadium-grade line array. Standard configuration: 16x RCF HDL 30A array modules and 10x RCF V221-S subwoofers. Includes on-site sound/audio tech.",
-      "isQuoteRequired": true,
-      "tag": "Stadium Grade"
-    },
-    {
-      "id": "double18_sub",
-      "name": "RCF loaded double 18\" Subwoofer",
-      "category": "medium",
-      "price": 320,
-      "stock": 2,
-      "image": "assets/gear_double18_sub.webp",
-      "desc": "Severe duty subwoofer, 2000W RMS / 4000W Continuous, raw earth-shattering bass.",
-      "unit": "unit"
-    },
-    {
-      "id": "lacoskara2",
-      "name": "L'Acoustics KARA II System",
-      "category": "arrays",
-      "price": 0,
-      "stock": 1,
-      "image": "assets/gear_lacoskara2.webp",
-      "desc": "Vanguard elite line array system: 12x L'Acoustics Kara II-line array cabinets and 8x SB28 Subwoofers (Double 18-inch). Includes on-site sound/audio tech.",
-      "isQuoteRequired": true,
-      "tag": "Rider Friendly"
-    },
-    {
-      "id": "lacos_sb28",
-      "name": "L'Acoustics SB28 Subwoofer",
-      "category": "speakers",
-      "price": 150,
       "stock": 8,
-      "image": "assets/gear_lacos_sb28.webp",
-      "desc": "Double 18-inch touring subwoofer, high-velocity reflex-loaded enclosure.",
-      "unit": "unit"
-    },
-    {
-      "id": "xdjrx3",
-      "name": "Pioneer XDJ-RX3",
-      "category": "standalone",
-      "price": 220,
-      "stock": 1,
-      "image": "assets/gear_xdjrx3.webp",
-      "desc": "State-of-the-art 2-channel all-in-one system, rapid track browsing, gorgeous performance pads."
-    },
-    {
-      "id": "double15_rcf",
-      "name": "RCF loaded double 15\" 3-way Speaker",
-      "category": "medium",
-      "price": 250,
-      "stock": 2,
-      "image": "assets/gear_double15_rcf.webp",
-      "desc": "Custom active 3-way speaker with double 15-inch RCF drivers. Massive coverage (up to 700 people).",
-      "unit": "unit"
-    },
-    {
-      "id": "single21_bass",
-      "name": "Single 21\" Super Bass Subwoofer",
-      "category": "medium",
-      "price": 200,
-      "stock": 4,
-      "image": "assets/gear_v221_s.webp",
-      "desc": "High-velocity single 21-inch subwoofer, 3000W continuous rating. Intense physical pressure.",
-      "unit": "unit"
+      "image": "assets/gear_barwash43.webp",
+      "desc": "Heavy linear wash bar for wall texturing and back-stage accentuation."
     },
     {
       "id": "bclinesystem",
@@ -331,124 +60,6 @@
       "isQuoteRequired": true
     },
     {
-      "id": "steeldeckbooth",
-      "name": "Steel Deck 8' x 2' Festival DJ Booth",
-      "category": "booths",
-      "price": 140,
-      "stock": 1,
-      "image": "assets/gear_steeldeck_booth.webp",
-      "desc": "Heavy-duty festival grade platform booth, rock solid staging design."
-    },
-    {
-      "id": "odyssey72",
-      "name": "Odyssey 72\" Pro DJ Booth",
-      "category": "booths",
-      "price": 110,
-      "stock": 1,
-      "image": "assets/gear_mesh_facade.webp",
-      "desc": "Scenic wide performance DJ booth with matching facades."
-    },
-    {
-      "id": "command53",
-      "name": "53\" Command Center DJ Booth",
-      "category": "booths",
-      "price": 100,
-      "stock": 1,
-      "image": "assets/gear_command_booth.webp",
-      "desc": "Sleek compact professional station with built-in monitor mounting."
-    },
-    {
-      "id": "odysseymedia",
-      "name": "Odyssey Media 65\" DJ Booth",
-      "category": "booths",
-      "price": 90,
-      "stock": 1,
-      "image": "assets/gear_odysseymedia.webp",
-      "desc": "Midsize aesthetic setup perfect for corporate and wedding parties."
-    },
-    {
-      "id": "djbooth51",
-      "name": "51\" Professional DJ Booth",
-      "category": "booths",
-      "price": 85,
-      "stock": 4,
-      "image": "assets/gear_steeldeck_booth.webp",
-      "desc": "Sturdy stand-alone booth design. We have 4 identical units for multi-setup gigs."
-    },
-    {
-      "id": "proxvista",
-      "name": "PRO X 40\" Vista Facade DJ Booth",
-      "category": "booths",
-      "price": 70,
-      "stock": 1,
-      "image": "assets/gear_proxvista.webp",
-      "desc": "Lightweight, ultra-portable mesh facade with dynamic visual coverage."
-    },
-    {
-      "id": "odyssey48",
-      "name": "Odyssey 48\" DJ Table w/ Facade",
-      "category": "booths",
-      "price": 75,
-      "stock": 1,
-      "image": "assets/gear_odyssey48.webp",
-      "desc": "Clean tabletop layout and fabric wrap panel. Ideal for visual lights underlay."
-    },
-    {
-      "id": "stageplatforms",
-      "name": "4' x 4' Stage Platforms",
-      "category": "booths",
-      "price": 100,
-      "stock": 8,
-      "image": "assets/gear_stage_platform.webp",
-      "desc": "Heavy duty staging panels. Configurable height (1ft to 1.5ft). We have up to 8 panels.",
-      "unit": "panel"
-    },
-    {
-      "id": "steeldeckplatform",
-      "name": "Steel Deck 8' x 4' Platform",
-      "category": "booths",
-      "price": 240,
-      "stock": 1,
-      "image": "assets/gear_steeldeck_platform.webp",
-      "desc": "Professional concert height platform deck (6 inches to 1ft)."
-    },
-    {
-      "id": "movingheads450",
-      "name": "450W Hybrid Moving Head Light",
-      "category": "lighting",
-      "price": 225,
-      "stock": 4,
-      "image": "assets/gear_moving_heads450.webp",
-      "desc": "Ultra-bright hybrid concert light (beam/spot/wash). High-speed visual sweeps."
-    },
-    {
-      "id": "intimidatorspot200",
-      "name": "Chauvet Intimidator Spot 200W",
-      "category": "lighting",
-      "price": 165,
-      "stock": 4,
-      "image": "assets/gear_intimidatorspot200.webp",
-      "desc": "Vibrant high-output LED moving head spot light with custom gobos and prisms."
-    },
-    {
-      "id": "intimidatorbeam100",
-      "name": "Chauvet Intimidator Beam 100W",
-      "category": "lighting",
-      "price": 120,
-      "stock": 4,
-      "image": "assets/gear_intimidatorbeam100.webp",
-      "desc": "Rapid pin-point beam fixture with high-power output, prism, and frost filter."
-    },
-    {
-      "id": "jmswebbmover",
-      "name": "JMS WEBB Mover Light",
-      "category": "lighting",
-      "price": 140,
-      "stock": 2,
-      "image": "assets/gear_jmswebbmover.webp",
-      "desc": "Professional high-speed wash moving head fixture with custom pixel mapping."
-    },
-    {
       "id": "beam275",
       "name": "275W Intense Beam Concert Light",
       "category": "lighting",
@@ -458,114 +69,33 @@
       "desc": "Stadium-grade beam fixture, extremely narrow aperture, razor-sharp light beams."
     },
     {
-      "id": "washerhead",
-      "name": "Wash moving head light",
-      "category": "lighting",
-      "price": 120,
-      "stock": 4,
-      "image": "assets/gear_washerhead.webp",
-      "desc": "Scenic wide coverage wash fixture, smooth RGBW color blending."
+      "id": "cdj2000",
+      "name": "Pioneer CDJ 2000 NX2",
+      "category": "backline",
+      "price": 125,
+      "stock": 2,
+      "image": "assets/gear_cdj2000.webp",
+      "desc": "Industry standard high-performance multi-player deck, 96 kHz/24-bit soundcard, FLAC support."
     },
     {
-      "id": "motionstrip",
-      "name": "Motion Strip LED Light",
-      "category": "lighting",
-      "price": 120,
-      "stock": 12,
-      "image": "assets/gear_motionstrip.webp",
-      "desc": "Motorized linear tilt bar with intense individual LED beam controls."
-    },
-    {
-      "id": "laser12w",
-      "name": "12W High-Power Laser Light",
-      "category": "lighting",
-      "price": 200,
-      "stock": 1,
-      "image": "assets/gear_laser12w.webp",
-      "desc": "Club-grade aerial laser. Custom animations, geometric sweeps, intense green/RGB.",
-      "tag": "Extreme FX"
-    },
-    {
-      "id": "uplights",
-      "name": "Scenic LED Up-Light",
-      "category": "lighting",
-      "price": 40,
-      "stock": 16,
-      "image": "assets/gear_uplight.webp",
-      "desc": "Battery-powered ambient wall wash fixture. Programmable colors. Up to 16 units available."
-    },
-    {
-      "id": "washers12",
-      "name": "Scenic Wash Bar Light",
-      "category": "lighting",
-      "price": 40,
-      "stock": 12,
-      "image": "assets/gear_washers12.webp",
-      "desc": "Standard wash light bar. Perfect for stage backdrops and table highlights."
-    },
-    {
-      "id": "barwash43",
-      "name": "43\" Bar Washer LED",
-      "category": "lighting",
-      "price": 85,
+      "id": "cdj3000",
+      "name": "Pioneer CDJ 3000",
+      "category": "backline",
+      "price": 150,
       "stock": 8,
-      "image": "assets/gear_barwash43.webp",
-      "desc": "Heavy linear wash bar for wall texturing and back-stage accentuation."
+      "image": "assets/gear_cdj3000.webp",
+      "desc": "Flagship professional multi-player deck with advanced MPU, MQA sound support, gigabit LAN.",
+      "tag": "Flagship"
     },
     {
-      "id": "gigbar2",
-      "name": "Chauvet GIG Bar 2 System",
-      "category": "lighting",
-      "price": 155,
-      "stock": 1,
-      "image": "assets/gear_gigbar.webp",
-      "desc": "All-in-one performance lighting system with laser, pars, strobes, and derby fixtures."
-    },
-    {
-      "id": "sennew500",
-      "name": "Sennheiser EW 500-935 G4",
-      "category": "microphones",
-      "price": 100,
-      "stock": 1,
-      "image": "assets/gear_sennew500.webp",
-      "desc": "Premium professional wireless vocal microphone, pristine high-end condenser response."
-    },
-    {
-      "id": "shureqlxd4",
-      "name": "Shure QLXD4 Wireless System",
-      "category": "microphones",
-      "price": 120,
-      "stock": 2,
-      "image": "assets/gear_shureqlxd4.webp",
-      "desc": "Digital elite wireless receiver and handheld mic, crystal clear digital transmission."
-    },
-    {
-      "id": "shureslxd",
-      "name": "Shure SLXD24/SM58 Wireless",
-      "category": "microphones",
-      "price": 100,
-      "stock": 2,
-      "image": "assets/gear_shureslxd.webp",
-      "desc": "Excellent digital wireless microphone system with classic SM58 capsule."
-    },
-    {
-      "id": "sennxsw",
-      "name": "Sennheiser XSW 2-835 Wireless",
-      "category": "microphones",
-      "price": 80,
-      "stock": 1,
-      "image": "assets/gear_sennxsw.webp",
-      "desc": "Sturdy wireless microphone, easy synchronization, durable metal casing."
-    },
-    {
-      "id": "shuresm58",
-      "name": "Shure SM58 Dynamic Microphone",
-      "category": "microphones",
-      "price": 25,
-      "stock": 6,
-      "image": "assets/gear_shuresm58.webp",
-      "desc": "The legendary industry standard rugged vocal microphone. Wired setup.",
-      "unit": "unit"
+      "id": "cdj3000x",
+      "name": "Pioneer CDJ 3000X",
+      "category": "backline",
+      "price": 175,
+      "stock": 0,
+      "image": "assets/gear_cdj3000x.webp",
+      "desc": "Next generation flagship. Pre-orders active. Expanded cache, native digital master audio bypass.",
+      "tag": "Coming July 2026"
     },
     {
       "id": "co2cannon",
@@ -588,13 +118,389 @@
       "tag": "Special FX"
     },
     {
-      "id": "totem8ft",
-      "name": "8 Feet Lighting Totem",
-      "category": "co2",
-      "price": 50,
+      "id": "command53",
+      "name": "53\" Command Center DJ Booth",
+      "category": "booths",
+      "price": 100,
+      "stock": 1,
+      "image": "assets/gear_command_booth.webp",
+      "desc": "Sleek compact professional station with built-in monitor mounting."
+    },
+    {
+      "id": "djbooth51",
+      "name": "51\" Professional DJ Booth",
+      "category": "booths",
+      "price": 85,
       "stock": 4,
-      "image": "assets/gear_truss_totem.webp",
-      "desc": "Vertical F34 aluminum truss totem. Includes base plate and fabric sleeve cover."
+      "image": "assets/gear_steeldeck_booth.webp",
+      "desc": "Sturdy stand-alone booth design. We have 4 identical units for multi-setup gigs."
+    },
+    {
+      "id": "djm900",
+      "name": "Pioneer DJM 900 NX2 Mixer",
+      "category": "backline",
+      "price": 120,
+      "stock": 1,
+      "image": "assets/gear_djm900.webp",
+      "desc": "Classic industry standard 4-channel club mixer, 6 sound color FX, 14 beat FX, independent send/return."
+    },
+    {
+      "id": "double15_rcf",
+      "name": "RCF loaded double 15\" 3-way Speaker",
+      "category": "medium",
+      "price": 250,
+      "stock": 2,
+      "image": "assets/gear_double15_rcf.webp",
+      "desc": "Custom active 3-way speaker with double 15-inch RCF drivers. Massive coverage (up to 700 people).",
+      "unit": "unit"
+    },
+    {
+      "id": "double18_sub",
+      "name": "RCF loaded double 18\" Subwoofer",
+      "category": "medium",
+      "price": 320,
+      "stock": 2,
+      "image": "assets/gear_double18_sub.webp",
+      "desc": "Severe duty subwoofer, 2000W RMS / 4000W Continuous, raw earth-shattering bass.",
+      "unit": "unit"
+    },
+    {
+      "id": "double21_bc",
+      "name": "B&C double 21\" Subwoofer (Active)",
+      "category": "medium",
+      "price": 400,
+      "stock": 2,
+      "image": "assets/gear_double21_bc.webp",
+      "desc": "World-class active subwoofer, 4000W RMS / 8000W Continuous. Absolute power.",
+      "unit": "unit",
+      "tag": "Extreme Bass"
+    },
+    {
+      "id": "dxs15",
+      "name": "Yamaha DXS15 SUB",
+      "category": "speakers",
+      "price": 90,
+      "stock": 1,
+      "image": "assets/gear_dxs15.webp",
+      "desc": "15-inch active subwoofer, band-pass design, deep thumping bass, high-efficiency power.",
+      "unit": "unit"
+    },
+    {
+      "id": "ekx15p",
+      "name": "Electro-Voice EKX 15P",
+      "category": "speakers",
+      "price": 85,
+      "stock": 2,
+      "image": "assets/gear_ekx15p.webp",
+      "desc": "15-inch powered speaker, QuickSmartDSP, high-efficiency Class-D amplifier up to 134dB.",
+      "unit": "unit"
+    },
+    {
+      "id": "etx18sp",
+      "name": "Electro-Voice ETX 18SP Subwoofer",
+      "category": "speakers",
+      "price": 120,
+      "stock": 4,
+      "image": "assets/gear_etx18sp.webp",
+      "desc": "Elite 18-inch powered concert subwoofer, 1800W, 135dB peak, deep infra-bass.",
+      "unit": "unit",
+      "tag": "Concert Sub"
+    },
+    {
+      "id": "eviva12p",
+      "name": "Electro-Voice EVIVA 12P",
+      "category": "speakers",
+      "price": 70,
+      "stock": 2,
+      "image": "assets/gear_eviva12p.webp",
+      "desc": "Affordable and powerful 12-inch active speaker, deep coverage, clean build.",
+      "unit": "unit"
+    },
+    {
+      "id": "gigbar2",
+      "name": "Chauvet GIG Bar 2 System",
+      "category": "lighting",
+      "price": 155,
+      "stock": 1,
+      "image": "assets/gear_gigbar.webp",
+      "desc": "All-in-one performance lighting system with laser, pars, strobes, and derby fixtures."
+    },
+    {
+      "id": "icoa12",
+      "name": "LD Systems ICOA 12",
+      "category": "speakers",
+      "price": 75,
+      "stock": 2,
+      "image": "assets/gear_icoa12.webp",
+      "desc": "Compact 12-inch coaxial active speaker, superb high range, durable cabinet layout.",
+      "unit": "unit"
+    },
+    {
+      "id": "icoa15",
+      "name": "LD Systems ICOA 15",
+      "category": "speakers",
+      "price": 85,
+      "stock": 2,
+      "image": "assets/gear_icoa15.webp",
+      "desc": "Elite 15-inch coaxial speaker, great low-end, custom DSP, excellent multi-purpose setup.",
+      "unit": "unit"
+    },
+    {
+      "id": "intimidatorbeam100",
+      "name": "Chauvet Intimidator Beam 100W",
+      "category": "lighting",
+      "price": 120,
+      "stock": 4,
+      "image": "assets/gear_intimidatorbeam100.webp",
+      "desc": "Rapid pin-point beam fixture with high-power output, prism, and frost filter."
+    },
+    {
+      "id": "intimidatorspot200",
+      "name": "Chauvet Intimidator Spot 200W",
+      "category": "lighting",
+      "price": 165,
+      "stock": 4,
+      "image": "assets/gear_intimidatorspot200.webp",
+      "desc": "Vibrant high-output LED moving head spot light with custom gobos and prisms."
+    },
+    {
+      "id": "jmswebbmover",
+      "name": "JMS WEBB Mover Light",
+      "category": "lighting",
+      "price": 140,
+      "stock": 2,
+      "image": "assets/gear_jmswebbmover.webp",
+      "desc": "Professional high-speed wash moving head fixture with custom pixel mapping."
+    },
+    {
+      "id": "k12_2",
+      "name": "QSC K12.2 Active Speaker",
+      "category": "speakers",
+      "price": 85,
+      "stock": 4,
+      "image": "assets/gear_k12_2.webp",
+      "desc": "Industry-standard 2000W active speaker, pristine digital DSP, flexible coverage.",
+      "unit": "unit"
+    },
+    {
+      "id": "lacos_sb28",
+      "name": "L'Acoustics SB28 Subwoofer",
+      "category": "speakers",
+      "price": 150,
+      "stock": 8,
+      "image": "assets/gear_lacos_sb28.webp",
+      "desc": "Double 18-inch touring subwoofer, high-velocity reflex-loaded enclosure.",
+      "unit": "unit"
+    },
+    {
+      "id": "lacoskara2",
+      "name": "L'Acoustics KARA II System",
+      "category": "arrays",
+      "price": 0,
+      "stock": 1,
+      "image": "assets/gear_lacoskara2.webp",
+      "desc": "Vanguard elite line array system: 12x L'Acoustics Kara II-line array cabinets and 8x SB28 Subwoofers (Double 18-inch). Includes on-site sound/audio tech.",
+      "isQuoteRequired": true,
+      "tag": "Rider Friendly"
+    },
+    {
+      "id": "laser12w",
+      "name": "12W High-Power Laser Light",
+      "category": "lighting",
+      "price": 200,
+      "stock": 1,
+      "image": "assets/gear_laser12w.webp",
+      "desc": "Club-grade aerial laser. Custom animations, geometric sweeps, intense green/RGB.",
+      "tag": "Extreme FX"
+    },
+    {
+      "id": "maui11",
+      "name": "LD Systems Maui 11 G3 Column Array",
+      "category": "speakers",
+      "price": 250,
+      "stock": 1,
+      "image": "assets/gear_maui11.webp",
+      "desc": "State-of-the-art column array set. Features double 8-inch subwoofers & 1400W peak power.",
+      "unit": "set"
+    },
+    {
+      "id": "motionstrip",
+      "name": "Motion Strip LED Light",
+      "category": "lighting",
+      "price": 120,
+      "stock": 12,
+      "image": "assets/gear_motionstrip.webp",
+      "desc": "Motorized linear tilt bar with intense individual LED beam controls."
+    },
+    {
+      "id": "movingheads450",
+      "name": "450W Hybrid Moving Head Light",
+      "category": "lighting",
+      "price": 225,
+      "stock": 4,
+      "image": "assets/gear_moving_heads450.webp",
+      "desc": "Ultra-bright hybrid concert light (beam/spot/wash). High-speed visual sweeps."
+    },
+    {
+      "id": "nxl44a",
+      "name": "RCF NXL 44A Column Speaker",
+      "category": "speakers",
+      "price": 180,
+      "stock": 2,
+      "image": "assets/gear_nxl44a.webp",
+      "desc": "Active column line array speaker, 2100W power, wide horizontal coverage, massive SPL.",
+      "unit": "unit",
+      "tag": "Column Array"
+    },
+    {
+      "id": "odyssey48",
+      "name": "Odyssey 48\" DJ Table w/ Facade",
+      "category": "booths",
+      "price": 75,
+      "stock": 1,
+      "image": "assets/gear_odyssey48.webp",
+      "desc": "Clean tabletop layout and fabric wrap panel. Ideal for visual lights underlay."
+    },
+    {
+      "id": "odyssey72",
+      "name": "Odyssey 72\" Pro DJ Booth",
+      "category": "booths",
+      "price": 110,
+      "stock": 1,
+      "image": "assets/gear_mesh_facade.webp",
+      "desc": "Scenic wide performance DJ booth with matching facades."
+    },
+    {
+      "id": "odysseymedia",
+      "name": "Odyssey Media 65\" DJ Booth",
+      "category": "booths",
+      "price": 90,
+      "stock": 1,
+      "image": "assets/gear_odysseymedia.webp",
+      "desc": "Midsize aesthetic setup perfect for corporate and wedding parties."
+    },
+    {
+      "id": "proxvista",
+      "name": "PRO X 40\" Vista Facade DJ Booth",
+      "category": "booths",
+      "price": 70,
+      "stock": 1,
+      "image": "assets/gear_proxvista.webp",
+      "desc": "Lightweight, ultra-portable mesh facade with dynamic visual coverage."
+    },
+    {
+      "id": "rcfhdl30",
+      "name": "RCF HDL 30-A Full Line Array System",
+      "category": "arrays",
+      "price": 0,
+      "stock": 1,
+      "image": "assets/gear_rcfhdl30.webp",
+      "desc": "Complete stadium-grade line array. Standard configuration: 16x RCF HDL 30A array modules and 10x RCF V221-S subwoofers. Includes on-site sound/audio tech.",
+      "isQuoteRequired": true,
+      "tag": "Stadium Grade"
+    },
+    {
+      "id": "rmx1000",
+      "name": "Pioneer RMX 1000 Remix Station",
+      "category": "backline",
+      "price": 85,
+      "stock": 1,
+      "image": "assets/gear_rmx1000.webp",
+      "desc": "Elite hardware FX processor with scenic isolator, scene FX, X-Pad roll, pitch, and customizable parameters."
+    },
+    {
+      "id": "sennew500",
+      "name": "Sennheiser EW 500-935 G4",
+      "category": "microphones",
+      "price": 100,
+      "stock": 1,
+      "image": "assets/gear_sennew500.webp",
+      "desc": "Premium professional wireless vocal microphone, pristine high-end condenser response."
+    },
+    {
+      "id": "sennxsw",
+      "name": "Sennheiser XSW 2-835 Wireless",
+      "category": "microphones",
+      "price": 80,
+      "stock": 1,
+      "image": "assets/gear_sennxsw.webp",
+      "desc": "Sturdy wireless microphone, easy synchronization, durable metal casing."
+    },
+    {
+      "id": "shureqlxd4",
+      "name": "Shure QLXD4 Wireless System",
+      "category": "microphones",
+      "price": 120,
+      "stock": 2,
+      "image": "assets/gear_shureqlxd4.webp",
+      "desc": "Digital elite wireless receiver and handheld mic, crystal clear digital transmission."
+    },
+    {
+      "id": "shureslxd",
+      "name": "Shure SLXD24/SM58 Wireless",
+      "category": "microphones",
+      "price": 100,
+      "stock": 2,
+      "image": "assets/gear_shureslxd.webp",
+      "desc": "Excellent digital wireless microphone system with classic SM58 capsule."
+    },
+    {
+      "id": "shuresm58",
+      "name": "Shure SM58 Dynamic Microphone",
+      "category": "microphones",
+      "price": 25,
+      "stock": 6,
+      "image": "assets/gear_shuresm58.webp",
+      "desc": "The legendary industry standard rugged vocal microphone. Wired setup.",
+      "unit": "unit"
+    },
+    {
+      "id": "single21_bass",
+      "name": "Single 21\" Super Bass Subwoofer",
+      "category": "medium",
+      "price": 200,
+      "stock": 4,
+      "image": "assets/gear_v221_s.webp",
+      "desc": "High-velocity single 21-inch subwoofer, 3000W continuous rating. Intense physical pressure.",
+      "unit": "unit"
+    },
+    {
+      "id": "stageplatforms",
+      "name": "4' x 4' Stage Platforms",
+      "category": "booths",
+      "price": 100,
+      "stock": 8,
+      "image": "assets/gear_stage_platform.webp",
+      "desc": "Heavy duty staging panels. Configurable height (1ft to 1.5ft). We have up to 8 panels.",
+      "unit": "panel"
+    },
+    {
+      "id": "steeldeckbooth",
+      "name": "Steel Deck 8' x 2' Festival DJ Booth",
+      "category": "booths",
+      "price": 140,
+      "stock": 1,
+      "image": "assets/gear_steeldeck_booth.webp",
+      "desc": "Heavy-duty festival grade platform booth, rock solid staging design."
+    },
+    {
+      "id": "steeldeckplatform",
+      "name": "Steel Deck 8' x 4' Platform",
+      "category": "booths",
+      "price": 240,
+      "stock": 1,
+      "image": "assets/gear_steeldeck_platform.webp",
+      "desc": "Professional concert height platform deck (6 inches to 1ft)."
+    },
+    {
+      "id": "sub705",
+      "name": "RCF SUB 705-AS MK3 Subwoofer",
+      "category": "speakers",
+      "price": 100,
+      "stock": 2,
+      "image": "assets/gear_sub705.webp",
+      "desc": "Premium 15-inch high-power active subwoofer, 1400W peak, pristine low-end chest slam.",
+      "unit": "unit"
     },
     {
       "id": "totem6ft",
@@ -604,6 +510,15 @@
       "stock": 2,
       "image": "assets/gear_truss_totem.webp",
       "desc": "Vertical F34 aluminum truss totem, ideal height for side-stage speakers or monitors."
+    },
+    {
+      "id": "totem8ft",
+      "name": "8 Feet Lighting Totem",
+      "category": "co2",
+      "price": 50,
+      "stock": 4,
+      "image": "assets/gear_truss_totem.webp",
+      "desc": "Vertical F34 aluminum truss totem. Includes base plate and fabric sleeve cover."
     },
     {
       "id": "tv65",
@@ -624,6 +539,91 @@
       "image": "assets/gear_tv_screen.webp",
       "desc": "Stunning wide-venue 4K monitor. Perfect for DJ media play, includes vertical truss mount.",
       "tag": "Includes Truss"
+    },
+    {
+      "id": "uplights",
+      "name": "Scenic LED Up-Light",
+      "category": "lighting",
+      "price": 40,
+      "stock": 16,
+      "image": "assets/gear_uplight.webp",
+      "desc": "Battery-powered ambient wall wash fixture. Programmable colors. Up to 16 units available."
+    },
+    {
+      "id": "v10",
+      "name": "Pioneer DJM V10 Mixer",
+      "category": "backline",
+      "price": 240,
+      "stock": 1,
+      "image": "assets/gear_v10.webp",
+      "desc": "Elite 6-channel mixer featuring warm studio sound, built-in 4-band EQs, compressor, and expansive routing.",
+      "tag": "Ultra High-End"
+    },
+    {
+      "id": "ventis112a",
+      "name": "FBT Ventis 112A Active Speaker",
+      "category": "speakers",
+      "price": 110,
+      "stock": 4,
+      "image": "assets/gear_ventis112a.webp",
+      "desc": "Premium Italian 700W RMS high-definition active speaker. Ideal monitor or main speaker.",
+      "unit": "unit"
+    },
+    {
+      "id": "ventis115a",
+      "name": "FBT Ventis 115A Active Speaker",
+      "category": "speakers",
+      "price": 140,
+      "stock": 2,
+      "image": "assets/gear_ventis115a.webp",
+      "desc": "Pristine 700W RMS 15-inch active speaker for high-fidelity chest-thumping response.",
+      "unit": "unit"
+    },
+    {
+      "id": "washerhead",
+      "name": "Wash moving head light",
+      "category": "lighting",
+      "price": 120,
+      "stock": 4,
+      "image": "assets/gear_washerhead.webp",
+      "desc": "Scenic wide coverage wash fixture, smooth RGBW color blending."
+    },
+    {
+      "id": "washers12",
+      "name": "Scenic Wash Bar Light",
+      "category": "lighting",
+      "price": 40,
+      "stock": 12,
+      "image": "assets/gear_washers12.webp",
+      "desc": "Standard wash light bar. Perfect for stage backdrops and table highlights."
+    },
+    {
+      "id": "xdjaz",
+      "name": "AlphaTheta XDJ-AZ",
+      "category": "standalone",
+      "price": 300,
+      "stock": 1,
+      "image": "assets/gear_xdjaz.webp",
+      "desc": "The ultimate 4-deck stand-alone DJ system with built-in Wi-Fi, sonic touch screen, standard club layout.",
+      "tag": "Next-Gen"
+    },
+    {
+      "id": "xdjrx3",
+      "name": "Pioneer XDJ-RX3",
+      "category": "standalone",
+      "price": 220,
+      "stock": 1,
+      "image": "assets/gear_xdjrx3.webp",
+      "desc": "State-of-the-art 2-channel all-in-one system, rapid track browsing, gorgeous performance pads."
+    },
+    {
+      "id": "xdjxz",
+      "name": "Pioneer XDJ-XZ",
+      "category": "standalone",
+      "price": 250,
+      "stock": 1,
+      "image": "assets/gear_xdjxz.webp",
+      "desc": "Professional all-in-one DJ system, standard CDJ/DJM controller design, deep screen visualization."
     }
   ]
 }

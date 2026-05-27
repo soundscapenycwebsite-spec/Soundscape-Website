@@ -1,17 +1,8 @@
-# Soundscape NYC — Decap CMS Configuration
-# See: https://decapcms.org/docs/configuration-options/
-#
-# Local dev: keep local_backend below, run 'npx decap-server' in project root
-# Production: comment out or remove local_backend
-
 local_backend: true
 
 backend:
   name: git-gateway
   branch: main
-  accept_roles:
-    - admin
-    - editor
 
 media_folder: "assets"
 public_folder: "assets"
@@ -19,61 +10,51 @@ public_folder: "assets"
 collections:
   - name: "gear"
     label: "Gear Catalog"
-    files:
-      - name: "gear"
-        label: "Gear Items"
-        file: "data/gear.json"
-        extension: "json"
-        format: "json"
-        fields:
-          - label: "Items"
-            name: "items"
-            widget: "list"
-            collapsed: false
-            summary: "{{name}} — ${{price}}/day ({{stock}} in stock)"
-            fields:
-              - {label: "ID", name: "id", widget: "string"}
-              - {label: "Name", name: "name", widget: "string"}
-              - {label: "Category", name: "category", widget: "select", options: ["backline", "standalone", "speakers", "medium", "arrays", "booths", "lighting", "microphones", "co2", "monitors"]}
-              - {label: "Daily Rate ($)", name: "price", widget: "number", value_type: "int", min: 0}
-              - {label: "Stock Qty", name: "stock", widget: "number", value_type: "int", min: 0}
-              - {label: "Image", name: "image", widget: "image", allow_multiple: false}
-              - {label: "Description", name: "desc", widget: "text"}
-              - {label: "Unit Label", name: "unit", widget: "select", options: ["", "unit", "set", "panel"], required: false}
-              - {label: "Tag / Badge", name: "tag", widget: "string", required: false}
-              - {label: "Quote Only?", name: "isQuoteRequired", widget: "boolean", required: false, default: false}
+    label_singular: "Gear Item"
+    folder: "data/gear"
+    create: true
+    delete: true
+    extension: "json"
+    format: "json"
+    slug: "{{id}}"
+    identifier_field: "id"
+    fields:
+      - {label: "ID", name: "id", widget: "string"}
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Category", name: "category", widget: "select", options: ["backline", "standalone", "speakers", "medium", "arrays", "booths", "lighting", "microphones", "co2", "monitors"]}
+      - {label: "Daily Rate", name: "price", widget: "number", value_type: "int", min: 0}
+      - {label: "Stock Qty", name: "stock", widget: "number", value_type: "int", min: 0}
+      - {label: "Image", name: "image", widget: "image"}
+      - {label: "Description", name: "desc", widget: "text"}
+      - {label: "Unit Label", name: "unit", widget: "select", options: ["", "unit", "set", "panel"], required: false}
+      - {label: "Tag / Badge", name: "tag", widget: "string", required: false}
+      - {label: "Quote Only?", name: "isQuoteRequired", widget: "boolean", required: false, default: false}
 
   - name: "packages"
     label: "Rig Packages"
-    files:
-      - name: "packages"
-        label: "Package Deals"
-        file: "data/packages.json"
-        extension: "json"
-        format: "json"
+    label_singular: "Package"
+    folder: "data/packages"
+    create: true
+    delete: true
+    extension: "json"
+    format: "json"
+    slug: "{{id}}"
+    identifier_field: "id"
+    fields:
+      - {label: "ID", name: "id", widget: "string"}
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Price", name: "price", widget: "number", value_type: "int"}
+      - {label: "Capacity", name: "capacity", widget: "string"}
+      - {label: "Image", name: "image", widget: "image"}
+      - {label: "Featured?", name: "featured", widget: "boolean", default: false, required: false}
+      - label: "Features"
+        name: "features"
+        widget: "list"
         fields:
-          - label: "Packages"
-            name: "items"
-            widget: "list"
-            collapsed: false
-            summary: "{{name}} — ${{price}}/day ({{capacity}})"
-            fields:
-              - {label: "ID", name: "id", widget: "string"}
-              - {label: "Name", name: "name", widget: "string"}
-              - {label: "Price ($)", name: "price", widget: "number", value_type: "int"}
-              - {label: "Capacity", name: "capacity", widget: "string"}
-              - {label: "Image", name: "image", widget: "image"}
-              - {label: "Featured?", name: "featured", widget: "boolean", default: false}
-              - label: "Features"
-                name: "features"
-                widget: "list"
-                summary: "{{fields.text}}"
-                fields:
-                  - {label: "Text", name: "text", widget: "string"}
-              - label: "Raw Items (internal)"
-                name: "rawItems"
-                widget: "list"
-                collapsed: true
-                fields:
-                  - {label: "Name", name: "name", widget: "string"}
-                  - {label: "Qty", name: "qty", widget: "number", value_type: "int"}
+          - {label: "Text", name: "text", widget: "string"}
+      - label: "Raw Items"
+        name: "rawItems"
+        widget: "list"
+        fields:
+          - {label: "Name", name: "name", widget: "string"}
+          - {label: "Qty", name: "qty", widget: "number", value_type: "int"}

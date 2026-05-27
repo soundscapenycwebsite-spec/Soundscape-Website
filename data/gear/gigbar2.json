@@ -1,0 +1,9 @@
+{
+  "id": "gigbar2",
+  "name": "Chauvet GIG Bar 2 System",
+  "category": "lighting",
+  "price": 155,
+  "stock": 1,
+  "image": "assets/gear_gigbar.webp",
+  "desc": "All-in-one performance lighting system with laser, pars, strobes, and derby fixtures."
+}

@@ -1,0 +1,10 @@
+{
+  "id": "eviva12p",
+  "name": "Electro-Voice EVIVA 12P",
+  "category": "speakers",
+  "price": 70,
+  "stock": 2,
+  "image": "assets/gear_eviva12p.webp",
+  "desc": "Affordable and powerful 12-inch active speaker, deep coverage, clean build.",
+  "unit": "unit"
+}

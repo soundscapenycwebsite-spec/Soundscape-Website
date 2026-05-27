@@ -1,0 +1,10 @@
+{
+  "id": "dxs15",
+  "name": "Yamaha DXS15 SUB",
+  "category": "speakers",
+  "price": 90,
+  "stock": 1,
+  "image": "assets/gear_dxs15.webp",
+  "desc": "15-inch active subwoofer, band-pass design, deep thumping bass, high-efficiency power.",
+  "unit": "unit"
+}

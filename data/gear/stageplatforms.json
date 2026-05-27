@@ -1,0 +1,10 @@
+{
+  "id": "stageplatforms",
+  "name": "4' x 4' Stage Platforms",
+  "category": "booths",
+  "price": 100,
+  "stock": 8,
+  "image": "assets/gear_stage_platform.webp",
+  "desc": "Heavy duty staging panels. Configurable height (1ft to 1.5ft). We have up to 8 panels.",
+  "unit": "panel"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "accuracy",
+  "name": "Accuracy Audio Column Array System",
+  "category": "speakers",
+  "price": 350,
+  "stock": 1,
+  "image": "assets/gear_accuracy.webp",
+  "desc": "Total column array set. Features double 10-inch subwoofers & column arrays (2000W total).",
+  "unit": "set"
+}

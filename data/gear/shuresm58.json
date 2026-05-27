@@ -1,0 +1,10 @@
+{
+  "id": "shuresm58",
+  "name": "Shure SM58 Dynamic Microphone",
+  "category": "microphones",
+  "price": 25,
+  "stock": 6,
+  "image": "assets/gear_shuresm58.webp",
+  "desc": "The legendary industry standard rugged vocal microphone. Wired setup.",
+  "unit": "unit"
+}

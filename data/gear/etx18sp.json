@@ -1,0 +1,11 @@
+{
+  "id": "etx18sp",
+  "name": "Electro-Voice ETX 18SP Subwoofer",
+  "category": "speakers",
+  "price": 120,
+  "stock": 4,
+  "image": "assets/gear_etx18sp.webp",
+  "desc": "Elite 18-inch powered concert subwoofer, 1800W, 135dB peak, deep infra-bass.",
+  "unit": "unit",
+  "tag": "Concert Sub"
+}

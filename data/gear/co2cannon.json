@@ -1,0 +1,10 @@
+{
+  "id": "co2cannon",
+  "name": "CO2 Cannon Jet (Pair)",
+  "category": "co2",
+  "price": 450,
+  "stock": 1,
+  "image": "assets/gear_co2_cannon.webp",
+  "desc": "Dual CO2 jet cannons for high-velocity cooling smoke sweeps (includes manual trigger).",
+  "tag": "Special FX"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "icoa15",
+  "name": "LD Systems ICOA 15",
+  "category": "speakers",
+  "price": 85,
+  "stock": 2,
+  "image": "assets/gear_icoa15.webp",
+  "desc": "Elite 15-inch coaxial speaker, great low-end, custom DSP, excellent multi-purpose setup.",
+  "unit": "unit"
+}

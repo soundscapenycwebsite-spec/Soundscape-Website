@@ -1,0 +1,46 @@
+{
+  "id": "pkg_talking",
+  "name": "Now we're Talking",
+  "price": 700,
+  "capacity": "Up to 400 People",
+  "featured": true,
+  "image": "assets/package_3_club.webp",
+  "features": [
+    {
+      "text": "<strong>Pioneer XDJ XZ</strong> or <strong>Alpha Theta XDJ AZ</strong>"
+    },
+    {
+      "text": "<strong>2x RCF ART 915</strong> (or FBT Ventis 112A)"
+    },
+    {
+      "text": "<strong>2x EV ETX 18SP</strong> Subs (or 2x RCF Sub 705)"
+    },
+    {
+      "text": "<strong>1x 50\" DJ Booth</strong> Premium Station"
+    },
+    {
+      "text": "All cables, stands, and wiring included"
+    },
+    {
+      "text": "Drop-off & pick-up (Setup not included)"
+    }
+  ],
+  "rawItems": [
+    {
+      "name": "Pioneer XDJ XZ / Alpha Theta AZ",
+      "qty": 1
+    },
+    {
+      "name": "RCF ART 915 / FBT Ventis 112A",
+      "qty": 2
+    },
+    {
+      "name": "EV ETX 18SP / RCF Sub 705",
+      "qty": 2
+    },
+    {
+      "name": "50\" DJ Booth",
+      "qty": 1
+    }
+  ]
+}

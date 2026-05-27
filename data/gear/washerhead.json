@@ -1,0 +1,9 @@
+{
+  "id": "washerhead",
+  "name": "Wash moving head light",
+  "category": "lighting",
+  "price": 120,
+  "stock": 4,
+  "image": "assets/gear_washerhead.webp",
+  "desc": "Scenic wide coverage wash fixture, smooth RGBW color blending."
+}

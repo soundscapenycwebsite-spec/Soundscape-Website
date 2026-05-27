@@ -1,0 +1,10 @@
+{
+  "id": "lacos_sb28",
+  "name": "L'Acoustics SB28 Subwoofer",
+  "category": "speakers",
+  "price": 150,
+  "stock": 8,
+  "image": "assets/gear_lacos_sb28.webp",
+  "desc": "Double 18-inch touring subwoofer, high-velocity reflex-loaded enclosure.",
+  "unit": "unit"
+}

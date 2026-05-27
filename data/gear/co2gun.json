@@ -1,0 +1,10 @@
+{
+  "id": "co2gun",
+  "name": "CO2 Handheld Gun/Blaster",
+  "category": "co2",
+  "price": 250,
+  "stock": 1,
+  "image": "assets/gear_co2_gun.webp",
+  "desc": "Handheld blaster gun for high-octane visual performance on stage.",
+  "tag": "Special FX"
+}

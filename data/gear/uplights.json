@@ -1,0 +1,9 @@
+{
+  "id": "uplights",
+  "name": "Scenic LED Up-Light",
+  "category": "lighting",
+  "price": 40,
+  "stock": 16,
+  "image": "assets/gear_uplight.webp",
+  "desc": "Battery-powered ambient wall wash fixture. Programmable colors. Up to 16 units available."
+}

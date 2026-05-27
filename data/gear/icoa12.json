@@ -1,0 +1,10 @@
+{
+  "id": "icoa12",
+  "name": "LD Systems ICOA 12",
+  "category": "speakers",
+  "price": 75,
+  "stock": 2,
+  "image": "assets/gear_icoa12.webp",
+  "desc": "Compact 12-inch coaxial active speaker, superb high range, durable cabinet layout.",
+  "unit": "unit"
+}

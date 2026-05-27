@@ -1,0 +1,9 @@
+{
+  "id": "steeldeckplatform",
+  "name": "Steel Deck 8' x 4' Platform",
+  "category": "booths",
+  "price": 240,
+  "stock": 1,
+  "image": "assets/gear_steeldeck_platform.webp",
+  "desc": "Professional concert height platform deck (6 inches to 1ft)."
+}

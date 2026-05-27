@@ -1,0 +1,10 @@
+{
+  "id": "laser12w",
+  "name": "12W High-Power Laser Light",
+  "category": "lighting",
+  "price": 200,
+  "stock": 1,
+  "image": "assets/gear_laser12w.webp",
+  "desc": "Club-grade aerial laser. Custom animations, geometric sweeps, intense green/RGB.",
+  "tag": "Extreme FX"
+}

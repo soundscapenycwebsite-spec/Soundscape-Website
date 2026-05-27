@@ -1,0 +1,38 @@
+{
+  "id": "pkg_just_gear",
+  "name": "JUST NEED GEAR",
+  "price": 380,
+  "capacity": "Up to 150 People",
+  "image": "assets/package_1_gear.webp",
+  "features": [
+    {
+      "text": "<strong>Pioneer RX3</strong> All-in-One Controller"
+    },
+    {
+      "text": "<strong>2x QSC K12.2</strong> Active Speakers (2000W)"
+    },
+    {
+      "text": "<strong>1x 41\" DJ Booth</strong> Compact Station"
+    },
+    {
+      "text": "All cables, stands, and wiring included"
+    },
+    {
+      "text": "Drop-off & pick-up (Setup not included)"
+    }
+  ],
+  "rawItems": [
+    {
+      "name": "Pioneer RX3 Controller",
+      "qty": 1
+    },
+    {
+      "name": "QSC K12.2 Active Speaker",
+      "qty": 2
+    },
+    {
+      "name": "41\" DJ Booth",
+      "qty": 1
+    }
+  ]
+}

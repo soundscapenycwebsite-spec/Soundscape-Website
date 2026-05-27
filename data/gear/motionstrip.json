@@ -1,0 +1,9 @@
+{
+  "id": "motionstrip",
+  "name": "Motion Strip LED Light",
+  "category": "lighting",
+  "price": 120,
+  "stock": 12,
+  "image": "assets/gear_motionstrip.webp",
+  "desc": "Motorized linear tilt bar with intense individual LED beam controls."
+}

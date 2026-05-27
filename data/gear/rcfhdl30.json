@@ -1,0 +1,11 @@
+{
+  "id": "rcfhdl30",
+  "name": "RCF HDL 30-A Full Line Array System",
+  "category": "arrays",
+  "price": 0,
+  "stock": 1,
+  "image": "assets/gear_rcfhdl30.webp",
+  "desc": "Complete stadium-grade line array. Standard configuration: 16x RCF HDL 30A array modules and 10x RCF V221-S subwoofers. Includes on-site sound/audio tech.",
+  "isQuoteRequired": true,
+  "tag": "Stadium Grade"
+}

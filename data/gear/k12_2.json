@@ -1,0 +1,10 @@
+{
+  "id": "k12_2",
+  "name": "QSC K12.2 Active Speaker",
+  "category": "speakers",
+  "price": 85,
+  "stock": 4,
+  "image": "assets/gear_k12_2.webp",
+  "desc": "Industry-standard 2000W active speaker, pristine digital DSP, flexible coverage.",
+  "unit": "unit"
+}

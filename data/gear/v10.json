@@ -1,0 +1,10 @@
+{
+  "id": "v10",
+  "name": "Pioneer DJM V10 Mixer",
+  "category": "backline",
+  "price": 240,
+  "stock": 1,
+  "image": "assets/gear_v10.webp",
+  "desc": "Elite 6-channel mixer featuring warm studio sound, built-in 4-band EQs, compressor, and expansive routing.",
+  "tag": "Ultra High-End"
+}

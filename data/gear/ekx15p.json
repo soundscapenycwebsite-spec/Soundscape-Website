@@ -1,0 +1,10 @@
+{
+  "id": "ekx15p",
+  "name": "Electro-Voice EKX 15P",
+  "category": "speakers",
+  "price": 85,
+  "stock": 2,
+  "image": "assets/gear_ekx15p.webp",
+  "desc": "15-inch powered speaker, QuickSmartDSP, high-efficiency Class-D amplifier up to 134dB.",
+  "unit": "unit"
+}

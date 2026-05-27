@@ -1,0 +1,10 @@
+{
+  "id": "cdj3000",
+  "name": "Pioneer CDJ 3000",
+  "category": "backline",
+  "price": 150,
+  "stock": 8,
+  "image": "assets/gear_cdj3000.webp",
+  "desc": "Flagship professional multi-player deck with advanced MPU, MQA sound support, gigabit LAN.",
+  "tag": "Flagship"
+}

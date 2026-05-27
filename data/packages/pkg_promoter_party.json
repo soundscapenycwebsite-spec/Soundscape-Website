@@ -1,0 +1,53 @@
+{
+  "id": "pkg_promoter_party",
+  "name": "PROMOTER PARTY",
+  "price": 1850,
+  "capacity": "Up to 800 People",
+  "image": "assets/package_5_festival.webp",
+  "features": [
+    {
+      "text": "<strong>3x Pioneer CDJ 3000</strong> & <strong>A9 Mixer</strong>"
+    },
+    {
+      "text": "<strong>2x RCF NXL 44A</strong> or <strong>4x RCF HDL 30 Line Array</strong>"
+    },
+    {
+      "text": "<strong>2x Double 21\" B&C Subs</strong> or <strong>2x Double 18\" RCF Subs</strong>"
+    },
+    {
+      "text": "<strong>2x QSC K12.2</strong> (Booth monitors / Satellites)"
+    },
+    {
+      "text": "<strong>59\" DJ Booth</strong> Premium Wide Station"
+    },
+    {
+      "text": "<strong>Full Setup & Breakdown Included</strong>"
+    }
+  ],
+  "rawItems": [
+    {
+      "name": "3x CDJ 3000 & Pioneer A9 Mixer",
+      "qty": 1
+    },
+    {
+      "name": "RCF NXL 44A / RCF HDL 30 Array",
+      "qty": 2
+    },
+    {
+      "name": "Double 21\" B&C / Double 18\" RCF Sub",
+      "qty": 2
+    },
+    {
+      "name": "QSC K12.2 Active Speaker",
+      "qty": 2
+    },
+    {
+      "name": "59\" DJ Booth",
+      "qty": 1
+    },
+    {
+      "name": "Setup & Breakdown Service",
+      "qty": 1
+    }
+  ]
+}
