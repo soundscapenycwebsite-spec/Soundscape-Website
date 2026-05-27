@@ -1,0 +1,232 @@
+# Template Extraction Plan — Soundscape → Generic Rental Catalog
+
+## What We Built
+
+A production-ready, client-editable rental gear website with:
+- Single HTML file architecture (no framework, no build step for the site itself)
+- Decap CMS admin panel for client editing
+- 65 gear items + 5 rental packages
+- Quote builder (cart system with WhatsApp/SMS checkout)
+- Dark/light theme toggle
+- Responsive design (mobile-first)
+- Netlify deploy with auto-rebuild on CMS edits
+- $0 infrastructure cost
+
+What makes this **template-worthy**: every piece of business-specific content (branding, copy, categories, phone numbers, delivery threshold, contact methods) is hardcoded into `index.html`. The data layer (JSON files) is already cleanly separated and CMS-editable. The **design system and app logic** are completely reusable.
+
+---
+
+## What to Extract vs. What to Rip Out
+
+### KEEP — Template Core (Reusable)
+
+| Component | Location | What It Does |
+|-----------|----------|--------------|
+| Design token system | `index.html` lines 35-53 | Light/dark theme variables, colors, fonts, spacing |
+| Glass panel system | `index.html` CSS `.glass-panel` | Frosted glass card effect |
+| Responsive grid | `index.html` CSS `.gear-grid`, `.packages-grid` | CSS Grid product layouts |
+| Theme toggle | `index.html` JS `toggleTheme()` | Light/dark mode with localStorage persistence |
+| Category tabs | `index.html` JS `renderTabs()` + `selectCategory()` | Dynamic category filter tabs |
+| Search/filter | `index.html` JS `handleSearch()` | Real-time search across name + description |
+| Product card rendering | `index.html` JS `renderGear()` | Dynamic product cards with image, price, badges, add-to-cart |
+| Package card rendering | `index.html` JS `renderPackages()` | Package cards with features list, capacity, price |
+| Cart/quote drawer | `index.html` JS `toggleDrawer()`, `renderCart()`, `addGearToCart()`, `addPackageToCart()`, `updateQty()`, `removeItem()` | Slide-out cart with qty controls, subtotal, delivery threshold |
+| WhatsApp/SMS checkout | `index.html` JS `sendQuote()` | Formats cart as message, opens WhatsApp or SMS |
+| Toast notifications | `index.html` JS `showToast()` | Inline toast feedback |
+| Mobile menu | `index.html` JS `toggleMobileMenu()` | Hamburger nav for mobile |
+| Hero section | `index.html` CSS + HTML | Full-bleed hero with gradient overlay |
+| Data loading | `index.html` JS `loadData()` | Fetches JSON, error handling, retry UI |
+| Build system | `build.js` | Merges individual JSON files into combined files |
+| CMS admin | `admin/index.html` | Decap CMS with folder collections, Netlify Identity |
+| Netlify config | `netlify.toml` | Build command + publish directory |
+| CMS config | `config.yml` | Local dev CMS config |
+
+### RIP OUT — Business-Specific Content (Per-Client)
+
+| What | Where | Replace With |
+|------|-------|-------------|
+| Brand name "Soundscape NYC" | `index.html` title, logo, footer, about text, WhatsApp message | Client brand name |
+| Phone numbers (718-962-4523, 516-512-3471) | `index.html` footer, hero specs, WhatsApp link | Client phone numbers |
+| Delivery message "$350 threshold" | `index.html` drawer footer, about section | Client delivery policy |
+| About section copy | `index.html` about section | Client about text |
+| Hero headline "Experience Absolute Audio Power" | `index.html` hero section | Client headline |
+| Hero description "NYC's premium backline..." | `index.html` hero section | Client description |
+| Hero specs (65+ items, free delivery, etc.) | `index.html` hero specs items | Client's selling points |
+| Category labels | `index.html` JS `CATEGORIES` object | Client's product categories |
+| "Soundscape NYC" in copyright | `index.html` footer | Client name |
+| "Hi Soundscape NYC!" in WhatsApp message | `index.html` JS `sendQuote()` | Client greeting |
+| Gear-specific SVG icons | `index.html` JS `renderGearSVG()` | Generic icons or client's icons |
+| All product images | `assets/*.webp` | Client's product photos |
+| All product data | `data/gear/*.json`, `data/packages/*.json` | Client's product data |
+| Hero background image | `assets/hero_bg.webp` | Client's hero photo |
+| Favicon emoji `🎛` | `index.html` head | Client's favicon |
+| Meta description | `index.html` head | Client's SEO description |
+| Font choices | `index.html` Google Fonts link | Client's brand fonts |
+| Color palette (blue accent, orange glow) | `index.html` CSS variables | Client's brand colors |
+
+---
+
+## Template File Structure
+
+```
+rental-catalog-template/
+├── admin/
+│   └── index.html              ← CMS (generic — only change collections/fields)
+├── assets/
+│   ├── hero_bg.webp            ← REPLACE: client's hero photo
+│   └── (product images)        ← REPLACE: client's product photos
+├── data/
+│   ├── gear/
+│   │   └── (client items)      ← REPLACE: client's products
+│   ├── packages/
+│   │   └── (client packages)   ← REPLACE: client's packages
+│   ├── gear.json               ← AUTO-GENERATED by build.js
+│   └── packages.json            ← AUTO-GENERATED by build.js
+├── index.html                   ← Main site (REPLACE: branding, colors, copy)
+├── build.js                     ← REUSE as-is
+├── config.yml                   ← REUSE (adjust collections to match client data)
+├── netlify.toml                 ← REUSE as-is
+└── .gitignore                   ← REUSE as-is
+```
+
+---
+
+## What a Template Config File Should Look Like
+
+Create a `config.js` (or `config.json`) that externalizes all the per-client content:
+
+```javascript
+const SITE_CONFIG = {
+  brand: "Soundscape NYC",
+  tagline: "Experience Absolute Audio Power",
+  description: "NYC's premium backline, DJ decks...",
+  phones: ["718-962-4523", "516-512-3471"],
+  whatsapp: "17189624523",
+  deliveryThreshold: 350,
+  deliveryAreas: "Manhattan, Brooklyn & Queens",
+  heroImage: "assets/hero_bg.webp",
+  favicon: "🎛",
+  fonts: {
+    display: "Plus Jakarta Sans",
+    body: "Inter"
+  },
+  colors: {
+    accent: "#007AFF",
+    glow: "#FF4D00",
+    // ... all CSS variables
+  },
+  categories: {
+    all: "All Equipment",
+    backline: "Backline & Mixers",
+    // ... client's categories
+  },
+  footer: {
+    copyright: "Soundscape NYC",
+    links: [
+      { label: "Instagram", url: "..." },
+      // ...
+    ]
+  }
+};
+```
+
+Then replace every hardcoded string in `index.html` with a reference to `SITE_CONFIG`. This makes onboarding a new client a matter of editing one config file + dropping in their images and data.
+
+---
+
+## Template Variants to Build
+
+### 1. Rental Catalog (Current)
+- Gear/items with daily rates
+- Package bundles
+- Quote builder → WhatsApp/SMS
+- Categories + search
+- Use case: event rentals, equipment hire, tool libraries
+
+### 2. Product Catalog (No pricing)
+- Remove cart/quote system
+- Remove pricing display
+- Keep categories + search + detail view
+- Use case: product showcases, portfolios, menus
+
+### 3. Service Catalog
+- Replace "daily rate" with hourly/project pricing
+- Add booking calendar integration
+- Remove stock tracking
+- Use case: consulting, salon, fitness classes
+
+### 4. Real Estate Listings
+- Replace categories with property types
+- Add map integration
+- Remove cart, add "Schedule Viewing"
+- Use case: property listings, vacation rentals
+
+---
+
+## Steps to Create the Template
+
+### Phase 1: Externalize Configuration
+1. Create `config.js` with all per-client content
+2. Replace all hardcoded strings in `index.html` with `SITE_CONFIG` references
+3. Replace all hardcoded CSS variables with config-driven values
+4. Make categories dynamic (driven from data, not hardcoded in JS)
+
+### Phase 2: Make Data Schema Configurable
+1. Make the CMS field definitions match whatever's in `config.js`
+2. Make catalog card layout adapt to available fields (hide price if not present, hide stock if not present)
+3. Make package features format configurable (HTML allowed vs. plain text)
+
+### Phase 3: Make Checkout Configurable
+1. Add config option: `checkoutMethod: "whatsapp" | "email" | "form" | "link"`
+2. Add config for WhatsApp number, email address, or form endpoint
+3. Make delivery threshold and delivery areas configurable
+4. Make the "quote required" behavior optional per item
+
+### Phase 4: Polish & Document
+1. Remove all Soundscape-specific content and images
+2. Add placeholder images (generic product silhouettes)
+3. Add sample data (3 categories, 6 items, 2 packages)
+4. Write README with setup instructions:
+   - Fork repo
+   - Edit `config.js`
+   - Drop in product images
+   - Edit CMS collections if needed
+   - Deploy to Netlify
+   - Enable Identity + Git Gateway
+   - Invite client
+
+### Phase 5: Stretch Goals
+1. Image optimization pipeline in `build.js` (auto WebP + resize)
+2. SEO meta tags driven by config
+3. Open Graph image generation
+4. Sitemap generation
+5. Analytics integration (config-driven)
+6. Custom domain setup guide
+
+---
+
+## Effort Estimate
+
+| Phase | Time | Difficulty |
+|-------|------|-----------|
+| Phase 1: Externalize config | 4-6 hours | Medium |
+| Phase 2: Flexible schema | 3-4 hours | Medium |
+| Phase 3: Configurable checkout | 2-3 hours | Easy |
+| Phase 4: Polish & document | 2-3 hours | Easy |
+| Phase 5: Stretch goals | 6-8 hours | Medium-Hard |
+| **Total** | **17-24 hours** | |
+
+---
+
+## Quick-Start Template Usage (Goal)
+
+```
+1. Fork the template repo
+2. Edit config.js with your brand info
+3. Drop product images into /assets/
+4. Edit products in /admin/ (Decap CMS)
+5. Deploy to Netlify
+6. Enable Identity + Git Gateway
+7. Invite yourself
+8. Done. Client can now edit everything via /admin/
+```
