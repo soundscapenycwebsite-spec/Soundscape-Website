@@ -6,7 +6,7 @@
   "metaDescription": "Premium CDJ, mixer, speaker, and lighting rentals in NYC. Free delivery on orders over $350 across Manhattan, Brooklyn, Queens, Long Island, New Jersey & Connecticut. A security deposit is required on all rentals.",
 
   "hero": {
-    "badge": "Summer 2026 Collection",
+    "badge": "",
     "title": "Experience <span>Absolute Audio Power</span>",
     "desc": "NYC's premium backline, DJ decks, concert active systems, and professional lighting equipment curated for high-end club promoters and private events.",
     "ctas": [
@@ -74,7 +74,7 @@
     "totalLabel": "Estimated Total",
     "clipboardBtnLabel": "Copy Quote for Text Booking",
     "callBtnLabel": "Call to Book Rig",
-    "disclaimer": "* Rates exclude connection/installation. Sound tech included on Line Arrays only. Security deposit required on all rentals.",
+    "disclaimer": "* Installation/connection not included unless quoted. Free delivery on orders $350+. Security deposit required on all rentals.",
     "cartQuotePriceLabel": "Price on Request",
     "cartPricePeriod": "/ day"
   },
@@ -89,9 +89,9 @@
     "description": "Premium backline rentals, concert sound systems, and spectacular lighting solutions for NYC's elite nightlife venues, club promoters, and festival rigs.",
     "serviceAreaHeader": "Service Area",
     "serviceArea": [
-      { "item": "Downtown Brooklyn" },
-      { "item": "All of Manhattan" },
-      { "item": "All of Queens" },
+      { "item": "Brooklyn" },
+      { "item": "Manhattan" },
+      { "item": "Queens" },
       { "item": "Long Island" },
       { "item": "New Jersey" },
       { "item": "Connecticut" },
@@ -99,13 +99,15 @@
     ],
     "policiesHeader": "Operating Policies",
     "policies": [
-      { "item": "* Connection/Installation is not standard" },
+      { "item": "* Installation & connection not included unless stated in quote" },
       { "item": "* Line Array pricing requires phone check" },
       { "item": "* Sound technician included with Line Arrays" },
       { "item": "* Standard equipment is drop-off/pick up only" },
       { "item": "* Security deposit required on all rentals" }
     ],
     "copyright": "Soundscape NYC",
-    "tagline": "Designed with Apple-grade precision."
+    "tagline": "Proudly Made by <a href=\"https://www.blacklisttech.com\" target=\"_blank\" style=\"color:var(--accent);text-decoration:none\">Blacklist Tech</a> For Soundscape NYC",
+    "email": "bookings@soundscape.nyc",
+    "socialLinks": []
   }
 }

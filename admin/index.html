@@ -34,8 +34,9 @@
             format: "json",
             slug: "{{id}}",
             identifier_field: "id",
+            summary: "{{name}} — ${{price}}/day",
             fields: [
-              { label: "ID", name: "id", widget: "string" },
+              { label: "ID", name: "id", widget: "string", pattern: ["^[a-z0-9-]+$", "Lowercase letters, numbers, and hyphens only"] },
               { label: "Name", name: "name", widget: "string" },
               { label: "Category", name: "category", widget: "select", options: ["backline","standalone","speakers","medium","arrays","booths","lighting","microphones","co2","monitors"] },
               { label: "Daily Rate", name: "price", widget: "number", value_type: "int", min: 0 },
@@ -58,8 +59,9 @@
             format: "json",
             slug: "{{id}}",
             identifier_field: "id",
+            summary: "{{name}} — ${{price}} ({{capacity}})",
             fields: [
-              { label: "ID", name: "id", widget: "string" },
+              { label: "ID", name: "id", widget: "string", pattern: ["^[a-z0-9-]+$", "Lowercase letters, numbers, and hyphens only"] },
               { label: "Name", name: "name", widget: "string" },
               { label: "Price", name: "price", widget: "number", value_type: "int" },
               { label: "Capacity", name: "capacity", widget: "string" },
@@ -223,6 +225,7 @@
                     collapsed: true,
                     fields: [
                       { label: "Description", name: "description", widget: "text" },
+                      { label: "Email", name: "email", widget: "string" },
                       { label: "Service Area Header", name: "serviceAreaHeader", widget: "string" },
                       { label: "Service Area Items", name: "serviceArea", widget: "list", fields: [
                         { label: "Item", name: "item", widget: "string" }

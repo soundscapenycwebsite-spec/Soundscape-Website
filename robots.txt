@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /data/
+Allow: /
+Sitemap: https://soundscape.nyc/sitemap.xml

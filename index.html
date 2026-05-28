@@ -5,12 +5,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title id="pageTitle">Soundscape NYC | Premium Backline & Sound System Rentals</title>
   <meta name="description" id="metaDesc" content="Premium CDJ, mixer, speaker, and lighting rentals in NYC. Free delivery on orders over $350 across Manhattan, Brooklyn, Queens, Long Island, New Jersey & Connecticut.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎛</text></svg>">
-  
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#007AFF">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎛</text></svg>">
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- SEO -->
+  <link rel="canonical" href="https://soundscape.nyc/">
+  <meta property="og:title" content="Soundscape NYC | Premium DJ & Sound System Rentals in NYC">
+  <meta property="og:description" content="Rent CDJ-3000s, Pioneer mixers, RCF speakers, lighting, staging & more. Free delivery on orders $350+ across Manhattan, Brooklyn, Queens, Long Island, NJ & CT.">
+  <meta property="og:image" content="https://soundscape.nyc/assets/hero_bg.webp">
+  <meta property="og:url" content="https://soundscape.nyc/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Soundscape NYC">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Soundscape NYC premium DJ and sound equipment rentals">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Soundscape NYC | Premium DJ & Sound System Rentals">
+  <meta name="twitter:description" content="Rent CDJ-3000s, Pioneer mixers, speakers, lighting & more. Free delivery $350+.">
+  <meta name="twitter:image" content="https://soundscape.nyc/assets/hero_bg.webp">
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://soundscape.nyc/#localbusiness",
+    "name": "Soundscape NYC",
+    "url": "https://soundscape.nyc/",
+    "image": "https://soundscape.nyc/assets/hero_bg.webp",
+    "description": "Premium DJ equipment, backline, and sound system rentals in NYC",
+    "telephone": ["+1-718-962-4523", "+1-516-512-3471"],
+    "areaServed": ["Manhattan", "Brooklyn", "Queens", "Long Island", "New Jersey", "Connecticut"],
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "NYC Metro Area",
+      "addressLocality": "New York",
+      "addressRegion": "NY",
+      "postalCode": "10001",
+      "addressCountry": "US"
+    }
+  }
+</script>
+
   <!-- Blocking theme script: prevents flash of wrong theme on load -->
   <script>
     (function(){
-      var t = localStorage.getItem('soundscape-theme') || 'light';
+      var t = localStorage.getItem('soundscape-theme') || 
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
       document.documentElement.setAttribute('data-theme', t);
     })();
   </script>
@@ -37,12 +79,13 @@
       --panel: rgba(255, 255, 255, 0.75);
       --accent: #007AFF; /* Apple Blue */
       --accent-rgb: 0, 122, 255;
+      --error-rgb: 255, 69, 58;
       --glow-orange: #FF4D00; /* Concert Amber/Orange */
       --glow-orange-rgb: 255, 77, 0;
       --success: #34C759;
       --error: #FF453A;
       --text: #1D1D1F;
-      --text-muted: #6E6E73;
+      --text-muted: #5D5D61;
       --text-dark: #86868B;
       --border: rgba(0, 0, 0, 0.08);
       --border-focus: rgba(0, 122, 255, 0.4);
@@ -58,6 +101,7 @@
       padding: 0;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      scrollbar-width: thin; scrollbar-color: #C7C7CC #E8E8ED;
     }
 
     body {
@@ -66,6 +110,7 @@
       font-family: var(--font-body);
       overflow-x: hidden;
       line-height: 1.5;
+      transition: background-color 0.3s, color 0.3s;
     }
 
     /* CUSTOM SCROLLBAR */
@@ -109,6 +154,25 @@
       box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.9);
     }
 
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      background: var(--accent);
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-family: var(--font-header);
+      font-weight: 600;
+      font-size: 14px;
+      z-index: 10000;
+      text-decoration: none;
+      transition: top 0.2s;
+    }
+    .skip-link:focus {
+      top: 16px;
+    }
+
     /* ---- Buttons ---- */
     .btn {
       display: inline-flex;
@@ -124,10 +188,15 @@
       transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
       border: none;
       text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .btn:active:not(:disabled) {
       transform: scale(0.97);
+    }
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
     }
 
     .btn-primary {
@@ -141,10 +210,24 @@
       filter: brightness(1.1);
     }
 
-    .btn-secondary {
+.btn-secondary {
       background: rgba(0, 0, 0, 0.05);
       color: var(--text);
       border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    .btn-secondary:hover {
+      background: rgba(0, 0, 0, 0.08);
+      border-color: rgba(0, 0, 0, 0.16);
+    }
+
+    .hero .btn-secondary {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .hero .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.35);
     }
 
     .btn-secondary:hover {
@@ -164,7 +247,7 @@
     }
 
     .btn-sm {
-      padding: 8px 16px;
+      padding: 10px 18px;
       font-size: 13px;
       border-radius: 8px;
     }
@@ -208,7 +291,7 @@
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
       padding: 20px 0;
-      transition: all 0.3s ease;
+      transition: all 0.3s ease, background-color 0.3s, border-color 0.3s;
     }
 
     header.scrolled {
@@ -228,6 +311,9 @@
       align-items: center;
       gap: 12px;
       cursor: pointer;
+    }
+    .logo-container:hover .logo-main {
+      color: var(--accent);
     }
 
     .logo-icon {
@@ -333,7 +419,7 @@
       color: var(--accent);
     }
 
-    .cart-count {
+.cart-count {
       position: absolute;
       top: -6px;
       right: -6px;
@@ -349,19 +435,51 @@
       align-items: center;
       justify-content: center;
       padding: 0 4px;
-      box-shadow: 0 0 10px rgba(255, 77, 0, 0.5);
+      box-shadow: 0 0 10px rgba(var(--glow-orange-rgb), 0.5);
+    }
+    .cart-count.bounce {
+      animation: cartCountBounce 0.35s ease;
+    }
+    @keyframes cartCountBounce {
+      0% { transform: scale(1); }
+      30% { transform: scale(1.5); }
+      60% { transform: scale(0.9); }
+      100% { transform: scale(1); }
     }
 
     /* ---- Hero Section ---- */
-    .hero {
+.hero {
       position: relative;
       padding: 120px 0 160px 0;
       overflow: hidden;
       background: linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.75) 100%),
                   url('assets/hero_bg.webp') no-repeat center center / cover;
+      animation: heroKenBurns 30s infinite alternate ease-in-out;
+    }
+    @keyframes heroKenBurns {
+      from { background-size: 100% auto, cover; }
+      to { background-size: 108% auto, cover; }
     }
 
-    .hero-content {
+    .scroll-indicator {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      animation: scrollBounce 2s infinite;
+    }
+    .scroll-indicator svg {
+      width: 24px;
+      height: 24px;
+      fill: rgba(255, 255, 255, 0.6);
+    }
+    @keyframes scrollBounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.6; }
+      50% { transform: translateX(-50%) translateY(8px); opacity: 1; }
+    }
+
+.hero-content {
       position: relative;
       z-index: 2;
       display: flex;
@@ -377,7 +495,7 @@
 
     .hero-title {
       font-family: var(--font-display);
-      font-size: 72px;
+      font-size: clamp(2.25rem, 5vw + 1rem, 4.5rem);
       font-weight: 800;
       letter-spacing: -2px;
       line-height: 1.05;
@@ -390,6 +508,7 @@
       background: linear-gradient(to right, #ffffff, var(--glow-orange));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .hero-desc {
@@ -658,6 +777,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 30px;
+      min-height: 400px;
     }
 
     @media (max-width: 1024px) {
@@ -690,11 +810,11 @@
     .package-visual {
       background: linear-gradient(135deg, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0.00) 100%);
       border-radius: 12px;
-      height: 160px;
       margin-bottom: 20px;
       position: relative;
       border: 1px solid rgba(0, 0, 0, 0.06);
       overflow: hidden;
+      aspect-ratio: 400 / 240;
     }
 
     .package-visual img {
@@ -712,6 +832,7 @@
     .package-card.featured {
       border: 1px solid rgba(var(--glow-orange-rgb), 0.25);
       box-shadow: 0 8px 32px rgba(255, 77, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      overflow: visible;
     }
 
     .package-card.featured::before {
@@ -721,13 +842,14 @@
       right: -30px;
       background: var(--glow-orange);
       color: white;
-      font-size: 9px;
+      font-size: 10px;
       font-weight: 700;
       font-family: var(--font-header);
       text-transform: uppercase;
       padding: 4px 30px;
       transform: rotate(45deg);
       letter-spacing: 1px;
+      z-index: 1;
     }
 
     .package-name {
@@ -805,6 +927,28 @@
       width: 100%;
     }
 
+    /* ---- Skeleton Loading ---- */
+    .skeleton {
+      background: linear-gradient(90deg, var(--border) 25%, rgba(200,200,200,0.15) 50%, var(--border) 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+      border-radius: 8px;
+    }
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+    .sk-card {
+      border-radius: 20px; border: 1px solid var(--border); background: var(--panel);
+      padding: 24px; display: flex; flex-direction: column; height: 100%;
+    }
+    .sk-card .sk-img { height: 140px; margin-bottom: 16px; border-radius: 12px; }
+    .sk-card .sk-line { height: 14px; margin-bottom: 10px; }
+    .sk-card .sk-line.w85 { width: 85%; }
+    .sk-card .sk-line.w60 { width: 60%; }
+    .sk-card .sk-line.w45 { width: 45%; }
+    .sk-card .sk-line.w30 { width: 30%; }
+
     /* ---- Gear Catalog Section ---- */
     .catalog {
       padding: 100px 0;
@@ -863,6 +1007,18 @@
       overflow-x: auto;
       padding-bottom: 8px;
       -webkit-overflow-scrolling: touch;
+      position: relative;
+    }
+    .tabs-scroll-container::after {
+      content: '';
+      position: sticky;
+      right: 0;
+      top: 0;
+      width: 40px;
+      height: 100%;
+      background: linear-gradient(to right, transparent, var(--bg));
+      pointer-events: none;
+      flex-shrink: 0;
     }
 
     .tabs-wrapper {
@@ -920,7 +1076,7 @@
     }
 
     .gear-card {
-      border-radius: 16px;
+      border-radius: 20px;
       border: 1px solid var(--border);
       background: var(--panel);
       padding: 24px;
@@ -938,11 +1094,18 @@
       transform: translateY(-4px);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     }
+.gear-card:active { transform: translateY(-2px) scale(0.98); transition: transform 0.1s; }
+    @keyframes cardEnter {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .gear-card {
+      animation: cardEnter 0.4s ease-out both;
+    }
 
     .gear-visual {
       background: linear-gradient(135deg, rgba(0,0,0,0.01) 0%, rgba(0,0,0,0.00) 100%);
       border-radius: 12px;
-      height: 140px;
       margin-bottom: 16px;
       display: flex;
       align-items: center;
@@ -950,6 +1113,7 @@
       position: relative;
       border: 1px solid rgba(0, 0, 0, 0.05);
       overflow: hidden;
+      aspect-ratio: 400 / 280;
     }
 
     .gear-visual img {
@@ -1012,7 +1176,7 @@
     }
 
     .gear-desc {
-      font-size: 12px;
+      font-size: 14px;
       color: var(--text-muted);
       margin-bottom: 16px;
       flex-grow: 1;
@@ -1033,7 +1197,7 @@
     }
 
     .gear-price-label {
-      font-size: 10px;
+      font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 1px;
       color: var(--text-muted);
@@ -1127,6 +1291,33 @@
       pointer-events: auto;
     }
 
+    /* ---- Lightbox ---- */
+    .lightbox-overlay {
+      position: fixed; inset: 0; z-index: 1100;
+      background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(8px);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s;
+    }
+    .lightbox-overlay.open { opacity: 1; pointer-events: auto; }
+    .lightbox-modal {
+      background: var(--panel); border: 1px solid var(--border); border-radius: 20px;
+      max-width: 600px; width: calc(100% - 32px); max-height: 90vh; overflow-y: auto;
+      padding: 32px; position: relative; box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      transform: scale(0.95); transition: transform 0.3s;
+    }
+    .lightbox-overlay.open .lightbox-modal { transform: scale(1); }
+    .lightbox-close {
+      position: absolute; top: 16px; right: 16px; background: rgba(0,0,0,0.06);
+      border: none; width: 44px; height: 44px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 18px; color: var(--text-muted); transition: all 0.2s;
+    }
+    .lightbox-close:hover { background: rgba(var(--error-rgb,255,69,58), 0.12); color: var(--error); }
+    .lightbox-modal img { width: 100%; border-radius: 12px; margin-bottom: 20px; object-fit: contain; max-height: 350px; }
+    .lightbox-modal h3 { font-family: var(--font-header); font-size: 22px; margin-bottom: 8px; }
+    .lightbox-modal .lb-desc { color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 16px; }
+    .lightbox-modal .lb-meta { display: flex; gap: 16px; margin-bottom: 20px; font-size: 13px; }
+
     .drawer-header {
       padding: 24px;
       border-bottom: 1px solid var(--border);
@@ -1215,7 +1406,7 @@
     }
 
     .cart-item-type {
-      font-size: 10px;
+      font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
       color: var(--text-muted);
@@ -1250,8 +1441,8 @@
       color: var(--text-muted);
       font-size: 15px;
       cursor: pointer;
-      width: 16px;
-      height: 16px;
+      width: 44px;
+      height: 44px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1279,6 +1470,8 @@
       align-items: center;
       justify-content: center;
       transition: color 0.2s;
+      width: 44px;
+      height: 44px;
     }
 
     .btn-remove:hover {
@@ -1387,7 +1580,7 @@
     footer {
       padding: 80px 0 40px 0;
       border-top: 1px solid var(--border);
-      background: #FFFFFF;
+      background: var(--bg);
       position: relative;
     }
 
@@ -1546,10 +1739,12 @@
     }
 
     /* ---- Responsive: Tablet ---- */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+
+    /* ---- Responsive: Tablet ---- */
     @media (min-width: 769px) and (max-width: 1024px) {
-      .hero-title {
-        font-size: 54px;
-      }
       .about-grid {
         gap: 30px;
       }
@@ -1590,9 +1785,8 @@
       .hero {
         padding: 80px 0 100px 0;
       }
-      .hero-title {
-        font-size: 38px !important;
-        letter-spacing: -1px;
+      .about, .packages, .catalog {
+        padding: 60px 0;
       }
       .hero-desc {
         font-size: 15px !important;
@@ -1675,7 +1869,7 @@
       }
       
       .gear-desc {
-        font-size: 11px;
+        font-size: 13px;
       }
       
       .gear-price {
@@ -1751,8 +1945,8 @@
       --bg: #030303;
       --panel: rgba(18, 18, 18, 0.7);
       --text: #FFFFFF;
-      --text-muted: #8E8E93;
-      --text-dark: #48484A;
+      --text-muted: #A1A1A6;
+      --text-dark: #8E8E93;
       --border: rgba(255, 255, 255, 0.08);
     }
 
@@ -1763,6 +1957,7 @@
 
     [data-theme="dark"] ::-webkit-scrollbar-track { background: #08080a; }
     [data-theme="dark"] ::-webkit-scrollbar-thumb { background: #2c2c2e; }
+[data-theme="dark"] * { scrollbar-color: #2c2c2e #08080a; }
 
     [data-theme="dark"] .glass-panel {
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
@@ -1791,7 +1986,7 @@
     }
 
     [data-theme="dark"] .hero {
-      background: linear-gradient(180deg, rgba(3, 3, 3, 0.5) 0%, rgba(3, 3, 3, 0.98) 100%),
+      background: linear-gradient(180deg, rgba(3, 3, 3, 0.5) 0%, rgba(3, 3, 3, 0.85) 100%),
                   url('assets/hero_bg.webp') no-repeat center center / cover;
     }
 
@@ -1834,7 +2029,7 @@
 
     [data-theme="dark"] .gear-card:hover {
       border-color: rgba(255, 255, 255, 0.12);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 10px 30px rgba(255, 255, 255, 0.06);
     }
 
     [data-theme="dark"] .gear-visual {
@@ -1925,12 +2120,39 @@
     [data-theme="dark"] .mobile-nav-links a.active {
       color: #fff;
     }
+    [data-theme="dark"] .skeleton { background: linear-gradient(90deg, rgba(255,255,255,0.05) 25%, rgba(255,255,255,0.12) 50%, rgba(255,255,255,0.05) 75%); background-size: 200% 100%; }
+    [data-theme="dark"] .sk-card { border-color: rgba(255,255,255,0.06); background: rgba(18,18,18,0.5); }
 
     [data-theme="dark"] .toast {
       background: rgba(20, 20, 20, 0.9);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
       color: #fff;
     }
+
+    /* ---- Focus Indicators ---- */
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+    .lightbox-close:focus-visible,
+    .btn-close:focus-visible,
+    .cart-trigger:focus-visible,
+    .btn-remove:focus-visible {
+      border-radius: 50%;
+    }
+
+    /* ---- Sticky Mobile CTA ---- */
+    .mobile-cta-bar {
+      display: none;
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 150;
+      background: var(--panel); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-top: 1px solid var(--border); padding: 12px 16px;
+      gap: 12px; box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+    }
+    .mobile-cta-bar .btn { flex: 1; font-size: 14px; padding: 12px 16px; }
+    @media (max-width: 768px) { .mobile-cta-bar { display: flex; } }
+    [data-theme="dark"] .mobile-cta-bar { background: rgba(14,14,17,0.92); box-shadow: 0 -4px 20px rgba(0,0,0,0.4); }
 
     /* ---- Theme Toggle Button ---- */
     .theme-toggle {
@@ -1955,11 +2177,12 @@
   </style>
 </head>
 <body>
+  <a href="#catalog" class="skip-link">Skip to catalog</a>
 
   <!-- TOAST CONTAINER -->
-  <div class="toast-container" id="toastContainer"></div>
+  <div class="toast-container" id="toastContainer" role="status" aria-live="polite"></div>
 
-  <!-- NAVIGATION HEADER -->
+<!-- NAVIGATION HEADER -->
   <header id="mainHeader">
     <div class="container nav-wrapper">
       <div class="logo-container" onclick="scrollToSection('hero')">
@@ -1970,7 +2193,7 @@
         </div>
       </div>
       
-      <nav class="nav-links">
+      <nav class="nav-links" id="navLinks" role="navigation" aria-label="Main navigation">
         <a href="#about" onclick="scrollToSection('about')">About</a>
         <a href="#packages" onclick="scrollToSection('packages')">Packages</a>
         <a href="#catalog" onclick="scrollToSection('catalog')">Gear Catalog</a>
@@ -1981,16 +2204,16 @@
         </a>
 
         <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark/light theme" aria-label="Toggle theme">
-          <span class="theme-icon">🌙</span>
+          <span class="theme-icon"></span>
         </button>
 
         <button class="cart-trigger" onclick="toggleDrawer(true)" aria-label="Open cart">
           <svg class="icon-svg" style="width:20px;height:20px;stroke-width:2;" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" /></svg>
           <div class="cart-count" id="cartCount">0</div>
         </button>
+      </nav>
 
-      <!-- Hamburger Menu Icon -->
-      <div class="menu-toggle" id="menuToggle" onclick="toggleMobileMenu()">
+      <div class="menu-toggle" id="menuToggle" onclick="toggleMobileMenu()" role="button" tabindex="0" aria-label="Open menu" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
@@ -2006,7 +2229,7 @@
       <a href="#catalog" onclick="toggleMobileMenu(); scrollToSection('catalog')">Gear Catalog</a>
       <div id="mobilePhoneLinks"></div>
       <button class="theme-toggle" onclick="toggleTheme(); toggleMobileMenu();" style="margin-top:16px; font-size:18px;" title="Toggle theme" aria-label="Toggle theme">
-        <span class="theme-icon">🌙</span>
+        <span class="theme-icon"></span>
         <span style="margin-left:8px; font-family:var(--font-header); font-size:14px;">Toggle Theme</span>
       </button>
     </div>
@@ -2015,7 +2238,7 @@
   <!-- HERO SECTION -->
   <section class="hero" id="hero">
     <div class="hero-glow"></div>
-    <div class="container hero-content">
+    <div class="container hero-content" id="heroContent">
       <div class="hero-label" id="heroBadge">
         <span class="badge badge-accent">Summer 2026 Collection</span>
       </div>
@@ -2032,12 +2255,10 @@
 
       <div class="hero-specs" id="heroSpecs">
         <div class="hero-specs-item">
-          <!-- Information/Check Icon -->
           <svg style="width:16px;height:16px;fill:var(--accent)" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
           Free Delivery: <span>Orders $350+</span>
         </div>
         <div class="hero-specs-item">
-          <!-- Map/Signal Icon -->
           <svg style="width:16px;height:16px;fill:var(--accent)" viewBox="0 0 24 24"><path d="M12 2c-4 0-8.05 1.6-11 4.7L12 22 23 6.7C20.05 3.6 16 2 12 2zm0 17.5L3 7.8c2.4-2.2 5.5-3.3 9-3.3s6.6 1.1 9 3.3L12 19.5z"/></svg>
           Service Area: <span>Manhattan, Brooklyn, Queens, Long Island, NJ & CT</span>
         </div>
@@ -2046,6 +2267,9 @@
           Deposit Required
         </div>
       </div>
+    </div>
+    <div class="scroll-indicator" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
     </div>
   </section>
 
@@ -2101,8 +2325,10 @@
         <h2 class="section-title" id="packagesTitle">Pre-Configured Sound Packages</h2>
       </div>
       
-      <div class="packages-grid" id="packagesGrid">
-        <!-- Rendered dynamically by Javascript -->
+<div class="packages-grid" id="packagesGrid">
+        <div class="sk-card"><div class="skeleton sk-img"></div><div class="skeleton sk-line w85"></div><div class="skeleton sk-line w60"></div><div class="skeleton sk-line w45"></div></div>
+        <div class="sk-card"><div class="skeleton sk-img"></div><div class="skeleton sk-line w85"></div><div class="skeleton sk-line w60"></div><div class="skeleton sk-line w45"></div></div>
+        <div class="sk-card"><div class="skeleton sk-img"></div><div class="skeleton sk-line w85"></div><div class="skeleton sk-line w60"></div><div class="skeleton sk-line w45"></div></div>
       </div>
     </div>
   </section>
@@ -2119,7 +2345,7 @@
         <div class="catalog-search-row">
           <div class="search-input-wrapper">
             <svg class="search-icon" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-            <input type="text" class="search-input" id="gearSearch" placeholder="Search decks, speakers, subwoofers, lasers..." oninput="handleSearch()">
+            <input type="text" class="search-input" id="gearSearch" placeholder="Search decks, speakers, subwoofers, lasers..." oninput="handleSearch()" aria-label="Search equipment catalog">
           </div>
           <span class="catalog-count" id="catalogCount">0 products found</span>
         </div>
@@ -2131,8 +2357,15 @@
         </div>
       </div>
       
-      <div class="gear-grid" id="gearGrid">
-        <!-- Rendered dynamically by Javascript -->
+<div class="gear-grid" id="gearGrid">
+        <div class="sk-card"><div class="skeleton sk-img"></div><div class="skeleton sk-line w30" style="height:16px;border-radius:4px;margin-bottom:12px"></div><div class="skeleton sk-line w85" style="height:18px;margin-bottom:6px"></div><div class="skeleton sk-line w60"></div><div class="skeleton sk-line w45" style="height:16px"></div></div>
+        <div class="sk-card"><div class="skeleton sk-img"></div><div class="skeleton sk-line w30" style="height:16px;border-radius:4px;margin-bottom:12px"></div><div class="skeleton sk-line w85" style="height:18px;margin-bottom:6px"></div><div class="skeleton sk-line w60"></div><div class="skeleton sk-line w45" style="height:16px"></div></div>
+        <div class="sk-card"><div class="skeleton sk-img"></div><div class="skeleton sk-line w30" style="height:16px;border-radius:4px;margin-bottom:12px"></div><div class="skeleton sk-line w85" style="height:18px;margin-bottom:6px"></div><div class="skeleton sk-line w60"></div><div class="skeleton sk-line w45" style="height:16px"></div></div>
+        <div class="sk-card"><div class="skeleton sk-img"></div><div class="skeleton sk-line w30" style="height:16px;border-radius:4px;margin-bottom:12px"></div><div class="skeleton sk-line w85" style="height:18px;margin-bottom:6px"></div><div class="skeleton sk-line w60"></div><div class="skeleton sk-line w45" style="height:16px"></div></div>
+        <div class="sk-card"><div class="skeleton sk-img"></div><div class="skeleton sk-line w30" style="height:16px;border-radius:4px;margin-bottom:12px"></div><div class="skeleton sk-line w85" style="height:18px;margin-bottom:6px"></div><div class="skeleton sk-line w60"></div><div class="skeleton sk-line w45" style="height:16px"></div></div>
+        <div class="sk-card"><div class="skeleton sk-img"></div><div class="skeleton sk-line w30" style="height:16px;border-radius:4px;margin-bottom:12px"></div><div class="skeleton sk-line w85" style="height:18px;margin-bottom:6px"></div><div class="skeleton sk-line w60"></div><div class="skeleton sk-line w45" style="height:16px"></div></div>
+        <div class="sk-card"><div class="skeleton sk-img"></div><div class="skeleton sk-line w30" style="height:16px;border-radius:4px;margin-bottom:12px"></div><div class="skeleton sk-line w85" style="height:18px;margin-bottom:6px"></div><div class="skeleton sk-line w60"></div><div class="skeleton sk-line w45" style="height:16px"></div></div>
+        <div class="sk-card"><div class="skeleton sk-img"></div><div class="skeleton sk-line w30" style="height:16px;border-radius:4px;margin-bottom:12px"></div><div class="skeleton sk-line w85" style="height:18px;margin-bottom:6px"></div><div class="skeleton sk-line w60"></div><div class="skeleton sk-line w45" style="height:16px"></div></div>
       </div>
     </div>
   </section>
@@ -2140,8 +2373,16 @@
   <!-- DRAWER OVERLAY -->
   <div class="drawer-overlay" id="drawerOverlay" onclick="toggleDrawer(false)"></div>
 
+  <!-- LIGHTBOX -->
+  <div class="lightbox-overlay" id="lightboxOverlay" role="dialog" aria-modal="true" aria-label="Gear detail" onclick="closeLightbox(event)">
+    <div class="lightbox-modal" id="lightboxModal" onclick="event.stopPropagation()">
+      <button class="lightbox-close" onclick="closeLightbox()">&#10005;</button>
+      <div id="lightboxContent"></div>
+    </div>
+  </div>
+
   <!-- SHOPPING CART / QUOTE DRAWER -->
-  <div class="quote-drawer" id="quoteDrawer">
+  <div class="quote-drawer" id="quoteDrawer" role="dialog" aria-modal="true" aria-label="Quote cart">
     <div class="drawer-header">
       <h3 id="drawerTitle">Rental Cart & Quote Builder</h3>
       <button class="btn-close" onclick="toggleDrawer(false)">✕</button>
@@ -2219,9 +2460,9 @@
       <div class="footer-col">
         <h4 id="footerServiceAreaHeader">Service Area</h4>
         <ul class="footer-links" id="footerServiceArea" style="color:var(--text-muted);font-size:14px;line-height:1.8;">
-          <li>Downtown Brooklyn</li>
-          <li>All of Manhattan</li>
-          <li>All of Queens</li>
+          <li>Brooklyn</li>
+          <li>Manhattan</li>
+          <li>Queens</li>
           <li>Long Island</li>
           <li>New Jersey</li>
           <li>Connecticut</li>
@@ -2306,29 +2547,29 @@
     function applySettings() {
       var s = SETTINGS;
       // Title & meta
-      document.getElementById('pageTitle').textContent = s.brand + ' | ' + s.tagline;
-      document.getElementById('metaDesc').setAttribute('content', s.metaDescription);
+      var el = document.getElementById('pageTitle'); if (el) el.textContent = s.brand + ' | ' + s.tagline;
+      el = document.getElementById('metaDesc'); if (el) el.setAttribute('content', s.metaDescription);
 
       // Logo
-      document.getElementById('logoIcon').textContent = s.brandInitial;
-      document.getElementById('logoMain').textContent = s.brand.split(' ')[0];
-      document.getElementById('logoSub').textContent = s.brandSub;
-      document.getElementById('flogoIcon').textContent = s.brandInitial;
-      document.getElementById('flogoMain').textContent = s.brand.split(' ')[0];
-      document.getElementById('flogoSub').textContent = s.brandSub;
+      el = document.getElementById('logoIcon'); if (el) el.textContent = s.brandInitial;
+      el = document.getElementById('logoMain'); if (el) el.textContent = s.brand.split(' ')[0];
+      el = document.getElementById('logoSub'); if (el) el.textContent = s.brandSub;
+      el = document.getElementById('flogoIcon'); if (el) el.textContent = s.brandInitial;
+      el = document.getElementById('flogoMain'); if (el) el.textContent = s.brand.split(' ')[0];
+      el = document.getElementById('flogoSub'); if (el) el.textContent = s.brandSub;
 
       // Hero
       var heroBadgeEl = document.getElementById('heroBadge');
       if (heroBadgeEl) heroBadgeEl.innerHTML = s.hero.badge ? '<span class="badge badge-accent">' + s.hero.badge + '</span>' : '';
-      document.getElementById('heroTitle').innerHTML = s.hero.title;
-      document.getElementById('heroDesc').innerHTML = s.hero.desc;
+      el = document.getElementById('heroTitle'); if (el) el.innerHTML = s.hero.title;
+      el = document.getElementById('heroDesc'); if (el) el.innerHTML = s.hero.desc;
 
       // Hero CTAs
       var ctaHTML = '';
       (s.hero.ctas || []).forEach(function(cta) {
         ctaHTML += '<button class="btn btn-' + (cta.style || 'primary') + '" onclick="scrollToSection(\'' + (cta.action || 'catalog') + '\')">' + cta.label + '</button>';
       });
-      document.getElementById('heroCtas').innerHTML = ctaHTML;
+      el = document.getElementById('heroCtas'); if (el) el.innerHTML = ctaHTML;
 
       // Hero specs
       var specsHTML = '';
@@ -2336,14 +2577,14 @@
         var iconSVG = getHeroSpecIcon(spec.icon);
         specsHTML += '<div class="hero-specs-item">' + iconSVG + (spec.label || '') + (spec.value ? ': <span>' + spec.value + '</span>' : '') + '</div>';
       });
-      document.getElementById('heroSpecs').innerHTML = specsHTML;
+      el = document.getElementById('heroSpecs'); if (el) el.innerHTML = specsHTML;
 
       // About
-      document.getElementById('aboutTag').textContent = s.about.tag;
-      document.getElementById('aboutTitle').textContent = s.about.title;
-      document.getElementById('aboutSubtitle').textContent = s.about.subtitle;
-      document.getElementById('aboutBodyFirst').textContent = s.about.bodyFirst;
-      document.getElementById('aboutBodySecond').textContent = s.about.bodySecond;
+      el = document.getElementById('aboutTag'); if (el) el.textContent = s.about.tag;
+      el = document.getElementById('aboutTitle'); if (el) el.textContent = s.about.title;
+      el = document.getElementById('aboutSubtitle'); if (el) el.textContent = s.about.subtitle;
+      el = document.getElementById('aboutBodyFirst'); if (el) el.textContent = s.about.bodyFirst;
+      el = document.getElementById('aboutBodySecond'); if (el) el.textContent = s.about.bodySecond;
 
       // About features
       var featHTML = '';
@@ -2351,32 +2592,32 @@
         var fIcon = getFeatureIcon(f.icon);
         featHTML += '<div class="about-feature-card"><div class="feature-icon-wrapper">' + fIcon + '</div><h4>' + f.title + '</h4><p>' + f.desc + '</p></div>';
       });
-      document.getElementById('aboutFeatures').innerHTML = featHTML;
+      el = document.getElementById('aboutFeatures'); if (el) el.innerHTML = featHTML;
 
       // Section headers
-      document.getElementById('packagesTag').textContent = s.sections.packagesTag;
-      document.getElementById('packagesTitle').textContent = s.sections.packagesTitle;
-      document.getElementById('catalogTag').textContent = s.sections.catalogTag;
-      document.getElementById('catalogTitle').textContent = s.sections.catalogTitle;
+      el = document.getElementById('packagesTag'); if (el) el.textContent = s.sections.packagesTag;
+      el = document.getElementById('packagesTitle'); if (el) el.textContent = s.sections.packagesTitle;
+      el = document.getElementById('catalogTag'); if (el) el.textContent = s.sections.catalogTag;
+      el = document.getElementById('catalogTitle'); if (el) el.textContent = s.sections.catalogTitle;
 
       // Contact phones in nav
-      document.getElementById('navPhonePill').setAttribute('href', 'tel:' + s.contact.contactPhone);
-      document.getElementById('navPhonePillText').textContent = (s.contact.phones && s.contact.phones.length > 0 ? s.contact.phones[0].display : '');
+      var np = document.getElementById('navPhonePill'); if (np) np.setAttribute('href', 'tel:' + s.contact.contactPhone);
+      var npt = document.getElementById('navPhonePillText'); if (npt) npt.textContent = (s.contact.phones && s.contact.phones.length > 0 ? s.contact.phones[0].display : '');
 
       // Mobile nav phones
       var mPhoneHTML = '';
       (s.contact.phones || []).forEach(function(p) {
         mPhoneHTML += '<a href="tel:' + p.tel + '" class="phone-pill" style="margin-top:8px; font-size:16px; display:flex !important;"><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:var(--glow-orange)"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>' + p.display + ' (' + p.label + ')</a>';
       });
-      document.getElementById('mobilePhoneLinks').innerHTML = mPhoneHTML;
+      el = document.getElementById('mobilePhoneLinks'); if (el) el.innerHTML = mPhoneHTML;
 
       // Drawer labels
-      document.getElementById('drawerTitle').textContent = s.drawer.title;
-      document.getElementById('subtotalLabel').textContent = s.drawer.subtotalLabel;
-      document.getElementById('deliveryLabel').textContent = s.drawer.deliveryLabel;
-      document.getElementById('totalLabel').textContent = s.drawer.totalLabel;
-      document.getElementById('clipboardBtnLabel').textContent = s.drawer.clipboardBtnLabel;
-      document.getElementById('callBtnLabel').textContent = s.drawer.callBtnLabel;
+      el = document.getElementById('drawerTitle'); if (el) el.textContent = s.drawer.title;
+      el = document.getElementById('subtotalLabel'); if (el) el.textContent = s.drawer.subtotalLabel;
+      el = document.getElementById('deliveryLabel'); if (el) el.textContent = s.drawer.deliveryLabel;
+      el = document.getElementById('totalLabel'); if (el) el.textContent = s.drawer.totalLabel;
+      el = document.getElementById('clipboardBtnLabel'); if (el) el.textContent = s.drawer.clipboardBtnLabel;
+      el = document.getElementById('callBtnLabel'); if (el) el.textContent = s.drawer.callBtnLabel;
       var callBtnLink = document.getElementById('callBtnLink');
       if (callBtnLink) callBtnLink.setAttribute('href', 'tel:' + s.contact.contactPhone);
 
@@ -2385,37 +2626,40 @@
       if (depositSpan) depositSpan.textContent = s.delivery.notice;
 
       // Disclaimer
-      document.getElementById('drawerDisclaimer').textContent = s.drawer.disclaimer;
+      el = document.getElementById('drawerDisclaimer'); if (el) el.textContent = s.drawer.disclaimer;
 
       // Search placeholder
-      document.getElementById('gearSearch').setAttribute('placeholder', s.catalog.searchPlaceholder);
+      el = document.getElementById('gearSearch'); if (el) el.setAttribute('placeholder', s.catalog.searchPlaceholder);
 
       // Footer
-      document.getElementById('footerDesc').textContent = s.footer.description;
-      document.getElementById('footerServiceAreaHeader').textContent = s.footer.serviceAreaHeader;
-      document.getElementById('footerPoliciesHeader').textContent = s.footer.policiesHeader;
-      document.getElementById('footerCopyright').textContent = s.footer.copyright;
-      document.getElementById('footerTagline').textContent = s.footer.tagline;
+      el = document.getElementById('footerDesc'); if (el) el.textContent = s.footer.description;
+      el = document.getElementById('footerServiceAreaHeader'); if (el) el.textContent = s.footer.serviceAreaHeader;
+      el = document.getElementById('footerPoliciesHeader'); if (el) el.textContent = s.footer.policiesHeader;
+      el = document.getElementById('footerCopyright'); if (el) el.textContent = s.footer.copyright;
+      el = document.getElementById('footerTagline'); if (el) el.innerHTML = s.footer.tagline;
 
       // Footer columns
       var saHTML = '';
       (s.footer.serviceArea || []).forEach(function(item) {
         saHTML += '<li>' + (typeof item === 'string' ? item : item.item) + '</li>';
       });
-      document.getElementById('footerServiceArea').innerHTML = saHTML;
+      el = document.getElementById('footerServiceArea'); if (el) el.innerHTML = saHTML;
 
       var polHTML = '';
       (s.footer.policies || []).forEach(function(item) {
         polHTML += '<li>' + (typeof item === 'string' ? item : item.item) + '</li>';
       });
-      document.getElementById('footerPolicies').innerHTML = polHTML;
+      el = document.getElementById('footerPolicies'); if (el) el.innerHTML = polHTML;
 
       // Footer phones
       var fPhoneHTML = '';
       (s.contact.phones || []).forEach(function(p) {
         fPhoneHTML += '<a href="tel:' + p.tel + '" class="footer-phone-link"><svg style="width:16px;height:16px;fill:var(--glow-orange)" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>' + p.display + ' (' + p.label + ')</a>';
       });
-      document.getElementById('footerPhones').innerHTML = fPhoneHTML;
+      if (s.footer.email) {
+        fPhoneHTML += '<a href="mailto:' + s.footer.email + '" class="footer-phone-link"><svg style="width:16px;height:16px;fill:var(--glow-orange)" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>' + s.footer.email + '</a>';
+      }
+      el = document.getElementById('footerPhones'); if (el) el.innerHTML = fPhoneHTML;
     }
 
     function getHeroSpecIcon(icon) {
@@ -2531,7 +2775,7 @@
           <div>
             ${pkg.image ? `
               <div class="package-visual">
-                <img src="${pkg.image}" alt="${pkg.name}">
+                <img src="${pkg.image}" alt="${pkg.name}" loading="lazy" width="400" height="240">
               </div>
             ` : ''}
             <h3 class="package-name">${pkg.name}</h3>
@@ -2552,6 +2796,14 @@
                 </li>
               `).join('')}
             </ul>
+            ${pkg.rawItems && pkg.rawItems.length ? `
+            <details class="rig-details">
+              <summary style="cursor:pointer;font-family:var(--font-header);font-size:13px;color:var(--text-muted);font-weight:500">What's in this rig</summary>
+              <ul style="list-style:none;margin-top:8px;font-size:12px;color:var(--text-muted);line-height:1.8">
+                ${pkg.rawItems.map(ri => `<li><span style="font-weight:600;color:var(--text)">${ri.qty}x</span> ${ri.name}</li>`).join('')}
+              </ul>
+            </details>
+            ` : ''}
           </div>
           <button class="btn btn-primary package-action" onclick="addPackageToCart('${pkg.id}')">${SETTINGS.packages.addBtn}</button>
         </div>
@@ -2578,7 +2830,7 @@
         return matchesCategory && matchesSearch;
       });
 
-      document.getElementById('catalogCount').innerText = `${filtered.length} products found`;
+      var cc = document.getElementById('catalogCount'); if (cc) { cc.innerText = `${filtered.length} products found`; cc.setAttribute('aria-live', 'polite'); }
 
       if (filtered.length === 0) {
         grid.innerHTML = `
@@ -2589,17 +2841,17 @@
         return;
       }
 
-      grid.innerHTML = filtered.map(item => `
-        <div class="gear-card">
+      grid.innerHTML = filtered.map((item, i) => `
+        <div class="gear-card" onclick="openLightbox('${item.id}')" style="cursor:pointer;animation-delay:${i * 0.05}s">
           <div>
             <div class="gear-visual">
               ${item.image ? `
-                <img src="${item.image}" alt="${item.name}" onerror="this.style.display='none'; this.parentElement.querySelector('.fallback-svg').style.display='flex';">
-              ` : ''}
+                <img src="${item.image}" alt="${item.name}" loading="lazy" width="400" height="280" onerror="this.style.display='none'; this.parentElement.querySelector('.fallback-svg').style.display='flex';">
+` : `<div class="package-visual" style="display:flex;align-items:center;justify-content:center"><svg style="width:48px;height:48px;fill:var(--text-muted);opacity:0.25" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v3.01c0 .72.43 1.34 1 1.69V20c0 1.1 1.1 2 2 2h14c.9 0 2-.9 2-2V8.7c.57-.35 1-.97 1-1.69V5c0-1.1-.9-2-2-2zm-5 12H9v-2h6v2zm5-7H4V5h16v2z"/></svg></div>`}
               <div class="fallback-svg" style="display:${item.image ? 'none' : 'flex'}; width:100%; height:100%; align-items:center; justify-content:center;">
                 ${renderGearSVG(item.category)}
               </div>
-              ${item.tag ? `<span class="badge badge-accent" style="position:absolute;top:10px;left:10px;font-size:8px;padding:2px 6px;z-index:2;">${item.tag}</span>` : ''}
+              ${item.tag ? `<span class="badge badge-accent" style="position:absolute;top:10px;left:10px;font-size:10px;padding:3px 8px;z-index:2;">${item.tag}</span>` : ''}
             </div>
             <div class="gear-meta">
               <span class="gear-stock">${item.stock > 0 ? SETTINGS.catalog.inStock.replace('{stock}', item.stock) : SETTINGS.catalog.limitedStock}</span>
@@ -2616,7 +2868,7 @@
                 <span class="gear-price">$${item.price}${item.unit ? ` <span style="font-size:10px;font-weight:400;color:var(--text-muted)">/${item.unit}</span>` : ''}</span>
               `}
             </div>
-            <button class="btn-add" onclick="addGearToCart('${item.id}')" title="Add to Quote">
+            <button class="btn-add" onclick="event.stopPropagation(); addGearToCart('${item.id}')" title="Add to Quote">
               <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
             </button>
           </div>
@@ -2687,25 +2939,35 @@
     }
 
     // ---- Search handler ----
+    var searchTimeout;
     function handleSearch() {
-      searchQuery = document.getElementById('gearSearch').value;
-      renderGear();
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(function() {
+        searchQuery = document.getElementById('gearSearch').value;
+        renderGear();
+      }, 250);
     }
 
     // ---- Cart drawer actions ----
     function toggleDrawer(open) {
-      const drawer = document.getElementById('quoteDrawer');
-      const overlay = document.getElementById('drawerOverlay');
+      var drawer = document.getElementById('quoteDrawer');
+      var overlay = document.getElementById('drawerOverlay');
       if (open) {
-        drawer.classList.add('open');
-        overlay.classList.add('open');
-        document.body.style.overflow = 'hidden';
-        renderCart();
+        drawer.classList.add('open'); overlay.classList.add('open');
+        document.body.style.overflow = 'hidden'; renderCart();
+        drawer.setAttribute('aria-modal', 'true');
+        var cartBtn = document.getElementById('cartCount'); if (cartBtn) cartBtn.closest('button')?.setAttribute('aria-expanded', 'true');
+        setTimeout(function() {
+          var closeBtn = drawer.querySelector('.btn-close'); if (closeBtn) closeBtn.focus();
+        }, 100);
       } else {
-        drawer.classList.remove('open');
-        overlay.classList.remove('open');
+        drawer.classList.remove('open'); overlay.classList.remove('open');
         document.body.style.overflow = '';
+        drawer.setAttribute('aria-modal', 'false');
+        var cartBtn = document.getElementById('cartCount'); if (cartBtn) cartBtn.closest('button')?.setAttribute('aria-expanded', 'false');
       }
+var ctaBar = document.getElementById('mobileCtaBar');
+if (ctaBar) ctaBar.style.display = open ? 'none' : '';
     }
 
     // ---- Mobile menu actions ----
@@ -2714,8 +2976,58 @@
       const mobileNav = document.getElementById('mobileNav');
       const isOpen = mobileNav.classList.toggle('open');
       toggle.classList.toggle('active');
+      toggle.setAttribute('aria-expanded', isOpen.toString());
+      toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
       document.body.style.overflow = isOpen ? 'hidden' : '';
     }
+
+    // ---- Lightbox ----
+    function openLightbox(gearId) {
+      const gear = GEAR_CATALOG.find(g => g.id === gearId);
+      if (!gear) return;
+      const content = document.getElementById('lightboxContent');
+      content.innerHTML = `
+        ${gear.image ? `<img src="${gear.image}" alt="${gear.name}">` : `<div class="skeleton sk-img" style="height:250px"></div>`}
+        ${gear.tag ? `<span class="badge badge-accent">${gear.tag}</span>` : ''}
+        <h3>${gear.name}</h3>
+        <p class="lb-desc">${gear.desc}</p>
+        <div class="lb-meta">
+          <span class="badge badge-primary">${gear.stock > 0 ? SETTINGS.catalog.inStock.replace('{stock}', gear.stock) : SETTINGS.catalog.limitedStock}</span>
+          <span style="color:var(--text-muted)">Category: ${CATEGORIES[gear.category] || gear.category}</span>
+        </div>
+        <div class="gear-footer" style="border:none;padding-top:0;margin-bottom:16px">
+          <div class="gear-price-block">
+            <span class="gear-price-label">${SETTINGS.catalog.priceLabel}</span>
+            ${gear.isQuoteRequired ? `<span class="gear-price quote-required">${SETTINGS.catalog.quotePriceLabel}</span>` : `<span class="gear-price">$${gear.price}</span>`}
+          </div>
+        </div>
+        <button class="btn btn-primary" style="width:100%" onclick="addGearToCart('${gear.id}'); closeLightbox()">
+          Add to Quote
+        </button>
+      `;
+      document.getElementById('lightboxOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      setTimeout(function() {
+        var closeBtn = document.getElementById('lightboxOverlay').querySelector('.lightbox-close');
+        if (closeBtn) closeBtn.focus();
+      }, 100);
+    }
+    function closeLightbox(e) {
+      if (e && e.target !== document.getElementById('lightboxOverlay')) return;
+      document.getElementById('lightboxOverlay').classList.remove('open');
+      var drawer = document.getElementById('quoteDrawer');
+      if (!drawer || !drawer.classList.contains('open')) {
+        document.body.style.overflow = '';
+      }
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        var lightbox = document.getElementById('lightboxOverlay');
+        var drawer = document.getElementById('quoteDrawer');
+        if (lightbox && lightbox.classList.contains('open')) { closeLightbox(); }
+        else if (drawer && drawer.classList.contains('open')) { toggleDrawer(false); }
+      }
+    });
 
     // ---- Cart logic ----
     function addPackageToCart(pkgId) {
@@ -2765,7 +3077,14 @@
 
     function updateCartCount() {
       const totalQty = cart.reduce((acc, item) => acc + item.qty, 0);
-      document.getElementById('cartCount').innerText = totalQty;
+      const countEl = document.getElementById('cartCount');
+      if (!countEl) return;
+      countEl.innerText = totalQty;
+      countEl.style.display = totalQty === 0 ? 'none' : 'flex';
+      if (totalQty > 0) {
+        countEl.classList.add('bounce');
+        setTimeout(() => countEl.classList.remove('bounce'), 350);
+      }
     }
 
     function updateQty(itemId, amt) {
@@ -2932,15 +3251,17 @@
     function getTheme() {
       const saved = localStorage.getItem('soundscape-theme');
       if (saved) return saved;
-      return 'light'; // Always default to light
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     }
 
-    function applyTheme(theme) {
+function applyTheme(theme) {
       document.documentElement.setAttribute('data-theme', theme);
-      document.querySelectorAll('.theme-icon').forEach(icon => {
-        icon.textContent = theme === 'dark' ? '☀️' : '🌙';
+      document.querySelectorAll('.theme-icon').forEach(function(icon) {
+        icon.textContent = theme === 'dark' ? '\u2600\uFE0F' : '\uD83C\uDF19';
       });
       localStorage.setItem('soundscape-theme', theme);
+      var mc = document.querySelector('meta[name="theme-color"]');
+      if (mc) mc.setAttribute('content', theme === 'dark' ? '#030303' : '#007AFF');
     }
 
     function toggleTheme() {
@@ -2974,5 +3295,14 @@
       });
     }
   </script>
+
+  <!-- STICKY MOBILE CTA -->
+  <div class="mobile-cta-bar" id="mobileCtaBar">
+    <a href="tel:7189624523" class="btn btn-primary">
+      <svg style="width:16px;height:16px;fill:currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+      Call Now
+    </a>
+    <button class="btn btn-accent" onclick="scrollToSection('catalog')">Browse Gear</button>
+  </div>
 </body>
 </html>
