@@ -43,10 +43,10 @@
 
   "contact": {
     "phones": [
-      { "display": "718-962-4523", "label": "Primary", "tel": "7189624523" },
-      { "display": "516-512-3471", "label": "Secondary", "tel": "5165123471" }
+      { "display": "516-512-3471", "label": "Primary", "tel": "5165123471" },
+      { "display": "718-962-4523", "label": "Secondary", "tel": "7189624523" }
     ],
-    "contactPhone": "7189624523"
+    "contactPhone": "5165123471"
   },
 
   "delivery": {
