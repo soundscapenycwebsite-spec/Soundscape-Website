@@ -69,6 +69,33 @@
       "desc": "Stadium-grade beam fixture, extremely narrow aperture, razor-sharp light beams."
     },
     {
+      "id": "booth_41_compact",
+      "name": "41\" DJ Booth Compact Station",
+      "category": "booths",
+      "price": 75,
+      "stock": 3,
+      "image": "assets/gear_command_booth.webp",
+      "desc": "Compact 41-inch DJ booth with lightweight aluminum frame. Ideal for intimate venues, rooftop sets, and mobile setups."
+    },
+    {
+      "id": "booth_50_premium",
+      "name": "50\" DJ Booth Premium Station",
+      "category": "booths",
+      "price": 100,
+      "stock": 4,
+      "image": "assets/gear_command_booth.webp",
+      "desc": "Premium 50-inch DJ booth with reinforced steel construction. Professional-grade for club and mid-size events."
+    },
+    {
+      "id": "booth_59_wide",
+      "name": "59\" DJ Booth Premium Wide Station",
+      "category": "booths",
+      "price": 150,
+      "stock": 2,
+      "image": "assets/gear_steeldeck_booth.webp",
+      "desc": "Wide 59-inch premium DJ booth with full steel deck construction. Built for large-scale festivals and headline performances."
+    },
+    {
       "id": "cdj2000",
       "name": "Pioneer CDJ 2000 NX2",
       "category": "backline",
@@ -505,7 +532,7 @@
     {
       "id": "totem6ft",
       "name": "6 Feet Lighting Totem",
-      "category": "co2",
+      "category": "lighting",
       "price": 40,
       "stock": 2,
       "image": "assets/gear_truss_totem.webp",
@@ -514,7 +541,7 @@
     {
       "id": "totem8ft",
       "name": "8 Feet Lighting Totem",
-      "category": "co2",
+      "category": "lighting",
       "price": 50,
       "stock": 4,
       "image": "assets/gear_truss_totem.webp",
