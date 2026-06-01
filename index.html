@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title id="pageTitle">Soundscape NYC | Premium Backline & Sound System Rentals</title>
-  <meta name="description" id="metaDesc" content="Premium CDJ, mixer, speaker, and lighting rentals in NYC. Free delivery on orders over $350 across Manhattan, Brooklyn, Queens, Long Island, New Jersey & Connecticut.">
+  <meta name="description" id="metaDesc" content="Rent Pioneer CDJ-3000s, speakers, subwoofers, lighting, DJ booths & CO2 effects in NYC. Trusted by club promoters, DJs & event planners across Manhattan, Brooklyn, Queens, Long Island, NJ & CT. Free delivery on orders $350+.">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#007AFF">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎛</text></svg>">
@@ -13,7 +13,7 @@
   <!-- SEO -->
   <link rel="canonical" href="https://soundscape.nyc/">
   <meta property="og:title" content="Soundscape NYC | Premium DJ & Sound System Rentals in NYC">
-  <meta property="og:description" content="Rent CDJ-3000s, Pioneer mixers, RCF speakers, lighting, staging & more. Free delivery on orders $350+ across Manhattan, Brooklyn, Queens, Long Island, NJ & CT.">
+  <meta property="og:description" content="Rent CDJ-3000s, Pioneer mixers, RCF speakers, subs, lighting rigs, DJ booths & staging in NYC. Free delivery $350+ across Manhattan, Brooklyn, Queens, Long Island, NJ & CT.">
   <meta property="og:image" content="https://soundscape.nyc/assets/hero_bg.webp">
   <meta property="og:url" content="https://soundscape.nyc/">
   <meta property="og:type" content="website">
@@ -23,7 +23,7 @@
   <meta property="og:image:alt" content="Soundscape NYC premium DJ and sound equipment rentals">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Soundscape NYC | Premium DJ & Sound System Rentals">
-  <meta name="twitter:description" content="Rent CDJ-3000s, Pioneer mixers, speakers, lighting & more. Free delivery $350+.">
+  <meta name="twitter:description" content="Rent CDJ-3000s, Pioneer mixers, RCF speakers, subs, lighting rigs & DJ booths in NYC. Free delivery $350+.">
   <meta name="twitter:image" content="https://soundscape.nyc/assets/hero_bg.webp">
 <script type="application/ld+json">
   {
@@ -1264,6 +1264,19 @@
       .quote-drawer {
         width: 100%;
         right: -100%;
+        height: 100dvh;
+        height: -webkit-fill-available;
+        padding-bottom: env(safe-area-inset-bottom, 0);
+      }
+      .drawer-footer {
+        flex-shrink: 0;
+        padding-bottom: calc(24px + env(safe-area-inset-bottom, 0));
+        z-index: 1;
+        background: rgba(255, 255, 255, 0.95);
+      }
+      .drawer-body {
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
       }
     }
 
@@ -2177,7 +2190,7 @@
   </style>
 </head>
 <body>
-  <a href="#catalog" class="skip-link">Skip to catalog</a>
+  <a href="#mainContent" class="skip-link">Skip to content</a>
 
   <!-- TOAST CONTAINER -->
   <div class="toast-container" id="toastContainer" role="status" aria-live="polite"></div>
@@ -2234,9 +2247,10 @@
       </button>
     </div>
   </div>
+  <main id="mainContent">
 
   <!-- HERO SECTION -->
-  <section class="hero" id="hero">
+  <section class="hero" id="hero" role="img" aria-label="Professional DJ and sound equipment setup at a live event in New York City, featuring Pioneer CDJ decks, speakers, and stage lighting">
     <div class="hero-glow"></div>
     <div class="container hero-content" id="heroContent">
       <div class="hero-label" id="heroBadge">
@@ -2433,6 +2447,7 @@
     </div>
   </div>
 
+  </main>
   <!-- FOOTER -->
   <footer>
     <div class="container footer-grid">
@@ -2458,7 +2473,7 @@
       </div>
       
       <div class="footer-col">
-        <h4 id="footerServiceAreaHeader">Service Area</h4>
+        <h3 id="footerServiceAreaHeader">Service Area</h3>
         <ul class="footer-links" id="footerServiceArea" style="color:var(--text-muted);font-size:14px;line-height:1.8;">
           <li>Brooklyn</li>
           <li>Manhattan</li>
@@ -2471,7 +2486,7 @@
       </div>
 
       <div class="footer-col">
-        <h4 id="footerPoliciesHeader">Operating Policies</h4>
+        <h3 id="footerPoliciesHeader">Operating Policies</h3>
         <ul class="footer-links" id="footerPolicies" style="color:var(--text-muted);font-size:14px;line-height:1.8;">
           <li>* Connection/Installation is not standard</li>
           <li>* Line Array pricing requires phone check</li>
@@ -2978,8 +2993,8 @@
         drawer.setAttribute('aria-modal', 'false');
         var cartBtn = document.getElementById('cartCount'); if (cartBtn) cartBtn.closest('button')?.setAttribute('aria-expanded', 'false');
       }
-var ctaBar = document.getElementById('mobileCtaBar');
-if (ctaBar) ctaBar.style.display = open ? 'none' : '';
+      var ctaBar = document.getElementById('mobileCtaBar');
+      if (ctaBar) ctaBar.style.display = open ? 'none' : '';
     }
 
     // ---- Mobile menu actions ----
