@@ -60,7 +60,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" crossorigin="anonymous">
   
   <style>
     /*
@@ -2541,6 +2541,7 @@
     </div>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.6/purify.min.js" integrity="sha384-+VfUPEb0PdtChMwmBcBmykRMDd+v6D/oFmB3rZM/puCMDYcIvF968OimRh4KQY9a" crossorigin="anonymous"></script>
   <!-- SCRIPT FOR WEB APP LOGIC -->
   <script>
     // Category display labels for the catalog filter tabs
@@ -2613,14 +2614,18 @@
 
       // Hero
       var heroBadgeEl = document.getElementById('heroBadge');
-      if (heroBadgeEl) heroBadgeEl.innerHTML = s.hero.badge ? '<span class="badge badge-accent">' + s.hero.badge + '</span>' : '';
-      el = document.getElementById('heroTitle'); if (el) el.innerHTML = s.hero.title;
-      el = document.getElementById('heroDesc'); if (el) el.innerHTML = s.hero.desc;
+      if (heroBadgeEl) {
+        heroBadgeEl.innerHTML = s.hero.badge
+          ? '<span class="badge badge-accent">' + escapeHtml(s.hero.badge) + '</span>'
+          : '';
+      }
+      el = document.getElementById('heroTitle'); if (el) el.innerHTML = sanitizeHtml(s.hero.title);
+      el = document.getElementById('heroDesc'); if (el) el.innerHTML = sanitizeHtml(s.hero.desc);
 
       // Hero CTAs
       var ctaHTML = '';
       (s.hero.ctas || []).forEach(function(cta) {
-        ctaHTML += '<button class="btn btn-' + (cta.style || 'primary') + '" onclick="scrollToSection(\'' + (cta.action || 'catalog') + '\')">' + cta.label + '</button>';
+        ctaHTML += '<button class="btn btn-' + (cta.style || 'primary') + '" data-action="scroll-to" data-target="' + escapeHtml(cta.action || 'catalog') + '">' + escapeHtml(cta.label) + '</button>';
       });
       el = document.getElementById('heroCtas'); if (el) el.innerHTML = ctaHTML;
 
@@ -2643,7 +2648,7 @@
       var featHTML = '';
       (s.about.features || []).forEach(function(f) {
         var fIcon = getFeatureIcon(f.icon);
-        featHTML += '<div class="about-feature-card"><div class="feature-icon-wrapper">' + fIcon + '</div><h4>' + f.title + '</h4><p>' + f.desc + '</p></div>';
+        featHTML += '<div class="about-feature-card"><div class="feature-icon-wrapper">' + fIcon + '</div><h4>' + sanitizeHtml(f.title) + '</h4><p>' + sanitizeHtml(f.desc) + '</p></div>';
       });
       el = document.getElementById('aboutFeatures'); if (el) el.innerHTML = featHTML;
 
@@ -2693,18 +2698,18 @@
       el = document.getElementById('footerServiceAreaHeader'); if (el) el.textContent = s.footer.serviceAreaHeader;
       el = document.getElementById('footerPoliciesHeader'); if (el) el.textContent = s.footer.policiesHeader;
       el = document.getElementById('footerCopyright'); if (el) el.textContent = s.footer.copyright;
-      el = document.getElementById('footerTagline'); if (el) el.innerHTML = s.footer.tagline;
+      el = document.getElementById('footerTagline'); if (el) el.innerHTML = sanitizeHtml(s.footer.tagline);
 
       // Footer columns
       var saHTML = '';
       (s.footer.serviceArea || []).forEach(function(item) {
-        saHTML += '<li>' + (typeof item === 'string' ? item : item.item) + '</li>';
+        saHTML += '<li>' + escapeHtml(typeof item === 'string' ? item : item.item) + '</li>';
       });
       el = document.getElementById('footerServiceArea'); if (el) el.innerHTML = saHTML;
 
       var polHTML = '';
       (s.footer.policies || []).forEach(function(item) {
-        polHTML += '<li>' + (typeof item === 'string' ? item : item.item) + '</li>';
+        polHTML += '<li>' + escapeHtml(typeof item === 'string' ? item : item.item) + '</li>';
       });
       el = document.getElementById('footerPolicies'); if (el) el.innerHTML = polHTML;
 
@@ -2723,7 +2728,24 @@
     function escapeHtml(text) {
       if (typeof text !== 'string') return '';
       var d = document.createElement('div');
-      d.appendChild(document.createTextNode(text));
+      d.textContent = text;
+      return d.innerHTML;
+    }
+    function handleGearImgError(img) {
+      img.style.display = 'none';
+      var fb = img.parentElement.querySelector('.fallback-svg');
+      if (fb) fb.style.display = 'flex';
+    }
+    function sanitizeHtml(text) {
+      if (typeof text !== 'string') return '';
+      if (typeof DOMPurify !== 'undefined' && DOMPurify.sanitize) {
+        return DOMPurify.sanitize(text, {
+          ALLOWED_TAGS: ['strong', 'em', 'b', 'i', 'a', 'span', 'br'],
+          ALLOWED_ATTR: ['href', 'target', 'style', 'class']
+        });
+      }
+      var d = document.createElement('div');
+      d.textContent = text;
       return d.innerHTML;
     }
     function getHeroSpecIcon(icon) {
@@ -2755,22 +2777,22 @@
           fetch('data/gear.json'),
           fetch('data/packages.json')
         ]);
-        if (!gearRes.ok) { console.error('gear.json HTTP ' + gearRes.status); dataLoadError = true; }
+        if (!gearRes.ok) { if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') console.error('gear.json HTTP ' + gearRes.status); dataLoadError = true; }
         else {
           try {
             const gearData = await gearRes.json();
             GEAR_CATALOG = Array.isArray(gearData.items) ? gearData.items : (Array.isArray(gearData) ? gearData : []);
-          } catch(e) { console.error('gear.json parse error:', e); dataLoadError = true; }
+          } catch(e) { if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') console.error('gear.json parse error:', e); dataLoadError = true; }
         }
-        if (!pkgRes.ok) { console.error('packages.json HTTP ' + pkgRes.status); dataLoadError = true; }
+        if (!pkgRes.ok) { if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') console.error('packages.json HTTP ' + pkgRes.status); dataLoadError = true; }
         else {
           try {
             const pkgData = await pkgRes.json();
             PACKAGES = Array.isArray(pkgData.items) ? pkgData.items : (Array.isArray(pkgData) ? pkgData : []);
-          } catch(e) { console.error('packages.json parse error:', e); dataLoadError = true; }
+          } catch(e) { if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') console.error('packages.json parse error:', e); dataLoadError = true; }
         }
       } catch (e) {
-        console.error('Network error loading data:', e);
+        if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') console.error('Network error loading data:', e);
         dataLoadError = true;
       }
       try {
@@ -2791,7 +2813,7 @@
       if (dataLoadError || (GEAR_CATALOG.length === 0 && PACKAGES.length === 0)) {
         const grid = document.getElementById('gearGrid');
         if (grid) {
-          grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--text-muted)"><p style="font-size:18px;color:var(--error)">⚠ Unable to load gear catalog</p><p style="font-size:14px;margin-top:8px">Please try again or contact us.</p><button class="btn btn-secondary btn-sm" style="margin-top:16px" onclick="location.reload()">Retry</button></div>';
+          grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--text-muted)"><p style="font-size:18px;color:var(--error)">⚠ Unable to load gear catalog</p><p style="font-size:14px;margin-top:8px">Please try again or contact us.</p><button class="btn btn-secondary btn-sm" style="margin-top:16px" data-action="retry">Retry</button></div>';
         }
       }
     }
@@ -2874,7 +2896,7 @@
               ${pkg.features.map(function(f) { return `
                 <li>
                   <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                  <span>${typeof f === 'string' ? f : (f.text || f.feature || '')}</span>
+                  <span>${sanitizeHtml(typeof f === 'string' ? f : (f.text || f.feature || ''))}</span>
                 </li>`; }).join('')}
             </ul>
             ${pkg.rawItems && pkg.rawItems.length ? `
@@ -2886,7 +2908,7 @@
             </details>
             ` : ''}
           </div>
-          <button class="btn btn-primary package-action" onclick="addPackageToCart('${pkg.id}')">${SETTINGS.packages.addBtn}</button>
+          <button class="btn btn-primary package-action" data-action="add-package" data-pkg-id="${pkg.id}">${SETTINGS.packages.addBtn}</button>
         </div>`;
         } else {
           // Variant group — render single card with selector
@@ -2896,26 +2918,15 @@
           <div>
             <div class="variant-selector">
               ${group.map(function(v, i) { return `
-                <button class="variant-btn ${i === 0 ? 'active' : ''}" onclick="selectVariant('${groupId}', ${i}, this)">${v.variantLabel || ''}</button>`; }).join('')}
-            </div>
-            <div class="package-visual">
-              <img src="${first.image}" alt="${first.groupName || first.name}" loading="lazy" width="400" height="240">
-            </div>
-            <h3 class="package-name">${escapeHtml(first.groupName || first.name)}</h3>
-            <div class="package-capacity">
-              <svg style="width:14px;height:14px;fill:var(--accent)" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.48 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-              <span class="pkg-cap-text">${first.capacity}</span>
-            </div>
-            <div class="package-price-wrapper">
-              <span class="package-currency">$</span>
-              <span class="package-price">${first.price}</span>
+                <button class="variant-btn ${i === 0 ? 'active' : ''}" data-action="select-variant" data-group-id="${groupId}" data-variant-index="${i}">${v.variantLabel || ''}</button>`; }).join('')}
+
               <span class="package-period">${SETTINGS.catalog.pricePeriod}</span>
             </div>
             <ul class="package-features" id="pkg-feats-${groupId}">
               ${first.features.map(function(f) { return `
                 <li>
                   <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                  <span>${typeof f === 'string' ? f : (f.text || f.feature || '')}</span>
+                  <span>${sanitizeHtml(typeof f === 'string' ? f : (f.text || f.feature || ''))}</span>
                 </li>`; }).join('')}
             </ul>
             ${first.rawItems && first.rawItems.length ? `
@@ -2927,34 +2938,36 @@
             </details>
             ` : ''}
           </div>
-          <button class="btn btn-primary package-action" onclick="addPackageToCart('${first.id}')">${SETTINGS.packages.addBtn}</button>
+          <button class="btn btn-primary package-action" data-action="add-package" data-pkg-id="${first.id}">${SETTINGS.packages.addBtn}</button>
         </div>`;
         }
       }).join('');
     }
 
-    function selectVariant(groupId, idx, btn) {
-      const variants = PACKAGES.filter(function(p) { return p.variantGroup === groupId; });
-      const v = variants[idx];
-      const card = btn.closest('.package-card');
+    function selectVariant(btn) {
+      var groupId = btn.dataset.groupId;
+      var idx = parseInt(btn.dataset.variantIndex, 10);
+      var variants = PACKAGES.filter(function(p) { return p.variantGroup === groupId; });
+      var v = variants[idx];
+      var card = btn.closest('.package-card');
       if (!v || !card) return;
 
       card.querySelector('.package-visual img').src = v.image;
       card.querySelector('.package-price').textContent = v.price;
       card.querySelector('.pkg-cap-text').textContent = v.capacity;
-      const featsEl = document.getElementById('pkg-feats-' + groupId);
+      var featsEl = document.getElementById('pkg-feats-' + groupId);
       if (featsEl && v.features) {
         featsEl.innerHTML = v.features.map(function(f) {
-          return '<li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span>' + (typeof f === 'string' ? f : (f.text || f.feature || '')) + '</span></li>';
+          return '<li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span>' + sanitizeHtml(typeof f === 'string' ? f : (f.text || f.feature || '')) + '</span></li>';
         }).join('');
       }
-      const rawsEl = document.getElementById('pkg-raws-' + groupId);
+      var rawsEl = document.getElementById('pkg-raws-' + groupId);
       if (rawsEl && v.rawItems) {
         rawsEl.innerHTML = v.rawItems.map(function(ri) {
           return '<li><span style="font-weight:600;color:var(--text)">' + ri.qty + 'x</span> ' + escapeHtml(ri.name) + '</li>';
         }).join('');
       }
-      card.querySelector('.package-action').setAttribute('onclick', "addPackageToCart('" + v.id + "')");
+      card.querySelector('.package-action').dataset.pkgId = v.id;
       card.querySelectorAll('.variant-btn').forEach(function(b) { b.classList.remove('active'); });
       btn.classList.add('active');
     }
@@ -2963,7 +2976,7 @@
     function renderTabs() {
       const wrapper = document.getElementById('tabsWrapper');
       wrapper.innerHTML = Object.entries(CATEGORIES).map(([key, name]) => `
-        <button class="tab-btn ${key === currentCategory ? 'active' : ''}" onclick="selectCategory('${key}')">
+        <button class="tab-btn ${key === currentCategory ? 'active' : ''}" data-action="select-category" data-category="${key}">
           ${name}
         </button>
       `).join('');
@@ -2990,11 +3003,11 @@
         return;
       }
       grid.innerHTML = filtered.map((item, i) => `
-        <div class="gear-card" onclick="openLightbox('${item.id}')" style="cursor:pointer;animation-delay:${i * 0.05}s">
+        <div class="gear-card" data-action="open-lightbox" data-gear-id="${item.id}" style="cursor:pointer;animation-delay:${i * 0.05}s">
           <div>
             <div class="gear-visual">
               ${item.image ? `
-                <img src="${item.image}" alt="${item.name}" loading="lazy" width="400" height="280" onerror="this.style.display='none'; var fb=this.parentElement.querySelector('.fallback-svg'); if(fb)fb.style.display='flex';">
+                <img src="${item.image}" alt="${item.name}" loading="lazy" width="400" height="280" data-action="gear-img-error" onerror="handleGearImgError(this)">
 ` : ''}
               <div class="fallback-svg" style="display:${item.image ? 'none' : 'flex'}; width:100%; height:100%; align-items:center; justify-content:center;">
                 ${renderGearSVG(item.category)}
@@ -3016,7 +3029,7 @@
                 <span class="gear-price">$${item.price}${item.unit ? ` <span style="font-size:10px;font-weight:400;color:var(--text-muted)">/${item.unit}</span>` : ''}</span>
               `}
             </div>
-            <button class="btn-add" onclick="event.stopPropagation(); addGearToCart('${item.id}')" title="Add to Quote">
+            <button class="btn-add" data-action="add-gear" data-gear-id="${item.id}" title="Add to Quote">
               <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
             </button>
           </div>
@@ -3149,7 +3162,7 @@
             ${gear.isQuoteRequired ? `<span class="gear-price quote-required">${SETTINGS.catalog.quotePriceLabel}</span>` : `<span class="gear-price">$${gear.price}</span>`}
           </div>
         </div>
-        <button class="btn btn-primary" style="width:100%" onclick="addGearToCart('${gear.id}'); closeLightbox()">
+        <button class="btn btn-primary" style="width:100%" data-action="add-gear-lightbox" data-gear-id="${gear.id}">
           ${SETTINGS.packages.addBtn || 'Add to Quote'}
         </button>
       `;
@@ -3264,7 +3277,7 @@
           <div class="empty-cart-state">
             <svg viewBox="0 0 24 24"><path d="M19 6h-2c0-2.76-2.24-5-5-5S7 3.24 7 6H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-3c1.66 0 3 1.34 3 3H9c0-1.66 1.34-3 3-3zm7 17H5V8h2v2c0 .55.45 1 1 1s1-.45 1-1V8h6v2c0 .55.45 1 1 1s1-.45 1-1V8h2v12z"/></svg>
             <p>Your quote cart is empty.</p>
-            <button class="btn btn-secondary btn-sm" onclick="toggleDrawer(false); scrollToSection('catalog');">Browse Gear</button>
+            <button class="btn btn-secondary btn-sm" data-action="browse-gear">Browse Gear</button>
           </div>
         `;
         document.getElementById('subtotalVal').innerText = "$0.00";
@@ -3292,12 +3305,12 @@
               </div>
               
               <div class="cart-qty-control">
-                <button class="qty-btn" onclick="updateQty('${item.id}', -1)">−</button>
+                <button class="qty-btn" data-action="update-qty" data-item-id="${item.id}" data-delta="-1">−</button>
                 <span class="qty-val">${item.qty}</span>
-                <button class="qty-btn" onclick="updateQty('${item.id}', 1)">+</button>
+                <button class="qty-btn" data-action="update-qty" data-item-id="${item.id}" data-delta="1">+</button>
               </div>
               
-              <button class="btn-remove" onclick="removeItem('${item.id}')">
+              <button class="btn-remove" data-action="remove-item" data-item-id="${item.id}">
                 <svg viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
               </button>
             </div>
@@ -3390,7 +3403,7 @@
       copy.then(() => {
         showToast('Quote copied to clipboard! Ready to paste into SMS or WhatsApp.', 'success');
       }).catch(err => {
-        console.error('Failed to copy: ', err);
+        if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') console.error('Failed to copy: ', err);
         showToast('Could not copy automatically. Check console.', 'error');
       });
     }
@@ -3430,7 +3443,28 @@ function applyTheme(theme) {
     });
 
     // ---- Initial page load ----
-    document.addEventListener('DOMContentLoaded', () => {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js');
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('click', function(e) {
+        var target = e.target.closest('[data-action]');
+        if (!target) return;
+        var action = target.dataset.action;
+        switch (action) {
+          case 'scroll-to': scrollToSection(target.dataset.target); break;
+          case 'retry': location.reload(); break;
+          case 'select-variant': selectVariant(target); break;
+          case 'select-category': selectCategory(target.dataset.category); break;
+          case 'open-lightbox': openLightbox(target.dataset.gearId); break;
+          case 'add-gear': addGearToCart(target.dataset.gearId); break;
+          case 'add-gear-lightbox': addGearToCart(target.dataset.gearId); closeLightbox(); break;
+          case 'add-package': addPackageToCart(target.dataset.pkgId); break;
+          case 'browse-gear': toggleDrawer(false); scrollToSection('catalog'); break;
+          case 'update-qty': updateQty(target.dataset.itemId, parseInt(target.dataset.delta, 10)); break;
+          case 'remove-item': removeItem(target.dataset.itemId); break;
+        }
+      });
       loadData();
     });
   </script>

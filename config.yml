@@ -26,7 +26,7 @@ collections:
       - {label: "Daily Rate", name: "price", widget: "number", value_type: "int", min: 0}
       - {label: "Stock Qty", name: "stock", widget: "number", value_type: "int", min: 0}
       - {label: "Image", name: "image", widget: "image"}
-      - {label: "Description", name: "desc", widget: "text"}
+      - {label: "Description (HTML tags are escaped)", name: "desc", widget: "text"}
       - {label: "Unit", name: "unit", widget: "select", options: ["", "unit", "set", "panel"], required: false}
       - {label: "Tag / Badge", name: "tag", widget: "string", required: false}
       - {label: "Quote Only?", name: "isQuoteRequired", widget: "boolean", required: false, default: false}
@@ -56,7 +56,7 @@ collections:
         name: "features"
         widget: "list"
         fields:
-          - {label: "Text", name: "text", widget: "string"}
+          - {label: "Feature Text (HTML allowed: strong, em, a, span)", name: "text", widget: "string"}
       - label: "Raw Items"
         name: "rawItems"
         widget: "list"
@@ -97,7 +97,7 @@ collections:
             fields:
               - {label: "Badge Text", name: "badge", widget: "string", required: false}
               - {label: "Title (HTML allowed)", name: "title", widget: "string"}
-              - {label: "Description", name: "desc", widget: "text"}
+              - {label: "Description (HTML allowed: strong, em, a, span)", name: "desc", widget: "text"}
               - label: "CTA Buttons"
                 name: "ctas"
                 widget: "list"
@@ -122,8 +122,8 @@ collections:
               - {label: "Tag", name: "tag", widget: "string"}
               - {label: "Title", name: "title", widget: "string"}
               - {label: "Subtitle", name: "subtitle", widget: "string"}
-              - {label: "Body (First)", name: "bodyFirst", widget: "text"}
-              - {label: "Body (Second)", name: "bodySecond", widget: "text"}
+              - {label: "Body First (HTML tags are escaped)", name: "bodyFirst", widget: "text"}
+              - {label: "Body Second (HTML tags are escaped)", name: "bodySecond", widget: "text"}
               - label: "Feature Cards"
                 name: "features"
                 widget: "list"
@@ -131,7 +131,7 @@ collections:
                 fields:
                   - {label: "Icon", name: "icon", widget: "select", options: ["music", "speaker", "equipment", "delivery", "tool"]}
                   - {label: "Title", name: "title", widget: "string"}
-                  - {label: "Description", name: "desc", widget: "text"}
+              - {label: "Description (HTML allowed: strong, em, a, span)", name: "desc", widget: "text"}
           - label: "Section Headers"
             name: "sections"
             widget: "object"
@@ -195,7 +195,7 @@ collections:
             widget: "object"
             collapsed: true
             fields:
-              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Description (HTML tags are escaped)", name: "description", widget: "text"}
               - {label: "Email", name: "email", widget: "string"}
               - {label: "Service Area Header", name: "serviceAreaHeader", widget: "string"}
               - label: "Service Area Items"
