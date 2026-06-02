@@ -1,0 +1,38 @@
+{
+  "id": "pkg_chill_vibes",
+  "name": "Chill Vibes",
+  "price": 480,
+  "capacity": "Up to 200 People",
+  "image": "assets/package_7_chill_vibes.webp",
+  "features": [
+    {
+      "text": "<strong>XDJ XZ</strong> 4-Deck Controller"
+    },
+    {
+      "text": "<strong>2x LD Systems Maui 11 G3</strong> Column Array System"
+    },
+    {
+      "text": "<strong>1x 41\" DJ Booth</strong> Compact Station"
+    },
+    {
+      "text": "All cables, stands, and wiring included"
+    },
+    {
+      "text": "Drop-off & pick-up (Setup not included)"
+    }
+  ],
+  "rawItems": [
+    {
+      "name": "Pioneer XDJ XZ Controller",
+      "qty": 1
+    },
+    {
+      "name": "LD Systems Maui 11 G3 Column Array",
+      "qty": 2
+    },
+    {
+      "name": "41\" DJ Booth",
+      "qty": 1
+    }
+  ]
+}

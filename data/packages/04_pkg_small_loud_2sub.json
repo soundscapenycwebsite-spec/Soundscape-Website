@@ -1,9 +1,9 @@
 {
-  "id": "pkg_small_loud",
-  "name": "Small & LOUD",
-  "price": 520,
-  "capacity": "Up to 250 People",
-  "image": "assets/package_2_rooftop.webp",
+  "id": "pkg_small_loud_2sub",
+  "name": "Small & LOUD (2 Subs)",
+  "price": 600,
+  "capacity": "Up to 450 People",
+  "image": "assets/package_2_small_loud_2sub.webp",
   "features": [
     {
       "text": "<strong>Pioneer XDJ XZ</strong> 4-Deck Controller"
@@ -12,7 +12,7 @@
       "text": "<strong>2x RCF ART 910</strong> Active Speakers (2100W)"
     },
     {
-      "text": "<strong>1x RCF Sub 705</strong> Subwoofer (1400W)"
+      "text": "<strong>2x RCF Sub 705</strong> Subwoofers (1400W)"
     },
     {
       "text": "<strong>1x 41\" DJ Booth</strong> Premium Station"
@@ -35,7 +35,7 @@
     },
     {
       "name": "RCF Sub 705 Subwoofer",
-      "qty": 1
+      "qty": 2
     },
     {
       "name": "41\" DJ Booth",

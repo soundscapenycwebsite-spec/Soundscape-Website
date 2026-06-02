@@ -39,11 +39,49 @@
       ]
     },
     {
-      "id": "pkg_small_loud",
-      "name": "Small & LOUD",
+      "id": "pkg_chill_vibes",
+      "name": "Chill Vibes",
+      "price": 480,
+      "capacity": "Up to 200 People",
+      "image": "assets/package_7_chill_vibes.webp",
+      "features": [
+        {
+          "text": "<strong>XDJ XZ</strong> 4-Deck Controller"
+        },
+        {
+          "text": "<strong>2x LD Systems Maui 11 G3</strong> Column Array System"
+        },
+        {
+          "text": "<strong>1x 41\" DJ Booth</strong> Compact Station"
+        },
+        {
+          "text": "All cables, stands, and wiring included"
+        },
+        {
+          "text": "Drop-off & pick-up (Setup not included)"
+        }
+      ],
+      "rawItems": [
+        {
+          "name": "Pioneer XDJ XZ Controller",
+          "qty": 1
+        },
+        {
+          "name": "LD Systems Maui 11 G3 Column Array",
+          "qty": 2
+        },
+        {
+          "name": "41\" DJ Booth",
+          "qty": 1
+        }
+      ]
+    },
+    {
+      "id": "pkg_small_loud_1sub",
+      "name": "Small & LOUD (1 Sub)",
       "price": 520,
       "capacity": "Up to 250 People",
-      "image": "assets/package_2_rooftop.webp",
+      "image": "assets/package_2_small_loud_1sub.webp",
       "features": [
         {
           "text": "<strong>Pioneer XDJ XZ</strong> 4-Deck Controller"
@@ -76,6 +114,51 @@
         {
           "name": "RCF Sub 705 Subwoofer",
           "qty": 1
+        },
+        {
+          "name": "41\" DJ Booth",
+          "qty": 1
+        }
+      ]
+    },
+    {
+      "id": "pkg_small_loud_2sub",
+      "name": "Small & LOUD (2 Subs)",
+      "price": 600,
+      "capacity": "Up to 450 People",
+      "image": "assets/package_2_small_loud_2sub.webp",
+      "features": [
+        {
+          "text": "<strong>Pioneer XDJ XZ</strong> 4-Deck Controller"
+        },
+        {
+          "text": "<strong>2x RCF ART 910</strong> Active Speakers (2100W)"
+        },
+        {
+          "text": "<strong>2x RCF Sub 705</strong> Subwoofers (1400W)"
+        },
+        {
+          "text": "<strong>1x 41\" DJ Booth</strong> Premium Station"
+        },
+        {
+          "text": "All cables, stands, and wiring included"
+        },
+        {
+          "text": "Drop-off & pick-up (Setup not included)"
+        }
+      ],
+      "rawItems": [
+        {
+          "name": "Pioneer XDJ XZ Controller",
+          "qty": 1
+        },
+        {
+          "name": "RCF ART 910 Active Speaker",
+          "qty": 2
+        },
+        {
+          "name": "RCF Sub 705 Subwoofer",
+          "qty": 2
         },
         {
           "name": "41\" DJ Booth",
