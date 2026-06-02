@@ -79,6 +79,9 @@
     {
       "id": "pkg_small_loud_1sub",
       "name": "Small & LOUD (1 Sub)",
+      "variantGroup": "small_loud",
+      "variantLabel": "1 Sub",
+      "groupName": "Small & LOUD",
       "price": 520,
       "capacity": "Up to 250 People",
       "image": "assets/package_2_small_loud_1sub.webp",
@@ -124,6 +127,9 @@
     {
       "id": "pkg_small_loud_2sub",
       "name": "Small & LOUD (2 Subs)",
+      "variantGroup": "small_loud",
+      "variantLabel": "2 Subs",
+      "groupName": "Small & LOUD",
       "price": 600,
       "capacity": "Up to 450 People",
       "image": "assets/package_2_small_loud_2sub.webp",

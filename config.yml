@@ -1,4 +1,4 @@
-local_backend: false
+local_backend: true
 
 backend:
   name: git-gateway
@@ -27,7 +27,7 @@ collections:
       - {label: "Stock Qty", name: "stock", widget: "number", value_type: "int", min: 0}
       - {label: "Image", name: "image", widget: "image"}
       - {label: "Description", name: "desc", widget: "text"}
-      - {label: "Unit Label", name: "unit", widget: "select", options: ["", "unit", "set", "panel"], required: false}
+      - {label: "Unit", name: "unit", widget: "select", options: ["", "unit", "set", "panel"], required: false}
       - {label: "Tag / Badge", name: "tag", widget: "string", required: false}
       - {label: "Quote Only?", name: "isQuoteRequired", widget: "boolean", required: false, default: false}
 
@@ -49,6 +49,9 @@ collections:
       - {label: "Capacity", name: "capacity", widget: "string"}
       - {label: "Image", name: "image", widget: "image"}
       - {label: "Featured?", name: "featured", widget: "boolean", default: false, required: false}
+      - {label: "Variant Group", name: "variantGroup", widget: "string", required: false, hint: "Group packages as options (e.g. small_loud)"}
+      - {label: "Variant Label", name: "variantLabel", widget: "string", required: false, hint: "Button label in selector (e.g. 1 Sub)"}
+      - {label: "Group Display Name", name: "groupName", widget: "string", required: false, hint: "Card header when grouped"}
       - label: "Features"
         name: "features"
         widget: "list"
@@ -158,6 +161,7 @@ collections:
               - {label: "In Stock Label (use {stock})", name: "inStock", widget: "string"}
               - {label: "Limited Stock Label", name: "limitedStock", widget: "string"}
               - {label: "No Results Text", name: "noResults", widget: "string"}
+              - {label: "Products Found Label (use {count})", name: "productsFoundLabel", widget: "string"}
           - label: "Package Labels"
             name: "packages"
             widget: "object"

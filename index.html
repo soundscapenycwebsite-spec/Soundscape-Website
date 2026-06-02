@@ -927,6 +927,44 @@
       width: 100%;
     }
 
+    .variant-selector {
+      display: flex;
+      background: var(--bg-card);
+      border-radius: 10px;
+      padding: 3px;
+      margin-bottom: 20px;
+      border: 1px solid var(--border);
+    }
+    .variant-btn {
+      flex: 1;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 7px;
+      background: transparent;
+      color: var(--text-muted);
+      font-family: var(--font-header);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      letter-spacing: 0.3px;
+    }
+    .variant-btn.active {
+      background: var(--glow-orange);
+      color: white;
+      box-shadow: 0 2px 8px rgba(255, 77, 0, 0.3);
+    }
+    .variant-btn:not(.active):hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+    [data-theme="dark"] .variant-selector {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+    [data-theme="dark"] .variant-btn:not(.active):hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
     /* ---- Skeleton Loading ---- */
     .skeleton {
       background: linear-gradient(90deg, var(--border) 25%, rgba(200,200,200,0.15) 50%, var(--border) 75%);
@@ -2532,7 +2570,7 @@
       sections: { packagesTag: "Total Rigs", packagesTitle: "Pre-Configured Sound Packages", catalogTag: "Custom Selection", catalogTitle: "Backline & Sound Gear" },
       contact: { phones: [], contactPhone: "" },
       delivery: { threshold: 350, areas: "across our service area", notice: "" },
-      catalog: { searchPlaceholder: "", priceLabel: "Daily rate", pricePeriod: "/ day", quotePriceLabel: "Text for Price", inStock: "In Stock (x{stock})", limitedStock: "Limited / Call", noResults: "No equipment matches your search criteria." },
+      catalog: { searchPlaceholder: "", priceLabel: "Daily rate", pricePeriod: "/ day", quotePriceLabel: "Text for Price", inStock: "In Stock (x{stock})", limitedStock: "Limited / Call", noResults: "No equipment matches your search criteria.", productsFoundLabel: "{count} products found" },
       packages: { addBtn: "Add Package to Quote" },
       drawer: { title: "Rental Cart & Quote Builder", subtotalLabel: "Rentals Subtotal", deliveryLabel: "Complimentary Delivery", totalLabel: "Estimated Total", clipboardBtnLabel: "Copy Quote for Text Booking", callBtnLabel: "Call to Book Rig", disclaimer: "", cartQuotePriceLabel: "Price on Request", cartPricePeriod: "/ day" },
       quote: { salutation: "Hi {brand}!", intro: "I would like to book:", closing: "Please let me know availability. Thanks!" },
@@ -2635,6 +2673,10 @@
       el = document.getElementById('callBtnLabel'); if (el) el.textContent = s.drawer.callBtnLabel;
       var callBtnLink = document.getElementById('callBtnLink');
       if (callBtnLink) callBtnLink.setAttribute('href', 'tel:' + s.contact.contactPhone);
+
+      // Mobile CTA bar phone
+      var mobileCtaLink = document.querySelector('#mobileCtaBar a[href^="tel"]');
+      if (mobileCtaLink) mobileCtaLink.setAttribute('href', 'tel:' + s.contact.contactPhone);
 
       // Deposit notice
       var depositSpan = document.getElementById('depositNoticeText');
@@ -2798,7 +2840,19 @@
     // ---- Render: Rig Packages ----
     function renderPackages() {
       const grid = document.getElementById('packagesGrid');
-      grid.innerHTML = PACKAGES.map(pkg => `
+      // Group by variantGroup (or id if no group)
+      const groups = {};
+      PACKAGES.forEach(function(pkg) {
+        var key = pkg.variantGroup || pkg.id;
+        if (!groups[key]) groups[key] = [];
+        groups[key].push(pkg);
+      });
+      grid.innerHTML = Object.keys(groups).map(function(groupId) {
+        var group = groups[groupId];
+        if (group.length === 1) {
+          // Single package — existing rendering
+          var pkg = group[0];
+          return `
         <div class="package-card glass-panel ${pkg.featured ? 'featured' : ''}">
           <div>
             ${pkg.image ? `
@@ -2809,7 +2863,7 @@
             <h3 class="package-name">${escapeHtml(pkg.name)}</h3>
             <div class="package-capacity">
               <svg style="width:14px;height:14px;fill:var(--accent)" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.48 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-              ${pkg.capacity}
+              <span class="pkg-cap-text">${pkg.capacity}</span>
             </div>
             <div class="package-price-wrapper">
               <span class="package-currency">$</span>
@@ -2817,25 +2871,92 @@
               <span class="package-period">${SETTINGS.catalog.pricePeriod}</span>
             </div>
             <ul class="package-features">
-              ${pkg.features.map(f => `
+              ${pkg.features.map(function(f) { return `
                 <li>
                   <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
                   <span>${typeof f === 'string' ? f : (f.text || f.feature || '')}</span>
-                </li>
-              `).join('')}
+                </li>`; }).join('')}
             </ul>
             ${pkg.rawItems && pkg.rawItems.length ? `
             <details class="rig-details">
               <summary style="cursor:pointer;font-family:var(--font-header);font-size:13px;color:var(--text-muted);font-weight:500">What's in this rig</summary>
               <ul style="list-style:none;margin-top:8px;font-size:12px;color:var(--text-muted);line-height:1.8">
-                ${pkg.rawItems.map(ri => `<li><span style="font-weight:600;color:var(--text)">${ri.qty}x</span> ${escapeHtml(ri.name)}</li>`).join('')}
+                ${pkg.rawItems.map(function(ri) { return `<li><span style="font-weight:600;color:var(--text)">${ri.qty}x</span> ${escapeHtml(ri.name)}</li>`; }).join('')}
               </ul>
             </details>
             ` : ''}
           </div>
           <button class="btn btn-primary package-action" onclick="addPackageToCart('${pkg.id}')">${SETTINGS.packages.addBtn}</button>
-        </div>
-      `).join('');
+        </div>`;
+        } else {
+          // Variant group — render single card with selector
+          var first = group[0];
+          return `
+        <div class="package-card glass-panel">
+          <div>
+            <div class="variant-selector">
+              ${group.map(function(v, i) { return `
+                <button class="variant-btn ${i === 0 ? 'active' : ''}" onclick="selectVariant('${groupId}', ${i}, this)">${v.variantLabel || ''}</button>`; }).join('')}
+            </div>
+            <div class="package-visual">
+              <img src="${first.image}" alt="${first.groupName || first.name}" loading="lazy" width="400" height="240">
+            </div>
+            <h3 class="package-name">${escapeHtml(first.groupName || first.name)}</h3>
+            <div class="package-capacity">
+              <svg style="width:14px;height:14px;fill:var(--accent)" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.48 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+              <span class="pkg-cap-text">${first.capacity}</span>
+            </div>
+            <div class="package-price-wrapper">
+              <span class="package-currency">$</span>
+              <span class="package-price">${first.price}</span>
+              <span class="package-period">${SETTINGS.catalog.pricePeriod}</span>
+            </div>
+            <ul class="package-features" id="pkg-feats-${groupId}">
+              ${first.features.map(function(f) { return `
+                <li>
+                  <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span>${typeof f === 'string' ? f : (f.text || f.feature || '')}</span>
+                </li>`; }).join('')}
+            </ul>
+            ${first.rawItems && first.rawItems.length ? `
+            <details class="rig-details">
+              <summary style="cursor:pointer;font-family:var(--font-header);font-size:13px;color:var(--text-muted);font-weight:500">What's in this rig</summary>
+              <ul style="list-style:none;margin-top:8px;font-size:12px;color:var(--text-muted);line-height:1.8" id="pkg-raws-${groupId}">
+                ${first.rawItems.map(function(ri) { return `<li><span style="font-weight:600;color:var(--text)">${ri.qty}x</span> ${escapeHtml(ri.name)}</li>`; }).join('')}
+              </ul>
+            </details>
+            ` : ''}
+          </div>
+          <button class="btn btn-primary package-action" onclick="addPackageToCart('${first.id}')">${SETTINGS.packages.addBtn}</button>
+        </div>`;
+        }
+      }).join('');
+    }
+
+    function selectVariant(groupId, idx, btn) {
+      const variants = PACKAGES.filter(function(p) { return p.variantGroup === groupId; });
+      const v = variants[idx];
+      const card = btn.closest('.package-card');
+      if (!v || !card) return;
+
+      card.querySelector('.package-visual img').src = v.image;
+      card.querySelector('.package-price').textContent = v.price;
+      card.querySelector('.pkg-cap-text').textContent = v.capacity;
+      const featsEl = document.getElementById('pkg-feats-' + groupId);
+      if (featsEl && v.features) {
+        featsEl.innerHTML = v.features.map(function(f) {
+          return '<li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span>' + (typeof f === 'string' ? f : (f.text || f.feature || '')) + '</span></li>';
+        }).join('');
+      }
+      const rawsEl = document.getElementById('pkg-raws-' + groupId);
+      if (rawsEl && v.rawItems) {
+        rawsEl.innerHTML = v.rawItems.map(function(ri) {
+          return '<li><span style="font-weight:600;color:var(--text)">' + ri.qty + 'x</span> ' + escapeHtml(ri.name) + '</li>';
+        }).join('');
+      }
+      card.querySelector('.package-action').setAttribute('onclick', "addPackageToCart('" + v.id + "')");
+      card.querySelectorAll('.variant-btn').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
     }
 
     // ---- Render: Category Filter Tabs ----
@@ -2858,7 +2979,7 @@
         return matchesCategory && matchesSearch;
       });
 
-      var cc = document.getElementById('catalogCount'); if (cc) { cc.innerText = `${filtered.length} products found`; cc.setAttribute('aria-live', 'polite'); }
+      var cc = document.getElementById('catalogCount'); if (cc) { cc.innerText = (SETTINGS.catalog.productsFoundLabel || "{count} products found").replace('{count}', filtered.length); cc.setAttribute('aria-live', 'polite'); }
 
       if (filtered.length === 0) {
         grid.innerHTML = `
@@ -3029,7 +3150,7 @@
           </div>
         </div>
         <button class="btn btn-primary" style="width:100%" onclick="addGearToCart('${gear.id}'); closeLightbox()">
-          Add to Quote
+          ${SETTINGS.packages.addBtn || 'Add to Quote'}
         </button>
       `;
       document.getElementById('lightboxOverlay').classList.add('open');
@@ -3220,7 +3341,7 @@
       if (hasQuoteRequiredItem) {
         document.getElementById('totalVal').innerText = `$${subtotal.toFixed(2)} + Quote`;
       } else {
-        document.getElementById('totalVal').innerText = `$${total.toFixed(2)}`;
+        document.getElementById('totalVal').innerText = `$${subtotal.toFixed(2)}`;
       }
     }
 
@@ -3314,6 +3435,9 @@ function applyTheme(theme) {
     });
   </script>
   <script>
+    if (window.location.hash && /(invite_token|confirmation_token|recovery_token)/.test(window.location.hash)) {
+      window.location.href = '/admin/' + window.location.hash;
+    }
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {
         if (!user) {
