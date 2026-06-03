@@ -3502,5 +3502,17 @@ function applyTheme(theme) {
     </a>
     <button class="btn btn-accent" onclick="scrollToSection('catalog')">Browse Gear</button>
   </div>
+
+  <!-- Netlify Identity Widget — handles invite/password-reset/login redirects -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on('login', function(user) {
+        if (window.location.pathname !== '/admin/') {
+          document.location.href = '/admin/';
+        }
+      });
+    }
+  </script>
 </body>
 </html>
