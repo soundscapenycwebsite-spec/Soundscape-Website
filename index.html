@@ -2919,7 +2919,18 @@
             <div class="variant-selector">
               ${group.map(function(v, i) { return `
                 <button class="variant-btn ${i === 0 ? 'active' : ''}" data-action="select-variant" data-group-id="${groupId}" data-variant-index="${i}">${v.variantLabel || ''}</button>`; }).join('')}
-
+            </div>
+            <div class="package-visual">
+              <img src="${first.image}" alt="${first.groupName || first.name}" loading="lazy" width="400" height="240">
+            </div>
+            <h3 class="package-name">${escapeHtml(first.groupName || first.name)}</h3>
+            <div class="package-capacity">
+              <svg style="width:14px;height:14px;fill:var(--accent)" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.48 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+              <span class="pkg-cap-text">${first.capacity}</span>
+            </div>
+            <div class="package-price-wrapper">
+              <span class="package-currency">$</span>
+              <span class="package-price">${first.price}</span>
               <span class="package-period">${SETTINGS.catalog.pricePeriod}</span>
             </div>
             <ul class="package-features" id="pkg-feats-${groupId}">
