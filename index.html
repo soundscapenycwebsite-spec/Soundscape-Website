@@ -2557,7 +2557,8 @@
       lighting: "Lighting",
       microphones: "Microphones",
       co2: "CO2 & Trussing",
-      monitors: "Monitors & TV Screens"
+      monitors: "Monitors & TV Screens",
+      major_production: "Major Production",
     };
 
     // ---- Site Settings (loaded from data/settings.json, defaults used if unavailable) ----
@@ -2998,7 +2999,7 @@
     function renderGear() {
       const grid = document.getElementById('gearGrid');
       const filtered = GEAR_CATALOG.filter(item => {
-        const matchesCategory = currentCategory === 'all' || item.category === currentCategory;
+        const matchesCategory = currentCategory === 'all' || (currentCategory === 'major_production' ? (item.category === 'arrays' || item.category === 'medium') : item.category === currentCategory);
         const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
                             (item.desc || '').toLowerCase().includes(searchQuery.toLowerCase());
         return matchesCategory && matchesSearch;
