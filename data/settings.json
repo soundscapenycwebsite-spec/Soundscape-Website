@@ -3,7 +3,7 @@
   "brandInitial": "S",
   "brandSub": "NYC",
   "tagline": "Premium Backline & Sound System Rentals",
-  "metaDescription": "Rent Pioneer CDJ-3000s, speakers, subwoofers, lighting, DJ booths & CO2 effects in NYC. Trusted by club promoters, DJs & event planners across Manhattan, Brooklyn, Queens, Long Island, NJ & CT. Free delivery on orders $350+.",
+  "metaDescription": "Rent Pioneer CDJ-3000s, speakers, subwoofers, lighting, DJ booths & CO2 effects in NYC. Trusted by club promoters, DJs & event planners across Manhattan, Brooklyn, Queens, Long Island, Nassau County, NJ & CT. Free delivery on orders $400+.",
 
   "hero": {
     "badge": "",
@@ -14,8 +14,8 @@
       { "label": "View Rig Packages", "action": "packages", "style": "secondary" }
     ],
     "specs": [
-      { "icon": "info", "label": "Free Delivery", "value": "Orders $350+" },
-      { "icon": "map", "label": "Service Area", "value": "Manhattan, Brooklyn, Queens, Long Island, NJ & CT" },
+      { "icon": "info", "label": "Free Delivery", "value": "Orders $400+" },
+      { "icon": "map", "label": "Service Area", "value": "Manhattan, Brooklyn, Queens, Long Island, Nassau County, NJ & CT" },
       { "icon": "lock", "label": "Deposit Required" }
     ]
   },
@@ -24,13 +24,13 @@
     "tag": "Soundscape NYC",
     "title": "The Standard in Live Production",
     "subtitle": "Uncompromising Quality. Crystal Clear Rigging.",
-    "bodyFirst": "Soundscape NYC is the go-to DJ equipment and backline rental company for event promoters, DJs, and concert planners across the New York metropolitan area. We stock Pioneer CDJ-3000s, DJM-A9 mixers, RCF and FBT powered speakers, HDL line arrays, professional lighting rigs, DJ booths, staging, CO2 jets, and trussing — all available for daily rental with free delivery on orders over $350. Whether you're rigging a Brooklyn nightclub, a Manhattan rooftop event, a Long Island wedding, a Queens private party, or a corporate function in New Jersey or Connecticut, we deliver tested, stage-ready gear to your venue.",
-    "bodySecond": "Every piece of equipment is stress-tested before dispatch so you never deal with dead channels or faulty gear on event night. We offer flexible daily rental rates with clear pricing — no hidden fees. Orders over $350 include complimentary drop-off and pickup across our full service area. A security deposit is required on all rentals. Note that on-site installation and connection are not included in standard rates but can be arranged for line array and complex rig setups.",
+    "bodyFirst": "Soundscape NYC is the go-to DJ equipment and backline rental company for event promoters, DJs, and concert planners across the New York metropolitan area. We stock Pioneer CDJ-3000s, DJM-A9 mixers, RCF and FBT powered speakers, HDL line arrays, professional lighting rigs, DJ booths, staging, CO2 jets, and trussing — all available for daily rental with free delivery on orders over $400. Whether you're rigging a Brooklyn nightclub, a Manhattan rooftop event, a Long Island wedding, a Queens private party, or a corporate function in New Jersey or Connecticut, we deliver tested, stage-ready gear to your venue.",
+    "bodySecond": "Every piece of equipment is stress-tested before dispatch so you never deal with dead channels or faulty gear on event night. We offer flexible daily rental rates with clear pricing — no hidden fees. Orders over $400 include complimentary drop-off and pickup across Manhattan, Brooklyn, Queens, Long Island & Nassau County. A security deposit is required on all rentals. Note that on-site installation and connection are not included in standard rates but can be arranged for line array and complex rig setups.",
     "features": [
       { "icon": "music", "title": "Concert Backline & DJ Decks", "desc": "Pioneer CDJ-3000s, DJM-A9 mixers, V10 controllers, and active stand-alone decks for club sets and live shows." },
       { "icon": "speaker", "title": "Speakers, Subs & Line Arrays", "desc": "Powered RCF and FBT speakers, 18\" subwoofers, and HDL 30 line arrays — from intimate venues to full-scale productions." },
       { "icon": "equipment", "title": "Lighting, Staging & Effects", "desc": "Moving heads, LED wash lights, laser projectors, DJ booths, trussing, CO2 jets, and event staging equipment." },
-      { "icon": "delivery", "title": "NYC-Wide Delivery", "desc": "Free drop-off and pickup on orders $350+ across Manhattan, Brooklyn, Queens, Long Island, NJ & Connecticut." }
+      { "icon": "delivery", "title": "NYC-Wide Delivery", "desc": "Free drop-off and pickup on orders $400+ across Manhattan, Brooklyn, Queens, Long Island & Nassau County. We also serve New Jersey & Connecticut (delivery charges apply)." }
     ]
   },
 
@@ -50,8 +50,8 @@
   },
 
   "delivery": {
-    "threshold": 350,
-    "areas": "across our service area",
+    "threshold": 400,
+    "areas": "across Manhattan, Brooklyn, Queens, Long Island & Nassau County",
     "notice": "A security deposit is required on all rentals."
   },
 
@@ -76,7 +76,7 @@
     "totalLabel": "Estimated Total",
     "clipboardBtnLabel": "Copy Quote for Text Booking",
     "callBtnLabel": "Call to Book Rig",
-    "disclaimer": "* Installation/connection not included unless quoted. Free delivery on orders $350+. Security deposit required on all rentals.",
+    "disclaimer": "* Installation/connection not included unless quoted. Free delivery on orders $400+ (Manhattan, Brooklyn, Queens, Long Island & Nassau County). Security deposit required on all rentals.",
     "cartQuotePriceLabel": "Price on Request",
     "cartPricePeriod": "/ day"
   },
@@ -86,17 +86,19 @@
     "intro": "I would like to book a custom gear rental rig:",
     "closing": "Please let me know availability. Thanks!"
   },
+
   "footer": {
-    "description": "Soundscape NYC is the premier DJ equipment rental, concert backline, and sound system rental company serving New York City. From Pioneer CDJ decks and RCF speakers to lighting rigs, DJ booths, and CO2 effects — we supply club promoters, wedding planners, and event professionals across Manhattan, Brooklyn, Queens, Long Island, NJ & CT.",
+    "description": "Soundscape NYC is the premier DJ equipment rental, concert backline, and sound system rental company serving New York City. From Pioneer CDJ decks and RCF speakers to lighting rigs, DJ booths, and CO2 effects — we supply club promoters, wedding planners, and event professionals across Manhattan, Brooklyn, Queens, Long Island, Nassau County, NJ & CT.",
     "serviceAreaHeader": "Service Area",
     "serviceArea": [
       { "item": "Brooklyn" },
       { "item": "Manhattan" },
       { "item": "Queens" },
       { "item": "Long Island" },
+      { "item": "Nassau County" },
       { "item": "New Jersey" },
       { "item": "Connecticut" },
-      { "item": "Complimentary delivery for orders $350+" }
+      { "item": "Complimentary delivery for orders $400+ (Manhattan, Brooklyn, Queens, Long Island & Nassau County)" }
     ],
     "policiesHeader": "Operating Policies",
     "policies": [
