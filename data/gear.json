@@ -564,7 +564,7 @@
       "id": "totem6ft",
       "name": "6 Feet Lighting Totem",
       "category": "lighting",
-      "price": 40,
+      "price": 65,
       "stock": 2,
       "image": "assets/gear_totem6ft.webp",
       "desc": "Vertical F34 aluminum truss totem, ideal height for side-stage speakers or monitors."
@@ -573,7 +573,7 @@
       "id": "totem8ft",
       "name": "8 Feet Lighting Totem",
       "category": "lighting",
-      "price": 50,
+      "price": 70,
       "stock": 4,
       "image": "assets/gear_totem8ft.webp",
       "desc": "Vertical F34 aluminum truss totem. Includes base plate and fabric sleeve cover."
@@ -584,7 +584,7 @@
       "category": "monitors",
       "price": 480,
       "stock": 2,
-      "image": "assets/gear_tv_screen.webp",
+      "image": "assets/gear_tv65.webp",
       "desc": "Premium ultra-high-definition monitor, pristine resolution, includes vertical truss mount.",
       "tag": "Includes Truss"
     },
@@ -594,7 +594,7 @@
       "category": "monitors",
       "price": 550,
       "stock": 1,
-      "image": "assets/gear_tv_screen.webp",
+      "image": "assets/gear_tv75.webp",
       "desc": "Stunning wide-venue 4K monitor. Perfect for DJ media play, includes vertical truss mount.",
       "tag": "Includes Truss"
     },
