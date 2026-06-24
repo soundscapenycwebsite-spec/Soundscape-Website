@@ -72,7 +72,7 @@
       "id": "booth_41_compact",
       "name": "41\" DJ Booth Compact Station",
       "category": "booths",
-      "price": 75,
+      "price": 40,
       "stock": 3,
       "image": "assets/gear_command_booth.webp",
       "desc": "Compact 41-inch DJ booth with lightweight aluminum frame. Ideal for intimate venues, rooftop sets, and mobile setups."
@@ -81,7 +81,7 @@
       "id": "booth_50_premium",
       "name": "50\" DJ Booth Premium Station",
       "category": "booths",
-      "price": 100,
+      "price": 60,
       "stock": 4,
       "image": "assets/gear_booth_50.webp",
       "desc": "Premium 50-inch DJ booth with reinforced steel construction. Professional-grade for club and mid-size events."
@@ -90,7 +90,7 @@
       "id": "booth_59_wide",
       "name": "59\" DJ Booth Premium Wide Station",
       "category": "booths",
-      "price": 150,
+      "price": 70,
       "stock": 2,
       "image": "assets/gear_booth_59.webp",
       "desc": "Wide 59-inch premium DJ booth with full steel deck construction. Built for large-scale festivals and headline performances."
@@ -148,7 +148,7 @@
       "id": "command53",
       "name": "53\" Command Center DJ Booth",
       "category": "booths",
-      "price": 100,
+      "price": 75,
       "stock": 1,
       "image": "assets/gear_command53.webp",
       "desc": "Sleek compact professional station with built-in monitor mounting."
@@ -440,7 +440,7 @@
       "id": "proxvista",
       "name": "PRO X 41\" Vista Facade DJ Booth",
       "category": "booths",
-      "price": 70,
+      "price": 40,
       "stock": 1,
       "image": "assets/gear_proxvista.webp",
       "desc": "Lightweight, ultra-portable mesh facade with dynamic visual coverage."
@@ -565,7 +565,7 @@
       "category": "lighting",
       "price": 40,
       "stock": 2,
-      "image": "assets/gear_truss_totem.webp",
+      "image": "assets/gear_totem6ft.webp",
       "desc": "Vertical F34 aluminum truss totem, ideal height for side-stage speakers or monitors."
     },
     {
@@ -574,7 +574,7 @@
       "category": "lighting",
       "price": 50,
       "stock": 4,
-      "image": "assets/gear_truss_totem.webp",
+      "image": "assets/gear_totem8ft.webp",
       "desc": "Vertical F34 aluminum truss totem. Includes base plate and fabric sleeve cover."
     },
     {
