@@ -55,7 +55,7 @@
       "category": "arrays",
       "price": 0,
       "stock": 1,
-      "image": "assets/gear_rcfhdl30.webp",
+      "image": "assets/gear_bclinesystem.webp",
       "desc": "Premium medium-to-large venue system: 8x B&C / RCF loaded double 10\" Line arrays and 4x RCF loaded double 18\" subwoofers. Includes on-site sound/audio tech.",
       "isQuoteRequired": true
     },
@@ -83,7 +83,7 @@
       "category": "booths",
       "price": 100,
       "stock": 4,
-      "image": "assets/gear_command_booth.webp",
+      "image": "assets/gear_booth_50.webp",
       "desc": "Premium 50-inch DJ booth with reinforced steel construction. Professional-grade for club and mid-size events."
     },
     {
@@ -92,7 +92,7 @@
       "category": "booths",
       "price": 150,
       "stock": 2,
-      "image": "assets/gear_steeldeck_booth.webp",
+      "image": "assets/gear_booth_59.webp",
       "desc": "Wide 59-inch premium DJ booth with full steel deck construction. Built for large-scale festivals and headline performances."
     },
     {
@@ -150,7 +150,7 @@
       "category": "booths",
       "price": 100,
       "stock": 1,
-      "image": "assets/gear_command_booth.webp",
+      "image": "assets/gear_command53.webp",
       "desc": "Sleek compact professional station with built-in monitor mounting."
     },
     {
@@ -291,6 +291,16 @@
       "desc": "Vibrant high-output LED moving head spot light with custom gobos and prisms."
     },
     {
+      "id": "j9evox",
+      "name": "RCF EVOX J9 Portable Column Array System",
+      "category": "speakers",
+      "price": 340,
+      "stock": 1,
+      "image": "assets/gear_j9evox.webp",
+      "desc": "Active 12-channel column array system with 8x 3.5\" mid-high drivers and 15\" subwoofer. 2100W peak power, exceptional coverage.",
+      "unit": "set"
+    },
+    {
       "id": "jmswebbmover",
       "name": "JMS WEBB Mover Light",
       "category": "lighting",
@@ -351,6 +361,26 @@
       "unit": "set"
     },
     {
+      "id": "maui28g3",
+      "name": "LD Systems Maui 28 G3 Column Array",
+      "category": "speakers",
+      "price": 360,
+      "stock": 1,
+      "image": "assets/gear_maui28g3.webp",
+      "desc": "Powerful 3rd-gen column array system featuring 12x 3.5\" drivers and dual 10\" subwoofers. 2000W peak power, wide horizontal coverage.",
+      "unit": "set"
+    },
+    {
+      "id": "medusa",
+      "name": "Medusa 1260 LED Effect Light",
+      "category": "lighting",
+      "price": 200,
+      "stock": 1,
+      "image": "assets/gear_medusa.webp",
+      "desc": "High-output multi-beam LED effect light with rotating heads and strobing patterns. Ideal for nightclubs and stage productions.",
+      "unit": "unit"
+    },
+    {
       "id": "motionstrip",
       "name": "Motion Strip LED Light",
       "category": "lighting",
@@ -394,7 +424,7 @@
       "category": "booths",
       "price": 110,
       "stock": 1,
-      "image": "assets/gear_mesh_facade.webp",
+      "image": "assets/gear_odyssey72.webp",
       "desc": "Scenic wide performance DJ booth with matching facades."
     },
     {
@@ -408,7 +438,7 @@
     },
     {
       "id": "proxvista",
-      "name": "PRO X 40\" Vista Facade DJ Booth",
+      "name": "PRO X 41\" Vista Facade DJ Booth",
       "category": "booths",
       "price": 70,
       "stock": 1,
@@ -507,7 +537,7 @@
       "category": "booths",
       "price": 140,
       "stock": 1,
-      "image": "assets/gear_steeldeck_booth.webp",
+      "image": "assets/gear_steeldeckbooth.webp",
       "desc": "Heavy-duty festival grade platform booth, rock solid staging design."
     },
     {

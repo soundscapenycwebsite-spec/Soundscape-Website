@@ -1,0 +1,10 @@
+{
+  "id": "medusa",
+  "name": "Medusa 1260 LED Effect Light",
+  "category": "lighting",
+  "price": 200,
+  "stock": 1,
+  "image": "assets/gear_medusa.webp",
+  "desc": "High-output multi-beam LED effect light with rotating heads and strobing patterns. Ideal for nightclubs and stage productions.",
+  "unit": "unit"
+}
