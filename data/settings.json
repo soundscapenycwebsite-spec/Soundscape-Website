@@ -51,7 +51,7 @@
 
   "delivery": {
     "threshold": 400,
-    "areas": "across Manhattan, Brooklyn, Queens, Long Island & Nassau County",
+    "areas": "across Manhattan, Brooklyn, Queens & Nassau County",
     "notice": "A security deposit is required on all rentals."
   },
 

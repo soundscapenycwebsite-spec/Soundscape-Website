@@ -2572,7 +2572,7 @@
       about: { tag: "", title: "", subtitle: "", bodyFirst: "", bodySecond: "", features: [] },
       sections: { packagesTag: "Total Rigs", packagesTitle: "Pre-Configured Sound Packages", catalogTag: "Custom Selection", catalogTitle: "Backline & Sound Gear" },
       contact: { phones: [], contactPhone: "" },
-      delivery: { threshold: 400, areas: "across Manhattan, Brooklyn, Queens, Long Island & Nassau County", notice: "" },
+      delivery: { threshold: 400, areas: "across Manhattan, Brooklyn, Queens & Nassau County", notice: "" },
       catalog: { searchPlaceholder: "", priceLabel: "Daily rate", pricePeriod: "/ day", quotePriceLabel: "Text for Price", inStock: "In Stock (x{stock})", limitedStock: "Limited / Call", noResults: "No equipment matches your search criteria.", productsFoundLabel: "{count} products found" },
       packages: { addBtn: "Add Package to Quote" },
       drawer: { title: "Rental Cart & Quote Builder", subtotalLabel: "Rentals Subtotal", deliveryLabel: "Complimentary Delivery", totalLabel: "Estimated Total", clipboardBtnLabel: "Copy Quote for Text Booking", callBtnLabel: "Call to Book Rig", disclaimer: "", cartQuotePriceLabel: "Price on Request", cartPricePeriod: "/ day" },
@@ -2999,7 +2999,7 @@
     function renderGear() {
       const grid = document.getElementById('gearGrid');
       const filtered = GEAR_CATALOG.filter(item => {
-        const matchesCategory = currentCategory === 'all' || (currentCategory === 'major_production' ? (item.category === 'arrays' || item.category === 'medium') : item.category === currentCategory);
+        const matchesCategory = currentCategory === 'all' || (currentCategory === 'major_production' ? (item.category === 'arrays' || item.category === 'medium' || item.majorProduction) : item.category === currentCategory);
         const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
                             (item.desc || '').toLowerCase().includes(searchQuery.toLowerCase());
         return matchesCategory && matchesSearch;
